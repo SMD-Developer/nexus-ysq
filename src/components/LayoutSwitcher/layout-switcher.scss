@@ -1,0 +1,31 @@
+.layout-switcher-group {
+    display: flex;
+    gap: 16px;
+
+    .layout-switcher-btn {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 16px;
+        text-align: center;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+
+        .layout-name {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .layout-desc {
+            font-size: 11px;
+            opacity: 0.8;
+        }
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+    }
+}
