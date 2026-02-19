@@ -13,6 +13,9 @@ import Email from "../views/Email";
 import GridView from "../views/FileManager/GridView";
 import ListView from "../views/FileManager/ListView";
 import Gallery from "../views/Gallery";
+import TeamSpace from "../views/Spaces/TeamSpace";
+import PeopleSettings from "../views/Settings/People";
+import MySettings from "../views/Settings/MySettings";
 import AllApps from "../views/Integrations/All Apps";
 import IntegrationsDetail from "../views/Integrations/App Details";
 import Integration from "../views/Integrations/Integration";
@@ -47,6 +50,9 @@ import ChatBot from "../views/ChatPopup/ChatBot";
 export const routes = [
 
     { path: 'dashboard', exact: true, component: Dashboard },
+    { path: 'spaces/team-space', exact: true, component: TeamSpace },
+    { path: 'settings/people', exact: true, component: PeopleSettings },
+    { path: 'settings/my-settings', exact: true, component: MySettings },
     //Apps
     { path: 'apps/chat/chats', exact: true, component: Chats },
     { path: 'apps/chat/chat-groups', exact: true, component: ChatGroups },

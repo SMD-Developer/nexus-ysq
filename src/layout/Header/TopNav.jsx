@@ -85,7 +85,7 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                                 <Settings size={16} className="me-2" />
                                 Settings
                             </Dropdown.Item>
-                            <Dropdown.Item as={Link} to="/apps/contacts/contact-list">
+                            <Dropdown.Item as={Link} to="/settings/people">
                                 <Plus size={16} className="me-2" />
                                 People
                             </Dropdown.Item>

@@ -6,6 +6,7 @@ import PageFooter from '../../Footer/PageFooter';
 import TopNav from '../../Header/TopNav';
 import IconSidebar from '../../Sidebar/IconSidebar';
 import WorkspaceSidebar from '../../Sidebar/WorkspaceSidebar';
+import SettingsSidebar from '../../Sidebar/SettingsSidebar';
 import { useWindowWidth } from '@react-hook/window-size';
 import './workspace-layout.scss';
 
@@ -13,8 +14,10 @@ const WorkspaceLayout = ({ children, maximize }) => {
     const [sidebarShow, setSidebarShow] = useState(false);
     const [workspaceSidebarCollapsed, setWorkspaceSidebarCollapsed] = useState(false);
     const appRoutes = useRouteMatch('/apps/');
+    const settingsRoutes = useRouteMatch('/settings');
     const errro404Route = useRouteMatch('/error-404');
     const windowWidth = useWindowWidth();
+    const isSettingsPage = !!settingsRoutes;
 
     const toggleSidebar = () => {
         setSidebarShow(!sidebarShow);
@@ -26,7 +29,8 @@ const WorkspaceLayout = ({ children, maximize }) => {
 
     return (
         <div
-            className={classNames("hk-wrapper workspace-layout dual-sidebar", { 
+            className={classNames("hk-wrapper workspace-layout", {
+                "dual-sidebar": true,
                 "hk-pg-auth": errro404Route,
                 "hk__email__backdrop": maximize,
                 "workspace-collapsed": workspaceSidebarCollapsed
@@ -43,11 +47,19 @@ const WorkspaceLayout = ({ children, maximize }) => {
             
             {/* Workspace Sidebar (Secondary) */}
             {!workspaceSidebarCollapsed && (
-                <WorkspaceSidebar 
-                    show={sidebarShow} 
-                    toggleSidebar={toggleSidebar}
-                    onCollapse={toggleWorkspaceSidebar}
-                />
+                isSettingsPage ? (
+                    <SettingsSidebar
+                        show={sidebarShow}
+                        toggleSidebar={toggleSidebar}
+                        onCollapse={toggleWorkspaceSidebar}
+                    />
+                ) : (
+                    <WorkspaceSidebar 
+                        show={sidebarShow} 
+                        toggleSidebar={toggleSidebar}
+                        onCollapse={toggleWorkspaceSidebar}
+                    />
+                )
             )}
             
             {/* Mobile Backdrop */}

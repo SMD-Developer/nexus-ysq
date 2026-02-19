@@ -73,7 +73,7 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastar", show = false, toggl
         { 
             name: 'Team Space', 
             icon: <Users size={16} />, 
-            path: '/apps/contacts/contact-list',
+            path: '/spaces/team-space',
             hasMenu: true
         },
         { 

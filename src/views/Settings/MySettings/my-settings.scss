@@ -1,0 +1,198 @@
+.my-settings-page {
+    padding-left: 0;
+    padding-right: 0;
+    min-height: calc(100vh - 70px);
+    background: #f8f9fa;
+}
+
+.my-settings-content {
+    padding: 1.5rem 1.5rem 2rem;
+}
+
+.my-settings-content-inner {
+    max-width: 900px;
+}
+
+.my-settings-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0 0 1.75rem;
+    color: #1a1a1a;
+    letter-spacing: -0.02em;
+}
+
+.my-settings-sections {
+    margin: 0 -0.75rem;
+}
+
+.my-settings-section-label {
+    padding: 0 0.75rem;
+}
+
+.my-settings-section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 0.35rem;
+}
+
+.my-settings-section-desc {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.45;
+}
+
+.my-settings-profile-block {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.my-settings-avatar-wrap {
+    margin-bottom: 1.5rem;
+}
+
+.my-settings-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #374151;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.my-settings-avatar-name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.my-settings-field {
+    margin-bottom: 1.25rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.my-settings-field .form-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.4rem;
+}
+
+.my-settings-field .input-group {
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+
+    .my-settings-input-icon {
+        background: #ffffff;
+        border: none;
+        border-right: 1px solid #e5e7eb;
+        color: #6b7280;
+        padding: 0 1rem;
+        border-radius: 10px 0 0 10px;
+    }
+
+    .form-control {
+        border: none;
+        border-left: 0;
+        padding: 0.6rem 1rem;
+        font-size: 0.9375rem;
+        border-radius: 0 10px 10px 0;
+
+        &::placeholder {
+            color: #9ca3af;
+        }
+    }
+}
+
+.my-settings-2fa {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.my-settings-section-label-inline {
+    margin-bottom: 1rem;
+}
+
+.my-settings-section-label-inline .my-settings-section-title {
+    margin-bottom: 0.35rem;
+}
+
+.my-settings-2fa-option-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.35rem;
+}
+
+.my-settings-2fa-option-label {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.my-settings-2fa-switch .form-check-input {
+    width: 2.5rem;
+    height: 1.25rem;
+    cursor: pointer;
+
+    &:checked {
+        background-color: #5c3dff;
+        border-color: #5c3dff;
+    }
+}
+
+.my-settings-2fa-option-desc {
+    font-size: 0.8125rem;
+    color: #6b7280;
+    margin: 0 0 0.5rem;
+    line-height: 1.45;
+}
+
+.my-settings-2fa-link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #5c3dff;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+        color: #4a2fd9;
+    }
+}
+
+.my-settings-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 0.5rem;
+}
+
+.my-settings-save-btn {
+    height: 42px;
+    padding: 0 1.25rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    border-radius: 10px;
+    background: #5c3dff;
+    border: none;
+
+    &:hover {
+        background: #4a2fd9;
+        border: none;
+    }
+}
