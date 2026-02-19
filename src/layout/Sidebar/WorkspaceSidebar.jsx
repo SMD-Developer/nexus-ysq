@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Dropdown, Nav, Modal, Form } from 'react-bootstrap';
 import SimpleBar from 'simplebar-react';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
+import Select from 'react-select';
+import CreatableSelect from 'react-select/creatable';
 import {
     Plus,
     ChevronDown,
@@ -32,10 +35,28 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastar", show = false, toggl
         spaces: true,
     });
     const [showCreateSpaceModal, setShowCreateSpaceModal] = useState(false);
+    const [showAddItemModal, setShowAddItemModal] = useState(false);
     const [spaceName, setSpaceName] = useState('');
     const [spaceDescription, setSpaceDescription] = useState('');
     const [makePrivate, setMakePrivate] = useState(false);
     const [selectedIcon, setSelectedIcon] = useState('S');
+    const [taskTitle, setTaskTitle] = useState('');
+    const [status, setStatus] = useState('Open');
+    const [assignees, setAssignees] = useState([]);
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+    const [priority, setPriority] = useState('Medium');
+    const [timeEstimate, setTimeEstimate] = useState('');
+    const [sprintPoints, setSprintPoints] = useState('');
+    const [trackTime, setTrackTime] = useState('');
+    const [tags, setTags] = useState([]);
+    const [description, setDescription] = useState('');
+    const [attachments, setAttachments] = useState([]);
+    const [expandedProjects, setExpandedProjects] = useState({});
+    const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
+    const [spaceMenuPosition, setSpaceMenuPosition] = useState({ top: 0, left: 0 });
+    const [showCreateListModal, setShowCreateListModal] = useState(false);
+    const [openMenu, setOpenMenu] = useState(null);
 
     const toggleSection = (section) => {
         setExpandedSections(prev => ({
@@ -247,6 +268,59 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastar", show = false, toggl
                 </div>
             </SimpleBar>
 
+            {openMenu?.type === 'folder' && (
+                <div
+                    className="fixed-folder-menu"
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    <ul>
+                        <li>Rename Folder</li>
+                        <li>Duplicate Folder</li>
+                        <li>Move Folder</li>
+                        <li>Delete Folder</li>
+                    </ul>
+                </div>
+            )}
+
+            {openMenu?.type === 'space' && (
+                <div
+                    className="fixed-space-menu"
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    <ul>
+                        <li>Rename Space</li>
+                        <li>Duplicate Space</li>
+                        <li>Share Space</li>
+                        <li>Delete Space</li>
+                    </ul>
+                </div>
+            )}
+
+            {openMenu?.type === 'list' && (
+                <div
+                    className="fixed-list-menu"
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    <ul>
+                        <li>Favorite</li>
+                        <li>Rename</li>
+                        <li>Copy Link</li>
+                        <li
+                            onClick={() => {
+                                setShowAddItemModal(true); // open Create Task modal
+                                setOpenMenuFolder(null);  // close the project menu
+                            }}
+                        >
+                            Create Task
+                        </li>
+                        <li>Task statuses</li>
+                        <li>List Info</li>
+                        <li>Duplicate</li>
+                        <li>Delete</li>
+                    </ul>
+                </div>
+            )}    
+
             {/* Create Space Modal */}
             <Modal 
                 show={showCreateSpaceModal} 
@@ -344,6 +418,249 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastar", show = false, toggl
                     </Button>
                 </Modal.Footer>
             </Modal>
+
+            {/* Add Task Modal */}
+            <Modal
+                show={showAddItemModal}
+                onHide={() => setShowAddItemModal(false)}
+                size="lg"
+                centered
+                className="task-modal"
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>Create Task</Modal.Title>
+                </Modal.Header>
+
+                <Modal.Body>
+                    <Form>
+
+                        {/* Title */}
+                        <Form.Group className="mb-3">
+                            <Form.Label>Task Title</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Enter task title"
+                                value={taskTitle}
+                                onChange={(e) => setTaskTitle(e.target.value)}
+                            />
+                        </Form.Group>
+
+                        {/* Status & Priority Row */}
+                        <div className="row">
+                            <div className="col-md-6">
+                                <Form.Group className="mb-3">
+                                    <Form.Label>Status</Form.Label>
+                                    <Form.Select
+                                        value={status}
+                                        onChange={(e) => setStatus(e.target.value)}
+                                    >
+                                        <option>Open</option>
+                                        <option>In Progress</option>
+                                        <option>Review</option>
+                                        <option>Completed</option>
+                                    </Form.Select>
+                                </Form.Group>
+                            </div>
+                            <div className="col-md-6">
+                                <Form.Group className="mb-3">
+                                    <Form.Label>Priority</Form.Label>
+                                    <Form.Select
+                                        value={priority}
+                                        onChange={(e) => setPriority(e.target.value)}
+                                    >
+                                        <option>Low</option>
+                                        <option>Medium</option>
+                                        <option>High</option>
+                                    </Form.Select>
+                                </Form.Group>
+                            </div>
+                        </div>
+
+                        {/* Assignees */}
+                        <Form.Group className="mb-3">
+                            <Form.Label>Assignees</Form.Label>
+                            <Select
+                                options={dummyUsers}
+                                isMulti
+                                value={assignees}
+                                onChange={(selected) => setAssignees(selected || [])}
+                            />
+                        </Form.Group>
+
+                        {/* Start and End Date */}
+                        <div className="row">
+                            <div className="col-md-6">
+                                <Form.Group className="mb-3">
+                                    <Form.Label>Start Date</Form.Label>
+                                    <Form.Control 
+                                        type="date" 
+                                        value={startDate} 
+                                        onChange={(e) => setStartDate(e.target.value)} 
+                                    />
+                                </Form.Group>
+                            </div>
+                            <div className="col-md-6">
+                                <Form.Group className="mb-3">
+                                    <Form.Label>End Date</Form.Label>
+                                    <Form.Control 
+                                        type="date" 
+                                        value={endDate} 
+                                        onChange={(e) => setEndDate(e.target.value)} 
+                                    />
+                                </Form.Group>
+                            </div>
+                        </div>
+
+                        {/* Time Estimate & Sprint Points */}
+                        <div className="row">
+                            <div className="col-md-6">
+                                <Form.Group className="mb-3">
+                                    <Form.Label>Time Estimate</Form.Label>
+                                    <Form.Control 
+                                        type="text" 
+                                        placeholder="e.g. 3h 30m" 
+                                        value={timeEstimate} 
+                                        onChange={(e) => setTimeEstimate(e.target.value)} 
+                                    />
+                                </Form.Group>
+                            </div>
+                            <div className="col-md-6">
+                                <Form.Group className="mb-3">
+                                    <Form.Label>Sprint Points</Form.Label>
+                                    <Form.Control 
+                                        type="text" 
+                                        value={sprintPoints} 
+                                        onChange={(e) => setSprintPoints(e.target.value)} 
+                                    />
+                                </Form.Group>
+                            </div>
+                        </div>
+
+                        {/* Track Time */}
+                        <Form.Group className="mb-3">
+                            <Form.Label>Track Time</Form.Label>
+                            <Form.Control 
+                                type="text" 
+                                placeholder="e.g. 1h 20m" 
+                                value={trackTime} 
+                                onChange={(e) => setTrackTime(e.target.value)} 
+                            />
+                        </Form.Group>
+
+                        {/* Tags */}
+                        <Form.Group className="mb-3">
+                            <Form.Label>Tags</Form.Label>
+                            <CreatableSelect
+                                isMulti
+                                options={tags}
+                                value={tags}
+                                onChange={(selected) => setTags(selected || [])}
+                            />
+                        </Form.Group>
+
+                        {/* Description */}
+                        <Form.Group className="mb-3">
+                            <Form.Label>Description</Form.Label>
+                            <Form.Control
+                                as="textarea"
+                                rows={3}
+                                placeholder="Enter description"
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                            />
+                        </Form.Group>
+
+                        {/* Attachments */}
+                        <Form.Group className="mb-3">
+                            <Form.Label>Attachments</Form.Label>
+                            <Form.Control 
+                                type="file" 
+                                multiple 
+                                onChange={(e) => {
+                                    const files = Array.from(e.target.files);
+                                    setAttachments(prev => [...prev, ...files]);
+                                }}
+                            />
+                        </Form.Group>
+
+                    </Form>
+                </Modal.Body>
+
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => setShowAddItemModal(false)}>
+                        Cancel
+                    </Button>
+                    <Button 
+                        variant="primary" 
+                        onClick={() => {
+                            // Handle task creation logic here
+                            setShowAddItemModal(false);
+
+                            // Reset fields after submit
+                            setTaskTitle('');
+                            setStatus('Open');
+                            setAssignees([]);
+                            setStartDate('');
+                            setEndDate('');
+                            setPriority('Medium');
+                            setTimeEstimate('');
+                            setSprintPoints('');
+                            setTrackTime('');
+                            setTags([]);
+                            setDescription('');
+                            setAttachments([]);
+                        }}
+                    >
+                        Save Task
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+            <Modal
+                show={showCreateListModal}
+                onHide={() => setShowCreateListModal(false)}
+                centered
+                className="task-modal"
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>Create List</Modal.Title>
+                </Modal.Header>
+
+                <Modal.Body>
+                    <Form>
+                        {/* List Name */}
+                        <Form.Group className="mb-3">
+                            <Form.Label style={{ fontSize: '14px' }}>Name</Form.Label>
+                            <Form.Control 
+                                type="text" 
+                                placeholder="e.g. Project, List of items, Campaign" 
+                                style={{ fontSize: '14px' }}
+                            />
+                        </Form.Group>
+
+                        {/* Description */}
+                        <Form.Group className="mb-3">
+                            <Form.Label style={{ fontSize: '14px' }}>Description (optional)</Form.Label>
+                            <Form.Control 
+                                as="textarea" 
+                                rows={3} 
+                                placeholder="Tell us a bit about your List" 
+                                style={{ fontSize: '14px' }}
+                            />
+                        </Form.Group>
+                    </Form>
+                </Modal.Body>
+
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => setShowCreateListModal(false)} style={{ fontSize: '14px' }}>
+                        Cancel
+                    </Button>
+                    <Button variant="primary" onClick={() => setShowCreateListModal(false)} style={{ fontSize: '14px' }}>
+                        Create
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+      
         </div>
     );
 };
