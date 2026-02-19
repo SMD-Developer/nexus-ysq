@@ -1,0 +1,70 @@
+// Workspace Layout Styles
+.workspace-layout {
+    display: flex;
+    min-height: 100vh;
+
+    &.dual-sidebar {
+        .workspace-main-content {
+            margin-left: 340px; // 60px (icon sidebar) + 280px (workspace sidebar)
+        }
+
+        &.workspace-collapsed {
+            .workspace-main-content {
+                margin-left: 60px; // Only icon sidebar visible
+            }
+        }
+    }
+
+    .workspace-main-content {
+        flex: 1;
+        margin-left: 280px;
+        min-height: 100vh;
+        background: #f8f9fa;
+        transition: margin-left 0.3s ease;
+
+        .hk-pg-wrapper {
+            min-height: calc(100vh - 70px);
+        }
+    }
+
+    .workspace-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        display: none;
+    }
+}
+
+// Responsive
+@media (max-width: 1199px) {
+    .workspace-layout {
+        .workspace-main-content {
+            margin-left: 0 !important;
+        }
+
+        .workspace-backdrop {
+            display: block;
+        }
+
+        .workspace-sidebar {
+            transform: translateX(-100%);
+            
+            &.show {
+                transform: translateX(0);
+            }
+        }
+    }
+}
+
+// Light theme adjustments
+[data-menu="light"] {
+    .workspace-layout {
+        .workspace-main-content {
+            background: #ffffff;
+        }
+    }
+}
