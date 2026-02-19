@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Dropdown, Nav, Modal, Form } from 'react-bootstrap';
 import SimpleBar from 'simplebar-react';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
+import Select from 'react-select';
+import CreatableSelect from 'react-select/creatable';
 import {
     Plus,
     ChevronDown,
     ChevronRight,
     ChevronLeft,
     Settings,
-    Layout,
     Home as HomeIcon,
     MessageSquare,
     CheckSquare,
@@ -23,7 +24,6 @@ import {
     Lock,
 } from 'react-feather';
 import * as TablerIcons from 'tabler-icons-react';
-import HkBadge from '../../components/@hk-badge/@hk-badge';
 import './workspace-sidebar.scss';
 
 const WorkspaceSidebar = ({ userName = "Ashutosh Srivastar", show = false, toggleSidebar, onCollapse }) => {
@@ -32,10 +32,28 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastar", show = false, toggl
         spaces: true,
     });
     const [showCreateSpaceModal, setShowCreateSpaceModal] = useState(false);
+    const [showAddItemModal, setShowAddItemModal] = useState(false);
     const [spaceName, setSpaceName] = useState('');
     const [spaceDescription, setSpaceDescription] = useState('');
     const [makePrivate, setMakePrivate] = useState(false);
     const [selectedIcon, setSelectedIcon] = useState('S');
+    const [taskTitle, setTaskTitle] = useState('');
+    const [status, setStatus] = useState('Open');
+    const [assignees, setAssignees] = useState([]);
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+    const [priority, setPriority] = useState('Medium');
+    const [timeEstimate, setTimeEstimate] = useState('');
+    const [sprintPoints, setSprintPoints] = useState('');
+    const [trackTime, setTrackTime] = useState('');
+    const [tags, setTags] = useState([]);
+    const [description, setDescription] = useState('');
+    const [attachments, setAttachments] = useState([]);
+    const [expandedProjects, setExpandedProjects] = useState({});
+    const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
+    const [spaceMenuPosition, setSpaceMenuPosition] = useState({ top: 0, left: 0 });
+    const [showCreateListModal, setShowCreateListModal] = useState(false);
+    const [openMenu, setOpenMenu] = useState(null);
 
     const toggleSection = (section) => {
         setExpandedSections(prev => ({
@@ -68,35 +86,71 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastar", show = false, toggl
             name: 'All Tasks', 
             subtitle: `${userName}'s Workspace`, 
             icon: <TablerIcons.Template size={16} />, 
-            path: '/apps/taskboard/projects-board' 
+            path: '/apps/taskboard/projects-board',
+            projects: [] // no projects
         },
         { 
-            name: 'Team Space', 
+            name: 'Space 1', 
             icon: <Users size={16} />, 
             path: '/apps/contacts/contact-list',
-            hasMenu: true
-        },
-        { 
-            name: 'Project 1', 
-            icon: <TablerIcons.LayoutKanban size={16} />, 
-            path: '/apps/taskboard/kanban-board', 
-            count: '3',
-            hasMenu: true
-        },
-        { 
-            name: 'Project 2', 
-            icon: <TablerIcons.LayoutKanban size={16} />, 
-            path: '/apps/taskboard/pipeline', 
-            count: '3',
-            hasMenu: true
-        },
-        { 
-            name: 'Project Notes', 
-            icon: <TablerIcons.FileCheck size={16} />, 
-            path: '/apps/file-manager/list-view',
-            hasMenu: true
-        },
+            projects: [
+                { 
+                    name: 'Folder 1', 
+                    icon: <TablerIcons.LayoutKanban size={16} />, 
+                    path: '/apps/file-manager/list-view', 
+                    count: 3,
+                    showAdd: true,
+                    hasMenu: true
+                },
+                { 
+                    name: 'Folder 2', 
+                    icon: <TablerIcons.LayoutKanban size={16} />, 
+                    path: '/apps/file-manager/list-view', 
+                    count: 2,
+                    showAdd: true,
+                    hasMenu: true
+                },
+                { 
+                    name: 'Folder 3', 
+                    icon: <TablerIcons.LayoutKanban size={16} />, 
+                    path: '/apps/file-manager/list-view',
+                    count: 1,
+                    showAdd: true,
+                    hasMenu: true
+                }
+            ]
+        }
     ];
+
+    const dummyUsers = [
+        { value: 'ashutosh', label: 'Ashutosh Srivastava' },
+        { value: 'john', label: 'John Doe' },
+        { value: 'sarah', label: 'Sarah Smith' },
+        { value: 'michael', label: 'Michael Johnson' },
+        { value: 'emma', label: 'Emma Williams' },
+    ];  
+    
+    const projectTasks = {
+        "Folder 1": [
+            { id: 1, name: "List 1", status: "Open" },
+            { id: 2, name: "List 2", status: "In Progress" },
+            { id: 3, name: "List 3", status: "Review" },
+        ],
+        "Folder 2": [
+            { id: 1, name: "List 1", status: "Open" },
+            { id: 2, name: "List 2", status: "In Progress" },
+        ]
+    };
+
+    useEffect(() => {
+        const handleClickOutside = () => {
+            setOpenMenu(null);
+        };
+
+        document.addEventListener('click', handleClickOutside);
+
+        return () => document.removeEventListener('click', handleClickOutside);
+    }, []);
 
     return (
         <div className={classNames("workspace-sidebar", { "show": show })}>
@@ -198,31 +252,191 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastar", show = false, toggl
                     <div className="menu-section">
                         <div className="section-header">
                             <span className="section-title">Spaces</span>
-                            <Button variant="link" size="sm" className="section-action">
+                            <Button variant="link" size="sm" className="section-action" onClick={() => setShowCreateSpaceModal(true)}>
                                 <Plus size={16} />
                             </Button>
                         </div>
                         <Nav className="flex-column workspace-nav sub-nav">
-                            {spacesItems.map((item, index) => (
-                                <Nav.Item key={index}>
-                                    <Nav.Link as={NavLink} to={item.path} className="workspace-nav-link" onClick={handleLinkClick}>
-                                        <span className="nav-icon">
-                                            {item.icon}
-                                        </span>
-                                        <span className="nav-text">
-                                            {item.name}
-                                            {item.subtitle && <small className="nav-subtitle">{item.subtitle}</small>}
-                                        </span>
-                                        {item.count && <span className="nav-count">{item.count}</span>}
-                                        {item.hasMenu && (
-                                            <span className="nav-menu-dots">
-                                                <MoreHorizontal size={14} />
-                                            </span>
+                            {spacesItems.map((space, sIndex) => (
+                                <Nav.Item key={sIndex}>
+                                {/* Space */}
+                                <div className="workspace-nav-link space-link">
+                                    <span className="nav-icon">{space.icon}</span>
+
+                                    <NavLink
+                                        to={space.path}
+                                        className="nav-text flex-grow-1"
+                                        onClick={(e) => e.stopPropagation()}
+                                    >
+                                        {space.name}
+                                        {space.subtitle && (
+                                            <small className="nav-subtitle">{space.subtitle}</small>
                                         )}
-                                    </Nav.Link>
+                                    </NavLink>
+
+                                    {/* ✅ PLUS ICON — FIRST */}
+                                    <span
+                                        className="nav-add-icon me-2"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            setShowCreateSpaceModal(true);
+                                        }}
+                                    >
+                                        <Plus size={14} />
+                                    </span>
+
+                                    {/* ✅ THREE DOTS — SECOND */}
+                                    <div
+                                        className="nav-menu-dots me-2"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+
+                                            // close any open menu
+                                            setOpenMenu(null);
+
+                                            setOpenMenu({
+                                                type: 'space',
+                                                id: space.name
+                                            });
+                                        }}
+                                        >
+                                        <MoreHorizontal size={14} />
+                                    </div>
+
+                                    {/* ✅ EXPAND / COLLAPSE — LAST */}
+                                    {space.projects.length > 0 && (
+                                        <span
+                                            className="nav-expand-icon"
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                setExpandedProjects(prev => ({
+                                                    ...prev,
+                                                    [space.name]: !prev[space.name]
+                                                }));
+                                            }}
+                                        >
+                                            {expandedProjects[space.name]
+                                                ? <ChevronDown size={14} />
+                                                : <ChevronRight size={14} />}
+                                        </span>
+                                    )}
+                                </div>
+
+                                {/* Projects inside this space */}
+                                {expandedProjects[space.name] && space.projects.length > 0 && (
+                                    <Nav className="flex-column workspace-nav sub-nav project-tasks">
+                                    {space.projects.map((project, pIndex) => (
+                                        <Nav.Item key={pIndex}>
+                                        <div className="workspace-nav-link project-link">
+                                            <span className="nav-icon">{project.icon}</span>
+                                            <NavLink
+                                            to={project.path}
+                                            className="nav-text flex-grow-1"
+                                            onClick={(e) => e.stopPropagation()}
+                                            >
+                                            {project.name}
+                                            </NavLink>
+
+                                            {project.count && <span className="nav-count">{project.count}</span>}
+
+                                            {/* Add Task Button */}
+                                            {project.showAdd && (
+                                                <span
+                                                    className="nav-add-icon me-2"
+                                                    onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    setShowCreateListModal(true);
+                                                    }}
+                                                >
+                                                    <Plus size={14} />
+                                                </span>
+                                            )}
+
+                                            {/* Project Menu */}
+                                            {project.hasMenu && (
+                                                <div
+                                                    className="nav-menu-dots"
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+
+                                                        // close any open menu
+                                                        setOpenMenu(null);
+
+                                                        // open folder menu
+                                                        setOpenMenu({
+                                                            type: 'folder',
+                                                            id: `${space.name}-${project.name}`
+                                                        });
+                                                    }}
+                                                    >
+                                                    <MoreHorizontal size={14} />
+                                                </div>
+                                            )}
+
+                                            {/* Expand project tasks toggle */}
+                                            <span
+                                            className="nav-expand-icon"
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                setExpandedProjects(prev => ({
+                                                ...prev,
+                                                [`tasks-${space.name}-${project.name}`]: !prev[`tasks-${space.name}-${project.name}`]
+                                                }));
+                                            }}
+                                            >
+                                            {expandedProjects[`tasks-${space.name}-${project.name}`] ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+                                            </span>
+                                        </div>
+
+                                        {/* Task List inside project */}
+                                        {expandedProjects[`tasks-${space.name}-${project.name}`] && projectTasks[project.name] && (
+                                            <Nav className="flex-column workspace-nav sub-nav project-tasks">
+                                            {projectTasks[project.name].map(task => (
+                                                <Nav.Item key={task.id}>
+                                                <div className="workspace-nav-link list-link">
+                                                    <span className="nav-text">{task.name}</span>
+
+                                                    <span className="task-status">{task.status}</span>
+
+                                                    <div className="list-actions">
+                                                        {/* PLUS ICON */}
+                                                        <span
+                                                        className="nav-add-icon"
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            setShowAddItemModal(true);
+                                                        }}
+                                                        >
+                                                        <Plus size={14} />
+                                                        </span>
+
+                                                        {/* THREE DOTS */}
+                                                        <span
+                                                        className="nav-menu-dots"
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            setOpenMenu(null);
+                                                            setOpenMenu({
+                                                            type: 'list',
+                                                            id: `${space.name}-${project.name}-${task.id}`
+                                                            });
+                                                        }}
+                                                        >
+                                                        <MoreHorizontal size={14} />
+                                                        </span>
+                                                    </div>
+                                                    </div>
+                                                </Nav.Item>
+                                            ))}
+                                            </Nav>
+                                        )}
+                                        </Nav.Item>
+                                    ))}
+                                    </Nav>
+                                )}
                                 </Nav.Item>
                             ))}
-                        </Nav>
+                            </Nav>
                         <div className="section-footer">
                             <Button 
                                 variant="link" 
@@ -245,6 +459,59 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastar", show = false, toggl
                     </div>
                 </div>
             </SimpleBar>
+
+            {openMenu?.type === 'folder' && (
+                <div
+                    className="fixed-folder-menu"
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    <ul>
+                        <li>Rename Folder</li>
+                        <li>Duplicate Folder</li>
+                        <li>Move Folder</li>
+                        <li>Delete Folder</li>
+                    </ul>
+                </div>
+            )}
+
+            {openMenu?.type === 'space' && (
+                <div
+                    className="fixed-space-menu"
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    <ul>
+                        <li>Rename Space</li>
+                        <li>Duplicate Space</li>
+                        <li>Share Space</li>
+                        <li>Delete Space</li>
+                    </ul>
+                </div>
+            )}
+
+            {openMenu?.type === 'list' && (
+                <div
+                    className="fixed-list-menu"
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    <ul>
+                        <li>Favorite</li>
+                        <li>Rename</li>
+                        <li>Copy Link</li>
+                        <li
+                            onClick={() => {
+                                setShowAddItemModal(true); // open Create Task modal
+                                setOpenMenuFolder(null);  // close the project menu
+                            }}
+                        >
+                            Create Task
+                        </li>
+                        <li>Task statuses</li>
+                        <li>List Info</li>
+                        <li>Duplicate</li>
+                        <li>Delete</li>
+                    </ul>
+                </div>
+            )}    
 
             {/* Create Space Modal */}
             <Modal 
@@ -343,6 +610,249 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastar", show = false, toggl
                     </Button>
                 </Modal.Footer>
             </Modal>
+
+            {/* Add Task Modal */}
+            <Modal
+                show={showAddItemModal}
+                onHide={() => setShowAddItemModal(false)}
+                size="lg"
+                centered
+                className="task-modal"
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>Create Task</Modal.Title>
+                </Modal.Header>
+
+                <Modal.Body>
+                    <Form>
+
+                        {/* Title */}
+                        <Form.Group className="mb-3">
+                            <Form.Label>Task Title</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Enter task title"
+                                value={taskTitle}
+                                onChange={(e) => setTaskTitle(e.target.value)}
+                            />
+                        </Form.Group>
+
+                        {/* Status & Priority Row */}
+                        <div className="row">
+                            <div className="col-md-6">
+                                <Form.Group className="mb-3">
+                                    <Form.Label>Status</Form.Label>
+                                    <Form.Select
+                                        value={status}
+                                        onChange={(e) => setStatus(e.target.value)}
+                                    >
+                                        <option>Open</option>
+                                        <option>In Progress</option>
+                                        <option>Review</option>
+                                        <option>Completed</option>
+                                    </Form.Select>
+                                </Form.Group>
+                            </div>
+                            <div className="col-md-6">
+                                <Form.Group className="mb-3">
+                                    <Form.Label>Priority</Form.Label>
+                                    <Form.Select
+                                        value={priority}
+                                        onChange={(e) => setPriority(e.target.value)}
+                                    >
+                                        <option>Low</option>
+                                        <option>Medium</option>
+                                        <option>High</option>
+                                    </Form.Select>
+                                </Form.Group>
+                            </div>
+                        </div>
+
+                        {/* Assignees */}
+                        <Form.Group className="mb-3">
+                            <Form.Label>Assignees</Form.Label>
+                            <Select
+                                options={dummyUsers}
+                                isMulti
+                                value={assignees}
+                                onChange={(selected) => setAssignees(selected || [])}
+                            />
+                        </Form.Group>
+
+                        {/* Start and End Date */}
+                        <div className="row">
+                            <div className="col-md-6">
+                                <Form.Group className="mb-3">
+                                    <Form.Label>Start Date</Form.Label>
+                                    <Form.Control 
+                                        type="date" 
+                                        value={startDate} 
+                                        onChange={(e) => setStartDate(e.target.value)} 
+                                    />
+                                </Form.Group>
+                            </div>
+                            <div className="col-md-6">
+                                <Form.Group className="mb-3">
+                                    <Form.Label>End Date</Form.Label>
+                                    <Form.Control 
+                                        type="date" 
+                                        value={endDate} 
+                                        onChange={(e) => setEndDate(e.target.value)} 
+                                    />
+                                </Form.Group>
+                            </div>
+                        </div>
+
+                        {/* Time Estimate & Sprint Points */}
+                        <div className="row">
+                            <div className="col-md-6">
+                                <Form.Group className="mb-3">
+                                    <Form.Label>Time Estimate</Form.Label>
+                                    <Form.Control 
+                                        type="text" 
+                                        placeholder="e.g. 3h 30m" 
+                                        value={timeEstimate} 
+                                        onChange={(e) => setTimeEstimate(e.target.value)} 
+                                    />
+                                </Form.Group>
+                            </div>
+                            <div className="col-md-6">
+                                <Form.Group className="mb-3">
+                                    <Form.Label>Sprint Points</Form.Label>
+                                    <Form.Control 
+                                        type="text" 
+                                        value={sprintPoints} 
+                                        onChange={(e) => setSprintPoints(e.target.value)} 
+                                    />
+                                </Form.Group>
+                            </div>
+                        </div>
+
+                        {/* Track Time */}
+                        <Form.Group className="mb-3">
+                            <Form.Label>Track Time</Form.Label>
+                            <Form.Control 
+                                type="text" 
+                                placeholder="e.g. 1h 20m" 
+                                value={trackTime} 
+                                onChange={(e) => setTrackTime(e.target.value)} 
+                            />
+                        </Form.Group>
+
+                        {/* Tags */}
+                        <Form.Group className="mb-3">
+                            <Form.Label>Tags</Form.Label>
+                            <CreatableSelect
+                                isMulti
+                                options={tags}
+                                value={tags}
+                                onChange={(selected) => setTags(selected || [])}
+                            />
+                        </Form.Group>
+
+                        {/* Description */}
+                        <Form.Group className="mb-3">
+                            <Form.Label>Description</Form.Label>
+                            <Form.Control
+                                as="textarea"
+                                rows={3}
+                                placeholder="Enter description"
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                            />
+                        </Form.Group>
+
+                        {/* Attachments */}
+                        <Form.Group className="mb-3">
+                            <Form.Label>Attachments</Form.Label>
+                            <Form.Control 
+                                type="file" 
+                                multiple 
+                                onChange={(e) => {
+                                    const files = Array.from(e.target.files);
+                                    setAttachments(prev => [...prev, ...files]);
+                                }}
+                            />
+                        </Form.Group>
+
+                    </Form>
+                </Modal.Body>
+
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => setShowAddItemModal(false)}>
+                        Cancel
+                    </Button>
+                    <Button 
+                        variant="primary" 
+                        onClick={() => {
+                            // Handle task creation logic here
+                            setShowAddItemModal(false);
+
+                            // Reset fields after submit
+                            setTaskTitle('');
+                            setStatus('Open');
+                            setAssignees([]);
+                            setStartDate('');
+                            setEndDate('');
+                            setPriority('Medium');
+                            setTimeEstimate('');
+                            setSprintPoints('');
+                            setTrackTime('');
+                            setTags([]);
+                            setDescription('');
+                            setAttachments([]);
+                        }}
+                    >
+                        Save Task
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+            <Modal
+                show={showCreateListModal}
+                onHide={() => setShowCreateListModal(false)}
+                centered
+                className="task-modal"
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>Create List</Modal.Title>
+                </Modal.Header>
+
+                <Modal.Body>
+                    <Form>
+                        {/* List Name */}
+                        <Form.Group className="mb-3">
+                            <Form.Label style={{ fontSize: '14px' }}>Name</Form.Label>
+                            <Form.Control 
+                                type="text" 
+                                placeholder="e.g. Project, List of items, Campaign" 
+                                style={{ fontSize: '14px' }}
+                            />
+                        </Form.Group>
+
+                        {/* Description */}
+                        <Form.Group className="mb-3">
+                            <Form.Label style={{ fontSize: '14px' }}>Description (optional)</Form.Label>
+                            <Form.Control 
+                                as="textarea" 
+                                rows={3} 
+                                placeholder="Tell us a bit about your List" 
+                                style={{ fontSize: '14px' }}
+                            />
+                        </Form.Group>
+                    </Form>
+                </Modal.Body>
+
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => setShowCreateListModal(false)} style={{ fontSize: '14px' }}>
+                        Cancel
+                    </Button>
+                    <Button variant="primary" onClick={() => setShowCreateListModal(false)} style={{ fontSize: '14px' }}>
+                        Create
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+      
         </div>
     );
 };
