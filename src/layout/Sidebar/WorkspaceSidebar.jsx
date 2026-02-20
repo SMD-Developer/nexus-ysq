@@ -22,6 +22,8 @@ import {
     Users,
     X,
     Lock,
+    HelpCircle,
+    CheckCircle,
 } from 'react-feather';
 import * as TablerIcons from 'tabler-icons-react';
 import './workspace-sidebar.scss';
@@ -53,6 +55,11 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
     const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
     const [spaceMenuPosition, setSpaceMenuPosition] = useState({ top: 0, left: 0 });
     const [showCreateListModal, setShowCreateListModal] = useState(false);
+    const [showCreateFolderModal, setShowCreateFolderModal] = useState(false);
+    const [folderName, setFolderName] = useState('');
+    const [folderDescription, setFolderDescription] = useState('');
+    const [folderMakePrivate, setFolderMakePrivate] = useState(false);
+    const [folderIcon, setFolderIcon] = useState('F');
     const [openMenu, setOpenMenu] = useState(null);
 
     const toggleSection = (section) => {
@@ -78,11 +85,14 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
         { name: 'Assigned to me', icon: <UserCheck size={16} />, path: '/apps/taskboard/projects-board' },
     ];
 
+    // Spaces data with UI control for Space "+", which will open Create Folder modal on click
     const spacesItems = [
         {
             name: 'Space 1',
             icon: <Users size={16} />,
             path: '/spaces/team-space',
+            showAdd: true, // Treated as flag to show "+" on hover
+            onAdd: () => setShowCreateFolderModal(true),  // Function to open modal (set this up in sidebar list UI)
             projects: [
                 {
                     name: 'Folder 1',
@@ -133,7 +143,16 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
     };
 
     useEffect(() => {
-        const handleClickOutside = () => {
+        const handleClickOutside = (e) => {
+            // Don't close when clicking a three-dot trigger or the menu itself
+            if (
+                e.target.closest('.nav-menu-dots') ||
+                e.target.closest('.fixed-folder-menu') ||
+                e.target.closest('.fixed-space-menu') ||
+                e.target.closest('.fixed-list-menu')
+            ) {
+                return;
+            }
             setOpenMenu(null);
         };
 
@@ -255,15 +274,18 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
                                         {space.count && <span className="nav-count">{space.count}</span>}
 
                                         {/* Plus Icon */}
-                                        <span
-                                            className="nav-add-icon me-2"
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                setShowCreateSpaceModal(true);
-                                            }}
-                                        >
-                                            <Plus size={14} />
-                                        </span>
+                                        {space.showAdd && (
+                                            <span
+                                                className="nav-add-icon me-2"
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    if (space.onAdd) space.onAdd();
+                                                    else setShowCreateSpaceModal(true);
+                                                }}
+                                            >
+                                                <Plus size={14} />
+                                            </span>
+                                        )}
 
                                         {/* Three Dots Menu */}
                                         {space.hasMenu && (
@@ -499,13 +521,10 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
                     </Button>
                 </Modal.Header>
                 <Modal.Body>
-                    <p className="modal-description">
-                        A Space represents teams, departments, or groups, each with its own Lists, workflows, and settings.
-                    </p>
 
                     <Form>
                         <Form.Group className="mb-4">
-                            <Form.Label>Icon & name</Form.Label>
+                            <Form.Label>Space Icon & name</Form.Label>
                             <div className="space-icon-name-group">
                                 <div className="space-icon-picker">
                                     <div className="space-icon-selected">{selectedIcon}</div>
@@ -540,7 +559,7 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
                             </div>
                         </div>
 
-                        <div className="space-privacy-section mb-4">
+                        {/* <div className="space-privacy-section mb-4">
                             <div className="privacy-toggle">
                                 <div className="privacy-info">
                                     <div className="privacy-title">Make Private</div>
@@ -553,13 +572,13 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
                                     onChange={(e) => setMakePrivate(e.target.checked)}
                                 />
                             </div>
-                        </div>
+                        </div> */}
 
-                        <div className="use-templates-section">
+                        {/* <div className="use-templates-section">
                             <Button variant="link" className="use-templates-btn">
                                 Use Templates
                             </Button>
-                        </div>
+                        </div> */}
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
@@ -801,6 +820,112 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
                         Cancel
                     </Button>
                     <Button variant="primary" onClick={() => setShowCreateListModal(false)} style={{ fontSize: '14px' }}>
+                        Create
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+            {/* Create Folder Modal */}
+            <Modal
+                show={showCreateFolderModal}
+                onHide={() => setShowCreateFolderModal(false)}
+                centered
+                className="create-folder-modal"
+            >
+                <Modal.Header>
+                    <Modal.Title>Create Folder</Modal.Title>
+                    <Button
+                        variant="flush-dark"
+                        className="btn-icon btn-rounded"
+                        onClick={() => setShowCreateFolderModal(false)}
+                    >
+                        <X size={20} />
+                    </Button>
+                </Modal.Header>
+                <Modal.Body>
+                    <p className="create-folder-modal-description">
+                        Use Folders to organize your Lists, Docs, and more.
+                    </p>
+                    <Form>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Folder Icon & Name</Form.Label>
+                            <div className="folder-icon-name-group">
+                                <div className="folder-icon-picker">
+                                    <span className="folder-icon-selected">{folderIcon}</span>
+                                </div>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="e.g. Project, Client, Team"
+                                    value={folderName}
+                                    onChange={(e) => setFolderName(e.target.value)}
+                                />
+                            </div>
+                        </Form.Group>
+
+                        <Form.Group className="mb-4">
+                            <Form.Label>Description</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Tell us a bit about your Folder (optional)"
+                                value={folderDescription}
+                                onChange={(e) => setFolderDescription(e.target.value)}
+                            />
+                        </Form.Group>
+
+                        {/* <div className="folder-settings-section mb-4">
+                            <div className="folder-settings-label">Settings</div>
+                            <div
+                                className="folder-settings-row"
+                                role="button"
+                                tabIndex={0}
+                                onClick={() => {}}
+                                onKeyDown={(e) => e.key === 'Enter' && (() => {})()}
+                            >
+                                <span className="folder-settings-icon">
+                                    <CheckCircle size={18} />
+                                </span>
+                                <div className="folder-settings-text">
+                                    <span className="folder-settings-title">Statuses</span>
+                                    <span className="folder-settings-desc">Use Space statuses</span>
+                                </div>
+                                <HelpCircle size={16} className="folder-settings-help" />
+                                <ChevronRight size={16} className="folder-settings-arrow" />
+                            </div>
+                        </div> */}
+
+                        {/* <div className="folder-privacy-section mb-4">
+                            <div className="folder-privacy-toggle">
+                                <div className="folder-privacy-info">
+                                    <span className="folder-privacy-title">Make private</span>
+                                    <span className="folder-privacy-description">
+                                        Only you and invited members have access
+                                    </span>
+                                </div>
+                                <Form.Check
+                                    type="switch"
+                                    id="folder-private-switch"
+                                    checked={folderMakePrivate}
+                                    onChange={(e) => setFolderMakePrivate(e.target.checked)}
+                                />
+                            </div>
+                        </div> */}
+                    </Form>
+                </Modal.Body>
+                <Modal.Footer className="create-folder-modal-footer">
+                    {/* <Button variant="link" className="create-folder-use-templates" onClick={() => {}}>
+                        Use Templates
+                    </Button> */}
+                    <Button
+                        variant="primary"
+                        className="create-folder-btn-create"
+                        onClick={() => {
+                            setShowCreateFolderModal(false);
+                            setFolderName('');
+                            setFolderDescription('');
+                            setFolderMakePrivate(false);
+                            setFolderIcon('F');
+                        }}
+                    >
                         Create
                     </Button>
                 </Modal.Footer>

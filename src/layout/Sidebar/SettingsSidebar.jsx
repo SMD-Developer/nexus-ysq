@@ -14,17 +14,12 @@ const SettingsSidebar = ({ show = false, toggleSidebar, onCollapse }) => {
     };
 
     const items = [
-        { label: 'People', to: '/settings/people', active: true },
-        { label: 'Upgrade' },
-        { label: 'App Center' },
-        { label: 'Settings' },
-        { label: 'Work Schedule' },
-        { label: 'Spaces' },
-        { label: 'Security & Permissions' },
-        { label: 'Audit Logs' },
-        { label: 'Teams' },
-        { label: 'Task Types' },
-    ];
+        { label: 'People', to: '/settings/people', icon: <User size={8} /> },
+        { label: 'Spaces', to: '/settings/spaces', icon: <User size={8} /> },
+        { label: 'Security & Permissions', to: '/settings/security-permissions', icon: <User size={8} /> },
+        { label: 'Audit Logs', to: '/settings/audit-logs', icon: <User size={8} /> },
+        { label: 'Teams', to: '/settings/teams', icon: <User size={8} /> },
+    ]
 
     return (
         <div className={classNames('settings-sidebar', { show })}>
@@ -84,23 +79,30 @@ const SettingsSidebar = ({ show = false, toggleSidebar, onCollapse }) => {
                         <Nav.Link
                             as={NavLink}
                             to="/settings/my-settings"
-                            className="settings-sidebar-footer-link mx-4"
+                            className="settings-sidebar-footer-link mx-4 d-flex align-items-center gap-2"
                             activeClassName="is-active"
                             onClick={handleLinkClick}
+                            style={{ color: 'inherit' }}
                         >
-                            <span className="settings-sidebar-icon" aria-hidden="true">
+                            <span
+                                className="settings-sidebar-icon"
+                                aria-hidden="true"
+                                style={{ marginRight: 8 }}
+                            >
                                 <User size={16} />
                             </span>
-                            My Settings
+                            <span className="settings-sidebar-footer-text">My Settings</span>
                         </Nav.Link>
                     </div>
-                    {/* <Button variant="link" className="settings-sidebar-footer-link">
-                        <span className="settings-sidebar-icon" aria-hidden="true">
-                            <User size={16} />
-                        </span>
-                        Log out
-                    </Button> */}
                 </div>
+                <style>
+                    {`
+                        .settings-sidebar-footer-link.is-active,
+                        .settings-sidebar-footer-link.is-active .settings-sidebar-footer-text {
+                            color: #fff !important;
+                        }
+                    `}
+                </style>
             </SimpleBar>
         </div>
     );

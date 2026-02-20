@@ -4,8 +4,8 @@ import { Lock, Mail, User } from 'react-feather';
 import './my-settings.scss';
 
 const MySettings = () => {
-    const [fullName, setFullName] = useState('Ashutosh Srivastav');
-    const [email, setEmail] = useState('as9304596@gmail.com');
+    const [fullName, setFullName] = useState('John Doe');
+    const [email, setEmail] = useState('john.doe@example.com');
     const [password, setPassword] = useState('');
     const [twoFaSms, setTwoFaSms] = useState(false);
 
@@ -25,8 +25,8 @@ const MySettings = () => {
                         <Col md={8}>
                             <div className="my-settings-profile-block">
                                 <div className="my-settings-avatar-wrap">
-                                    <div className="my-settings-avatar">AS</div>
-                                    <div className="my-settings-avatar-name">Ashutosh Srivastav</div>
+                                    <div className="my-settings-avatar">JD</div>
+                                    <div className="my-settings-avatar-name">John Doe</div>
                                 </div>
 
                                 <Form.Group className="my-settings-field">
@@ -59,7 +59,7 @@ const MySettings = () => {
                                 </Form.Group>
 
                                 <Form.Group className="my-settings-field">
-                                    <Form.Label>Password</Form.Label>
+                                    <Form.Label>Change Password</Form.Label>
                                     <InputGroup>
                                         <InputGroup.Text className="my-settings-input-icon">
                                             <Lock size={16} />

@@ -17,13 +17,13 @@ const PeopleSettings = () => {
     const users = useMemo(
         () => [
             {
-                initials: 'AS',
-                name: 'Ashutosh Srivastar',
-                email: 'as9304596@gmail.com',
+                initials: 'JD',
+                name: 'James Doe',
+                email: 'james.doe@example.com',
                 role: 'Owner',
-                lastActive: 'Feb 18',
+                lastActive: 'Feb 20',
                 invitedBy: '',
-                invitedOn: '10/11/2025',
+                invitedOn: '20/02/2026',
             },
         ],
         []
@@ -41,13 +41,8 @@ const PeopleSettings = () => {
                 <div className="settings-people-content-inner">
                     <div className="settings-people-header">
                         <div className="settings-people-title-wrap">
-                            <h1 className="settings-people-title">Manage people</h1>
-                            <a href="#" className="settings-people-learn-more">Learn more</a>
+                            <h3 className="settings-people-title" style={{ fontSize: "1.0rem" }}>Manage people</h3>
                         </div>
-                        <Button variant="outline-secondary" size="sm" className="settings-people-export">
-                            <Upload size={12} />
-                            Export
-                        </Button>
                     </div>
 
                     <div className="settings-people-toolbar">
@@ -134,8 +129,8 @@ const PeopleSettings = () => {
                 className="invite-people-modal"
             >
                 <Modal.Header className="invite-people-modal-header">
-                    <Modal.Title className="invite-people-modal-title">
-                        Invite people <span className="invite-people-modal-title-light">for free</span>
+                    <Modal.Title className="invite-people-modal-title d-flex align-items-center gap-2">
+                        Invite people <span className="fw-normal ms-2" style={{ color: "#666", fontWeight: 400 }}></span>
                     </Modal.Title>
                     <Button
                         variant="flush-dark"
@@ -148,56 +143,78 @@ const PeopleSettings = () => {
                 </Modal.Header>
                 <Modal.Body className="invite-people-modal-body">
                     <Form>
-                        <Form.Group className="invite-people-form-group">
-                            <Form.Label>Invite by email</Form.Label>
+                        <Form.Group className="invite-people-form-group mb-3">
+                            <Form.Label className="fw-semibold mb-1">Invite by email</Form.Label>
                             <Form.Control
                                 type="text"
                                 placeholder="Email, comma or space separated"
                                 value={inviteEmails}
                                 onChange={(e) => setInviteEmails(e.target.value)}
+                                className="py-2"
+                                autoFocus
                             />
                         </Form.Group>
-                        <Form.Group className="invite-people-form-group">
-                            <Form.Label>Invite as</Form.Label>
-                            <Dropdown className="invite-people-role-dropdown">
-                                <Dropdown.Toggle variant="outline-secondary" className="invite-people-role-toggle">
-                                    <span className="invite-people-role-icon-wrap">
-                                        <User size={16} />
-                                    </span>
-                                    <ChevronDown size={16} className="invite-people-role-chevron" />
-                                </Dropdown.Toggle>
-                                <Dropdown.Menu>
-                                    {INVITE_ROLES.map((role) => (
-                                        <Dropdown.Item
-                                            key={role.id}
-                                            active={inviteRole.id === role.id}
-                                            onClick={() => setInviteRole(role)}
-                                        >
-                                            <span className="invite-people-role-option-label">{role.label}</span>
-                                            <span className="invite-people-role-option-desc">{role.description}</span>
-                                        </Dropdown.Item>
-                                    ))}
-                                </Dropdown.Menu>
-                            </Dropdown>
-                            <Form.Text className="invite-people-role-description">
-                                {inviteRole.description}
-                            </Form.Text>
+
+                        <Form.Group className="mb-2">
+                            <Form.Label className="fw-semibold mb-2">Invite as</Form.Label>
+                            <div
+                                className="d-flex align-items-start bg-light rounded-3 px-3 py-2"
+                                style={{ background: "#f6f6fa", border: "none" }}
+                            >
+                                <span
+                                    className="d-flex align-items-center justify-content-center me-2 flex-shrink-0"
+                                    style={{
+                                        background: "#ececf3",
+                                        borderRadius: "6px",
+                                        width: 32,
+                                        height: 32,
+                                        marginTop: 2,
+                                    }}
+                                >
+                                    <User size={18} color="#888" />
+                                </span>
+                                <div className="flex-grow-1">
+                                    <Dropdown.Toggle
+                                        variant="link"
+                                        className="p-0 border-0 bg-transparent shadow-none d-flex align-items-center no-caret"
+                                        style={{
+                                            fontWeight: 600,
+                                            fontSize: "0.97rem",
+                                            color: "#202123",
+                                            textDecoration: "none",
+                                            cursor: "pointer",
+                                        }}
+                                    >
+                                        {inviteRole.label}
+                                        <ChevronDown size={14} className="ms-1" />
+                                    </Dropdown.Toggle>
+                                    <div className="text-muted" style={{ fontSize: "0.9rem", marginTop: 2 }}>
+                                        {inviteRole.description}
+                                    </div>
+                                </div>
+                            </div>
                         </Form.Group>
                     </Form>
                 </Modal.Body>
-                <Modal.Footer className="invite-people-modal-footer">
-                    <Button variant="link" className="invite-people-modal-cancel" onClick={() => setShowInviteModal(false)}>
+                <Modal.Footer className="invite-people-modal-footer justify-content-between">
+                    <Button variant="link" className="invite-people-modal-cancel px-3" onClick={() => setShowInviteModal(false)}>
                         Cancel
                     </Button>
                     <Button
-                        className="invite-people-modal-send"
+                        className="invite-people-modal-send px-4"
+                        style={{
+                            background: "#6846f5",
+                            borderColor: "#6846f5",
+                            borderRadius: 6,
+                            fontWeight: 600
+                        }}
                         onClick={() => {
                             // TODO: send invite
                             setShowInviteModal(false);
                             setInviteEmails('');
                         }}
                     >
-                        Send free invite
+                        Send invite
                     </Button>
                 </Modal.Footer>
             </Modal>

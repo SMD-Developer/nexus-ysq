@@ -60,12 +60,12 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                             <span className="feather-icon"><AlignLeft /></span>
                         </span>
                     </Button>
-                    
+
                     {/* Workspace Dropdown */}
                     <Dropdown className="workspace-nav-dropdown d-none d-xl-flex">
                         <Dropdown.Toggle variant="flush-dark" className="workspace-dropdown-toggle">
                             <div className="workspace-avatar-sm">
-                                <span className="avatar-letter">A</span>
+                                <span className="avatar-letter">w</span>
                             </div>
                             <span className="workspace-name-text">Workspace 1</span>
                             <ChevronDown size={16} />
@@ -73,11 +73,10 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                         <Dropdown.Menu className="workspace-dropdown-menu">
                             <div className="dropdown-header">
                                 <div className="workspace-avatar">
-                                    <span className="avatar-letter">A</span>
+                                    <span className="avatar-letter">W</span>
                                 </div>
                                 <div className="workspace-info">
                                     <div className="workspace-title">Workspace 1</div>
-                                    <div className="workspace-plan">Free Forever · Upgrade</div>
                                 </div>
                             </div>
                             <Dropdown.Divider />
@@ -90,7 +89,7 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                                 People
                             </Dropdown.Item>
                             <Dropdown.Divider />
-                            <Dropdown.Item 
+                            <Dropdown.Item
                                 className="create-workspace-item"
                                 onClick={() => setShowCreateWorkspaceModal(true)}
                             >
@@ -117,11 +116,6 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                 <div className="nav-center-wrap">
                     <Dropdown as={Form} className="navbar-search-center" show={showDropdown} autoClose={() => setShowDropdown(!showDropdown)} >
                         <Dropdown.Toggle as="div" className="no-caret bg-transparent">
-                            <Button variant="flush-dark" className="btn-icon btn-rounded flush-soft-hover d-xl-none" onClick={() => setShowDropdown(!showDropdown)} >
-                                <span className="icon">
-                                    <span className="feather-icon"><Search /></span>
-                                </span>
-                            </Button>
                             <InputGroup className="d-xl-flex d-none search-input-center" style={{ minWidth: 240, maxWidth: 320, width: "100%" }}>
                                 <InputGroup.Text className="bg-transparent border-0 px-2" style={{ paddingRight: 0 }}>
                                     {/* <span className="feather-icon">
@@ -176,7 +170,7 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                     </Dropdown>
                 </div>
                 {/* /Center Search */}
-                
+
                 {/* End Nav */}
                 <div className="nav-end-wrap">
                     <Nav className="navbar-nav flex-row">
@@ -445,16 +439,16 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
             </Container>
 
             {/* Create Workspace Modal */}
-            <Modal 
-                show={showCreateWorkspaceModal} 
+            <Modal
+                show={showCreateWorkspaceModal}
                 onHide={() => setShowCreateWorkspaceModal(false)}
                 centered
                 className="create-workspace-modal"
             >
                 <Modal.Header>
                     <Modal.Title>Create a Workspace</Modal.Title>
-                    <Button 
-                        variant="flush-dark" 
+                    <Button
+                        variant="flush-dark"
                         className="btn-icon btn-rounded"
                         onClick={() => setShowCreateWorkspaceModal(false)}
                     >
@@ -465,8 +459,8 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                     <Form>
                         <Form.Group className="mb-4">
                             <Form.Label>Workspace Name</Form.Label>
-                            <Form.Control 
-                                type="text" 
+                            <Form.Control
+                                type="text"
                                 placeholder="Enter workspace name"
                                 value={workspaceName}
                                 onChange={(e) => setWorkspaceName(e.target.value)}
@@ -477,7 +471,7 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                             </Form.Text>
                         </Form.Group>
 
-                        <Form.Group className="mb-4">
+                        {/* <Form.Group className="mb-4">
                             <Form.Label>Workspace Avatar</Form.Label>
                             <div className="workspace-avatar-picker">
                                 <div className="avatar-option active">A</div>
@@ -486,12 +480,12 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                                 <div className="avatar-option">D</div>
                                 <div className="avatar-option">E</div>
                             </div>
-                        </Form.Group>
+                        </Form.Group> */}
 
                         <Form.Group className="mb-4">
                             <Form.Label>Description (Optional)</Form.Label>
-                            <Form.Control 
-                                as="textarea" 
+                            <Form.Control
+                                as="textarea"
                                 rows={3}
                                 placeholder="What's this workspace for?"
                             />
@@ -499,13 +493,13 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button 
-                        variant="secondary" 
+                    <Button
+                        variant="secondary"
                         onClick={() => setShowCreateWorkspaceModal(false)}
                     >
                         Cancel
                     </Button>
-                    <Button 
+                    <Button
                         variant="primary"
                         onClick={() => {
                             // Handle workspace creation here

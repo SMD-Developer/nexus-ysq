@@ -798,6 +798,237 @@
     }
 }
 
+// Create Folder Modal
+.create-folder-modal {
+    .modal-dialog {
+        max-width: 520px;
+    }
+
+    .modal-content {
+        border-radius: 8px;
+        border: none;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    }
+
+    .modal-header {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .modal-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .btn-icon {
+            padding: 4px;
+            border: none;
+            background: transparent;
+            color: #666;
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.05);
+                color: #333;
+            }
+        }
+    }
+
+    .modal-body {
+        padding: 16px 20px;
+
+        .create-folder-modal-description {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 13px;
+        }
+
+        .folder-icon-name-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            .folder-icon-picker {
+                flex-shrink: 0;
+
+                .folder-icon-selected {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 6px;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #ffffff;
+                    cursor: pointer;
+                }
+            }
+
+            .form-control {
+                flex: 1;
+            }
+        }
+
+        .form-control {
+            border-radius: 4px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 8px 12px;
+            font-size: 13px;
+
+            &:focus {
+                border-color: #5865f2;
+                box-shadow: 0 0 0 2px rgba(88, 101, 242, 0.1);
+            }
+
+            &::placeholder {
+                color: #999;
+            }
+        }
+
+        .folder-settings-section {
+            .folder-settings-label {
+                font-size: 12px;
+                font-weight: 600;
+                color: #333;
+                margin-bottom: 8px;
+            }
+
+            .folder-settings-row {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 12px;
+                background: rgba(0, 0, 0, 0.02);
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                border-radius: 6px;
+                cursor: pointer;
+                transition: background 0.2s;
+
+                &:hover {
+                    background: rgba(0, 0, 0, 0.04);
+                }
+
+                .folder-settings-icon {
+                    color: #666;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .folder-settings-text {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2px;
+                    flex: 1;
+
+                    .folder-settings-title {
+                        font-size: 13px;
+                        font-weight: 600;
+                        color: #333;
+                    }
+
+                    .folder-settings-desc {
+                        font-size: 12px;
+                        color: #666;
+                    }
+                }
+
+                .folder-settings-help {
+                    color: #999;
+                    flex-shrink: 0;
+                }
+
+                .folder-settings-arrow {
+                    color: #999;
+                    flex-shrink: 0;
+                }
+            }
+        }
+
+        .folder-privacy-section {
+            .folder-privacy-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+
+                .folder-privacy-info {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2px;
+
+                    .folder-privacy-title {
+                        font-size: 13px;
+                        font-weight: 600;
+                        color: #333;
+                    }
+
+                    .folder-privacy-description {
+                        font-size: 12px;
+                        color: #666;
+                    }
+                }
+
+                .form-check-input {
+                    width: 40px;
+                    height: 22px;
+                    cursor: pointer;
+                    flex-shrink: 0;
+
+                    &:checked {
+                        background-color: #5865f2;
+                        border-color: #5865f2;
+                    }
+                }
+            }
+        }
+    }
+
+    .modal-footer.create-folder-modal-footer {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .create-folder-use-templates {
+            padding: 0;
+            text-decoration: none;
+            color: #5865f2;
+            font-weight: 500;
+            font-size: 13px;
+
+            &:hover {
+                text-decoration: underline;
+                color: #4752c4;
+            }
+        }
+
+        .create-folder-btn-create {
+            background: #5865f2;
+            border-color: #5865f2;
+            padding: 8px 24px;
+            font-weight: 500;
+            border-radius: 6px;
+            font-size: 14px;
+
+            &:hover {
+                background: #4752c4;
+                border-color: #4752c4;
+            }
+        }
+    }
+}
+
 // Dark Theme Modal
 [data-menu="dark"] {
     .create-space-modal {
@@ -863,6 +1094,99 @@
 
             .use-templates-section {
                 border-top-color: rgba(255, 255, 255, 0.1);
+            }
+        }
+    }
+
+    .create-folder-modal {
+        .modal-content {
+            background: #2d2d30;
+            color: #ffffff;
+        }
+
+        .modal-header {
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+
+            .btn-icon {
+                color: rgba(255, 255, 255, 0.7);
+                &:hover {
+                    background: rgba(255, 255, 255, 0.08);
+                    color: #ffffff;
+                }
+            }
+        }
+
+        .modal-body {
+            .create-folder-modal-description {
+                color: rgba(255, 255, 255, 0.6);
+            }
+
+            .form-control {
+                background: rgba(255, 255, 255, 0.05);
+                border-color: rgba(255, 255, 255, 0.15);
+                color: #ffffff;
+
+                &:focus {
+                    background: rgba(0, 0, 0, 0.2);
+                    border-color: #5865f2;
+                }
+
+                &::placeholder {
+                    color: rgba(255, 255, 255, 0.4);
+                }
+            }
+
+            .folder-settings-section {
+                .folder-settings-label {
+                    color: rgba(255, 255, 255, 0.9);
+                }
+
+                .folder-settings-row {
+                    background: rgba(255, 255, 255, 0.05);
+                    border-color: rgba(255, 255, 255, 0.1);
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.08);
+                    }
+
+                    .folder-settings-icon {
+                        color: rgba(255, 255, 255, 0.7);
+                    }
+
+                    .folder-settings-title {
+                        color: #ffffff;
+                    }
+
+                    .folder-settings-desc {
+                        color: rgba(255, 255, 255, 0.6);
+                    }
+
+                    .folder-settings-help,
+                    .folder-settings-arrow {
+                        color: rgba(255, 255, 255, 0.5);
+                    }
+                }
+            }
+
+            .folder-privacy-section {
+                .folder-privacy-title {
+                    color: #ffffff;
+                }
+
+                .folder-privacy-description {
+                    color: rgba(255, 255, 255, 0.6);
+                }
+            }
+        }
+
+        .modal-footer.create-folder-modal-footer {
+            border-top-color: rgba(255, 255, 255, 0.1);
+
+            .create-folder-use-templates {
+                color: #5865f2;
+                &:hover {
+                    color: #7c86f5;
+                }
             }
         }
     }

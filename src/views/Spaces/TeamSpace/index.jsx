@@ -25,13 +25,13 @@ const TeamSpace = () => {
     const workloadTotal = workload.reduce((sum, s) => sum + s.value, 0);
     const workloadGradient = workloadTotal
         ? `conic-gradient(${workload
-              .map((s, idx) => {
-                  const prev = workload.slice(0, idx).reduce((sum, x) => sum + x.value, 0);
-                  const from = (prev / workloadTotal) * 360;
-                  const to = ((prev + s.value) / workloadTotal) * 360;
-                  return `${s.color} ${from}deg ${to}deg`;
-              })
-              .join(', ')})`
+            .map((s, idx) => {
+                const prev = workload.slice(0, idx).reduce((sum, x) => sum + x.value, 0);
+                const from = (prev / workloadTotal) * 360;
+                const to = ((prev + s.value) / workloadTotal) * 360;
+                return `${s.color} ${from}deg ${to}deg`;
+            })
+            .join(', ')})`
         : 'conic-gradient(rgba(255,255,255,.18) 0deg 360deg)';
 
     return (
@@ -41,7 +41,7 @@ const TeamSpace = () => {
                     <div className="d-flex align-items-start justify-content-between gap-3 flex-wrap">
                         <div className="team-space-title-wrap">
                             <div className="team-space-title-row">
-                                <h1 className="pg-title mb-0">Space 1</h1>
+                                <h1 className="pg-title mb-0" style={{ fontSize: "1.0rem" }}>Space 1</h1>
                                 <Button variant="flush-dark" size="sm" className="btn-icon team-space-title-btn" aria-label="Team space options">
                                     <ChevronDown size={16} />
                                 </Button>

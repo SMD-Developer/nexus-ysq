@@ -73,13 +73,6 @@ const Dashboard = () => {
                                     </Nav.Item>
                                 </Nav>
                             </div>
-
-                            <div className="d-flex align-items-center gap-2 mt-1">
-                                <Button variant="primary" size="sm" className="d-inline-flex align-items-center gap-2">
-                                    <Plus size={16} />
-                                    Card
-                                </Button>
-                            </div>
                         </div>
                     </div>
 

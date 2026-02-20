@@ -16,6 +16,23 @@
     max-width: 1200px;
 }
 
+.custom-toggle::after {
+    display: none !important;
+}
+
+.no-caret::after {
+    display: none !important;
+}
+
+.settings-sidebar-footer-link {
+    &:hover {
+        color: rgb(236, 108, 23) !important;
+
+        .settings-sidebar-icon svg {
+            stroke: rgb(236, 108, 23) !important;;
+        }
+    }
+}
 // Header
 .settings-people-header {
     display: flex;

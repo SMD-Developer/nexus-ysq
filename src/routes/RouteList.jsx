@@ -16,6 +16,7 @@ import Gallery from "../views/Gallery";
 import TeamSpace from "../views/Spaces/TeamSpace";
 import PeopleSettings from "../views/Settings/People";
 import MySettings from "../views/Settings/MySettings";
+import TeamsSettings from "../views/Settings/Teams";
 import AllApps from "../views/Integrations/All Apps";
 import IntegrationsDetail from "../views/Integrations/App Details";
 import Integration from "../views/Integrations/Integration";
@@ -53,6 +54,7 @@ export const routes = [
     { path: 'spaces/team-space', exact: true, component: TeamSpace },
     { path: 'settings/people', exact: true, component: PeopleSettings },
     { path: 'settings/my-settings', exact: true, component: MySettings },
+    { path: 'settings/teams', exact: true, component: TeamsSettings },
     //Apps
     { path: 'apps/chat/chats', exact: true, component: Chats },
     { path: 'apps/chat/chat-groups', exact: true, component: ChatGroups },
@@ -91,9 +93,9 @@ export const routes = [
 ]
 
 export const authRoutes = [
-    { path: '/login', exact: true, component: Login },
-    { path: '/login-simple', exact: true, component: LoginSimple },
-    { path: '/login-classic', exact: true, component: LoginClassic },
+    { path: '/login', exact: true, component: LoginClassic },
+    // { path: '/login-simple', exact: true, component: LoginSimple },
+    // { path: '/login-classic', exact: true, component: LoginClassic },
     { path: '/signup', exact: true, component: Signup },
     { path: '/signup-simple', exact: true, component: SignUpSimple },
     { path: '/signup-classic', exact: true, component: SignupClassic },
