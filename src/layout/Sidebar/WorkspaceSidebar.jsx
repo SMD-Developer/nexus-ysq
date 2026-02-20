@@ -71,35 +71,18 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
 
     // Workspace sections data
     const mainMenuItems = [
-        { name: 'Home', icon: <HomeIcon size={18} />, path: '/dashboard' },
-        { name: 'Assigned Comments', icon: <MessageSquare size={18} />, path: '/apps/comments' },
+        { name: 'Home', icon: <HomeIcon size={18} />, path: '/Dashboard' },
     ];
 
     const myTasksItems = [
         { name: 'Assigned to me', icon: <UserCheck size={16} />, path: '/apps/taskboard/projects-board' },
-        { name: 'Today & Overdue', icon: <Calendar size={16} />, path: '/apps/todo/task-list' },
-        { name: 'Personal List', icon: <List size={16} />, path: '/apps/todo/gantt' },
     ];
 
     const spacesItems = [
         {
-            name: 'All Tasks',
-            subtitle: `${userName}'s Workspace`,
-            icon: <TablerIcons.Template size={16} />,
-            path: '/apps/taskboard/projects-board',
-            projects: []
-        },
-        {
-            name: 'Team Space',
-            icon: <Users size={16} />,
-            path: '/spaces/team-space',
-            hasMenu: true,
-            projects: []
-        },
-        {
             name: 'Space 1',
             icon: <Users size={16} />,
-            path: '/apps/contacts/contact-list',
+            path: '/spaces/team-space',
             projects: [
                 {
                     name: 'Folder 1',
@@ -126,29 +109,6 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
                     hasMenu: true
                 }
             ]
-        },
-        {
-            name: 'Project 1',
-            icon: <TablerIcons.LayoutKanban size={16} />,
-            path: '/apps/taskboard/kanban-board',
-            count: '3',
-            hasMenu: true,
-            projects: []
-        },
-        {
-            name: 'Project 2',
-            icon: <TablerIcons.LayoutKanban size={16} />,
-            path: '/apps/taskboard/pipeline',
-            count: '3',
-            hasMenu: true,
-            projects: []
-        },
-        {
-            name: 'Project Notes',
-            icon: <TablerIcons.FileCheck size={16} />,
-            path: '/apps/file-manager/list-view',
-            hasMenu: true,
-            projects: []
         },
     ];
 
@@ -254,18 +214,6 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
                                 ))}
                             </Nav>
                         )}
-                    </div>
-
-                    {/* More Section */}
-                    <div className="menu-section">
-                        <Nav className="flex-column workspace-nav">
-                            <Nav.Item>
-                                <Nav.Link href="#" className="workspace-nav-link">
-                                    <span className="nav-icon"><MoreHorizontal size={18} /></span>
-                                    <span className="nav-text">More</span>
-                                </Nav.Link>
-                            </Nav.Item>
-                        </Nav>
                     </div>
 
                     {/* Favorites Section */}
@@ -479,13 +427,6 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
                         </div>
                     </div>
 
-                    {/* Customize Sidebar Footer */}
-                    <div className="customize-footer">
-                        <Button variant="link" className="customize-btn" as={NavLink} to="/pages/account">
-                            <Settings size={16} className="me-2" />
-                            Customize Sidebar
-                        </Button>
-                    </div>
                 </div>
             </SimpleBar>
 
@@ -526,7 +467,6 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
                     <ul>
                         <li>Favorite</li>
                         <li>Rename</li>
-                        <li>Copy Link</li>
                         <li
                             onClick={() => {
                                 setShowAddItemModal(true);
@@ -535,8 +475,6 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
                         >
                             Create Task
                         </li>
-                        <li>Task statuses</li>
-                        <li>List Info</li>
                         <li>Duplicate</li>
                         <li>Delete</li>
                     </ul>
@@ -734,7 +672,7 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
 
                         {/* Time Estimate & Sprint Points */}
                         <div className="row">
-                            <div className="col-md-6">
+                            <div className="col-md-12">
                                 <Form.Group className="mb-3">
                                     <Form.Label>Time Estimate</Form.Label>
                                     <Form.Control
@@ -745,20 +683,10 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
                                     />
                                 </Form.Group>
                             </div>
-                            <div className="col-md-6">
-                                <Form.Group className="mb-3">
-                                    <Form.Label>Sprint Points</Form.Label>
-                                    <Form.Control
-                                        type="text"
-                                        value={sprintPoints}
-                                        onChange={(e) => setSprintPoints(e.target.value)}
-                                    />
-                                </Form.Group>
-                            </div>
                         </div>
 
                         {/* Track Time */}
-                        <Form.Group className="mb-3">
+                        {/* <Form.Group className="mb-3">
                             <Form.Label>Track Time</Form.Label>
                             <Form.Control
                                 type="text"
@@ -766,7 +694,7 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
                                 value={trackTime}
                                 onChange={(e) => setTrackTime(e.target.value)}
                             />
-                        </Form.Group>
+                        </Form.Group> */}
 
                         {/* Tags */}
                         <Form.Group className="mb-3">

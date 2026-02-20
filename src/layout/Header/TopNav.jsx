@@ -67,7 +67,7 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                             <div className="workspace-avatar-sm">
                                 <span className="avatar-letter">A</span>
                             </div>
-                            <span className="workspace-name-text">Ashutosh Srivastar's Workspace</span>
+                            <span className="workspace-name-text">Workspace 1</span>
                             <ChevronDown size={16} />
                         </Dropdown.Toggle>
                         <Dropdown.Menu className="workspace-dropdown-menu">
@@ -76,7 +76,7 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                                     <span className="avatar-letter">A</span>
                                 </div>
                                 <div className="workspace-info">
-                                    <div className="workspace-title">Ashutosh Srivastar's Workspace</div>
+                                    <div className="workspace-title">Workspace 1</div>
                                     <div className="workspace-plan">Free Forever · Upgrade</div>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                                 <div className="workspace-avatar-xs">
                                     <span className="avatar-letter">S</span>
                                 </div>
-                                <span>Santosh Roshan's Workspace</span>
+                                <span>Workspace 2</span>
                             </Dropdown.Item>
                             <Dropdown.Item>
                                 <Plus size={16} className="me-2" />
