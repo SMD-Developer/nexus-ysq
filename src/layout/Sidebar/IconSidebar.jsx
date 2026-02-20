@@ -4,25 +4,21 @@ import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import {
     Home,
-    Calendar,
-    Trello,
+    Settings,
     Users,
-    Clock,
     MoreHorizontal,
     UserPlus,
-    ArrowUp,
+    LogOut,
     ChevronRight
 } from 'react-feather';
 import './icon-sidebar.scss';
 
 const IconSidebar = ({ onExpandWorkspace, showExpandButton = false }) => {
     const iconMenuItems = [
-        { name: 'Home', icon: <Home size={20} />, path: '/dashboard' },
-        { name: 'Planner', icon: <Calendar size={20} />, path: '/apps/calendar' },
-        { name: 'AI', icon: <Trello size={20} />, path: '/apps/taskboard/projects-board' },
+        { name: 'Home', icon: <Home size={20} />, path: '/Dashboard' },
         { name: 'Teams', icon: <Users size={20} />, path: '/apps/contacts/contact-list' },
-        { name: 'Timesheet', icon: <Clock size={20} />, path: '/apps/todo/task-list' },
-        { name: 'More', icon: <MoreHorizontal size={20} />, path: '#' },
+        { name: 'Settings', icon: <Settings size={20} />, path: '/settings/my-settings' },
+        // { name: 'More', icon: <MoreHorizontal size={20} />, path: '#' },
     ];
 
     return (
@@ -70,9 +66,9 @@ const IconSidebar = ({ onExpandWorkspace, showExpandButton = false }) => {
                         </Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link as="a" href="#" className="icon-nav-link" title="Upgrade">
-                            <span className="icon-wrapper"><ArrowUp size={20} /></span>
-                            <span className="icon-label">Upgrade</span>
+                        <Nav.Link as="a" href="#" className="icon-nav-link" title="Logout">
+                            <span className="icon-wrapper"><LogOut size={20} /></span>
+                            <span className="icon-label">Logout</span>
                         </Nav.Link>
                     </Nav.Item>
                 </Nav>

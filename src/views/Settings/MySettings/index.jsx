@@ -74,7 +74,7 @@ const MySettings = () => {
                                 </Form.Group>
                             </div>
 
-                            <div className="my-settings-2fa">
+                            {/* <div className="my-settings-2fa">
                                 <div className="my-settings-section-label-inline">
                                     <h2 className="my-settings-section-title">Two-factor authentication (2FA)</h2>
                                     <p className="my-settings-section-desc">
@@ -97,7 +97,7 @@ const MySettings = () => {
                                     </p>
                                     <a href="#" className="my-settings-2fa-link">Business</a>
                                 </div>
-                            </div>
+                            </div> */}
 
                             <div className="my-settings-actions">
                                 <Button variant="primary" className="my-settings-save-btn">

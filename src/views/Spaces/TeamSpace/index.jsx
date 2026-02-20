@@ -7,12 +7,12 @@ const TeamSpace = () => {
     const [activeView, setActiveView] = useState('overview');
 
     const lists = [
-        { name: 'Project 1', done: 0, total: 3 },
-        { name: 'Project 2', done: 1, total: 4 },
-        { name: 'list 1', done: 0, total: 0 },
+        { name: 'List 1', done: 0, total: 3 },
+        { name: 'List 2', done: 1, total: 4 },
+        { name: 'List 3', done: 0, total: 0 },
     ];
 
-    const folders = [{ name: 'Test' }];
+    const folders = [{ name: 'Folder 1' }, { name: 'Folder 2' }, { name: 'Folder 3' }];
 
     const workload = useMemo(
         () => [
@@ -41,7 +41,7 @@ const TeamSpace = () => {
                     <div className="d-flex align-items-start justify-content-between gap-3 flex-wrap">
                         <div className="team-space-title-wrap">
                             <div className="team-space-title-row">
-                                <h1 className="pg-title mb-0">Team Space</h1>
+                                <h1 className="pg-title mb-0">Space 1</h1>
                                 <Button variant="flush-dark" size="sm" className="btn-icon team-space-title-btn" aria-label="Team space options">
                                     <ChevronDown size={16} />
                                 </Button>
@@ -53,40 +53,6 @@ const TeamSpace = () => {
                                 <Nav.Item>
                                     <Nav.Link eventKey="overview">
                                         <span className="nav-link-text">Overview</span>
-                                    </Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="list">
-                                        <span className="d-inline-flex align-items-center gap-2">
-                                            <ListIcon size={14} />
-                                            <span className="nav-link-text">List</span>
-                                        </span>
-                                    </Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="board">
-                                        <span className="d-inline-flex align-items-center gap-2">
-                                            <Layout size={14} />
-                                            <span className="nav-link-text">Board</span>
-                                        </span>
-                                    </Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="calendar">
-                                        <span className="d-inline-flex align-items-center gap-2">
-                                            <Calendar size={14} />
-                                            <span className="nav-link-text">Calendar</span>
-                                        </span>
-                                    </Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="gantt">
-                                        <span className="nav-link-text">Gantt</span>
-                                    </Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="table">
-                                        <span className="nav-link-text">Table</span>
                                     </Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item className="ms-1">
@@ -117,12 +83,12 @@ const TeamSpace = () => {
                                         <Card.Body>
                                             <ListGroup variant="flush" className="team-space-list">
                                                 <ListGroup.Item className="team-space-list-item">
-                                                    <div className="team-space-item-title">Test</div>
-                                                    <div className="team-space-item-subtitle">in Team Space</div>
+                                                    <div className="team-space-item-title">FOLDER 1</div>
+                                                    <div className="team-space-item-subtitle">in Space 1</div>
                                                 </ListGroup.Item>
                                                 <ListGroup.Item className="team-space-list-item">
-                                                    <div className="team-space-item-title">List</div>
-                                                    <div className="team-space-item-subtitle">in Test</div>
+                                                    <div className="team-space-item-title"> FOLDER 2</div>
+                                                    <div className="team-space-item-subtitle">in Space 1</div>
                                                 </ListGroup.Item>
                                             </ListGroup>
                                         </Card.Body>
@@ -134,12 +100,12 @@ const TeamSpace = () => {
                                         <Card.Body>
                                             <ListGroup variant="flush" className="team-space-list">
                                                 <ListGroup.Item className="team-space-list-item">
-                                                    <div className="team-space-item-title">Project 2</div>
-                                                    <div className="team-space-item-subtitle">in Team Space</div>
+                                                    <div className="team-space-item-title"> LIST 2</div>
+                                                    <div className="team-space-item-subtitle">In Space 1</div>
                                                 </ListGroup.Item>
                                                 <ListGroup.Item className="team-space-list-item">
-                                                    <div className="team-space-item-title">Project 1</div>
-                                                    <div className="team-space-item-subtitle">in Team Space</div>
+                                                    <div className="team-space-item-title">LIST 1</div>
+                                                    <div className="team-space-item-subtitle">In Space 1</div>
                                                 </ListGroup.Item>
                                             </ListGroup>
                                         </Card.Body>
@@ -153,7 +119,7 @@ const TeamSpace = () => {
                                                 <span className="bi bi-bookmark-plus" />
                                             </div>
                                             <div className="team-space-muted mt-3">
-                                                Bookmarks make it easy to save ClickUp items or any URL from around the web.
+                                                Bookmarks make it easy to save Nexus items.
                                             </div>
                                             <Button variant="primary" size="sm" className="mt-3">
                                                 Add Bookmark
