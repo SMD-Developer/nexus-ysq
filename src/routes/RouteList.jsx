@@ -14,9 +14,11 @@ import GridView from "../views/FileManager/GridView";
 import ListView from "../views/FileManager/ListView";
 import Gallery from "../views/Gallery";
 import TeamSpace from "../views/Spaces/TeamSpace";
+import ListDetailPage from "../views/Spaces/ListDetailPage";
 import PeopleSettings from "../views/Settings/People";
 import MySettings from "../views/Settings/MySettings";
 import TeamsSettings from "../views/Settings/Teams";
+import SecurityPermissions from "../views/Settings/SecurityPermissions";
 import AllApps from "../views/Integrations/All Apps";
 import IntegrationsDetail from "../views/Integrations/App Details";
 import Integration from "../views/Integrations/Integration";
@@ -52,9 +54,11 @@ export const routes = [
 
     { path: 'dashboard', exact: true, component: Dashboard },
     { path: 'spaces/team-space', exact: true, component: TeamSpace },
+    { path: 'apps/task-list/:folderName/:listId', exact: true, component: ListDetailPage },
     { path: 'settings/people', exact: true, component: PeopleSettings },
     { path: 'settings/my-settings', exact: true, component: MySettings },
     { path: 'settings/teams', exact: true, component: TeamsSettings },
+    { path: 'settings/security-permissions', exact: true, component: SecurityPermissions },
     //Apps
     { path: 'apps/chat/chats', exact: true, component: Chats },
     { path: 'apps/chat/chat-groups', exact: true, component: ChatGroups },

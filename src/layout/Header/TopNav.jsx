@@ -114,36 +114,42 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
 
                 {/* Center Search */}
                 <div className="nav-center-wrap">
-                    <Dropdown as={Form} className="navbar-search-center" show={showDropdown} autoClose={() => setShowDropdown(!showDropdown)} >
+                    <Dropdown
+                        as={Form}
+                        className="navbar-search-center"
+                        show={showDropdown}
+                        autoClose={() => setShowDropdown(!showDropdown)}
+                    >
                         <Dropdown.Toggle as="div" className="no-caret bg-transparent">
-                            <InputGroup className="d-xl-flex d-none search-input-center" style={{ minWidth: 240, maxWidth: 320, width: "100%" }}>
-                                <InputGroup.Text className="bg-transparent border-0 px-2" style={{ paddingRight: 0 }}>
-                                    {/* <span className="feather-icon">
-                                        <Search size={18} />
-                                    </span> */}
-                                </InputGroup.Text>
-                                <Form.Control
-                                    type="text"
-                                    style={{
-                                        background: "transparent",
-                                        border: "1px solid #444950",
-                                        borderLeft: "none",
-                                        color: "#fff",
-                                        height: 32,
-                                        fontSize: 15,
-                                        minWidth: 120,
-                                        boxShadow: "none"
-                                    }}
-                                    placeholder="Search..."
-                                    aria-label="Search"
-                                    onFocus={() => setShowDropdown(true)}
-                                    onBlur={() => setShowDropdown(false)}
-                                    value={searchValue}
-                                    onChange={e => setSearchValue(e.target.value)}
-                                />
-                            </InputGroup>
+                            <div className="d-xl-flex d-none search-input-center search-input-center-bordered">
+                                <InputGroup className="border-0 bg-transparent">
+                                    <InputGroup.Text className="search-input-center-prefix">
+                                        <Search size={14} />
+                                    </InputGroup.Text>
+                                    <Form.Control
+                                        type="text"
+                                        className="search-input-center-input"
+                                        placeholder="Search..."
+                                        aria-label="Search"
+                                        onFocus={() => setShowDropdown(true)}
+                                        onBlur={() => setShowDropdown(false)}
+                                        value={searchValue}
+                                        onChange={e => setSearchValue(e.target.value)}
+                                    />
+                                    {searchValue && (
+                                        <InputGroup.Text
+                                            className="search-input-center-clear"
+                                            onClick={() => setSearchValue("")}
+                                        >
+                                            <i className="bi bi-x" style={{ fontSize: 14 }} />
+                                        </InputGroup.Text>
+                                    )}
+                                </InputGroup>
+                            </div>
                         </Dropdown.Toggle>
-                        <Dropdown.Menu as={motion.div}
+
+                        <Dropdown.Menu
+                            as={motion.div}
                             initial="initial"
                             animate={showDropdown ? "open" : "close"}
                             variants={pageVariants}
@@ -154,12 +160,23 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                             <Dropdown.Item className="d-xl-none bg-transparent">
                                 <InputGroup className="mobile-search">
                                     <span className="input-affix-wrapper input-search">
-                                        <Form.Control type="text" placeholder="Search..." aria-label="Search" value={searchValue} onChange={e => setSearchValue(e.target.value)} onFocus={() => setShowDropdown(true)} autoFocus />
-                                        <span className="input-suffix" onClick={CloseSearchInput} >
+                                        <Form.Control
+                                            type="text"
+                                            placeholder="Search..."
+                                            aria-label="Search"
+                                            value={searchValue}
+                                            onChange={e => setSearchValue(e.target.value)}
+                                            onFocus={() => setShowDropdown(true)}
+                                            autoFocus
+                                        />
+                                        <span className="input-suffix" onClick={CloseSearchInput}>
                                             <span className="btn-input-clear">
                                                 <i className="bi bi-x-circle-fill" />
                                             </span>
-                                            <span className="spinner-border spinner-border-sm input-loader text-primary" role="status">
+                                            <span
+                                                className="spinner-border spinner-border-sm input-loader text-primary"
+                                                role="status"
+                                            >
                                                 <span className="sr-only">Loading...</span>
                                             </span>
                                         </span>

@@ -1,0 +1,207 @@
+// Security & Permissions page – Invite Permissions + Custom Role Permissions
+$purple: #6846f5;
+$purple-light: rgba(104, 70, 245, 0.15);
+$border: #e5e7eb;
+$text-primary: #111827;
+$text-secondary: #6b7280;
+$text-muted: #9ca3af;
+$bg-page: #ffffff;
+
+.settings-security-page {
+    padding: 0;
+    min-height: 100vh;
+    background: $bg-page;
+}
+
+.settings-security-content {
+    padding: 2rem 1.5rem;
+}
+
+.settings-security-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.settings-security-section {
+    margin-bottom: 3rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.settings-security-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    &.settings-security-section-header--custom {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+.settings-security-section-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0;
+    color: $text-primary;
+}
+
+.settings-security-learn {
+    font-size: 0.875rem;
+    color: $purple;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+        color: $purple;
+    }
+}
+
+.settings-security-custom-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.settings-security-lock-icon {
+    color: $text-secondary;
+    flex-shrink: 0;
+}
+
+.settings-security-custom-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.settings-security-search {
+    max-width: 280px;
+
+    .input-group-text {
+        background: #f9fafb;
+        border: 1px solid $border;
+        border-right: none;
+        color: $text-muted;
+    }
+
+    .form-control {
+        border: 1px solid $border;
+        border-left: none;
+        font-size: 0.875rem;
+
+        &::placeholder {
+            color: $text-muted;
+        }
+    }
+}
+
+.settings-security-new-role {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: $purple !important;
+    border-color: $purple !important;
+    color: #fff !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+
+    &:hover {
+        background: darken($purple, 6%) !important;
+        border-color: darken($purple, 6%) !important;
+        color: #fff !important;
+    }
+}
+
+.settings-security-table-wrap {
+    border: 1px solid $border;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.settings-security-table {
+    margin: 0;
+    font-size: 0.875rem;
+
+    thead th {
+        font-size: 0.6875rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: $text-secondary;
+        background: #f9fafb;
+        border-color: $border;
+        padding: 0.75rem 1rem;
+        vertical-align: middle;
+    }
+
+    tbody td {
+        border-color: $border;
+        padding: 0.75rem 1rem;
+        vertical-align: middle;
+    }
+}
+
+.settings-security-col-action {
+    min-width: 260px;
+    max-width: 400px;
+}
+
+.settings-security-col-role {
+    width: 100px;
+    text-align: center;
+}
+
+.settings-security-category-row td {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $text-secondary;
+    background: #f3f4f6;
+    padding: 0.5rem 1rem;
+    border-color: $border;
+}
+
+.settings-security-action-label {
+    font-weight: 600;
+    color: $text-primary;
+    margin-bottom: 2px;
+}
+
+.settings-security-action-desc {
+    font-size: 0.8125rem;
+    color: $text-secondary;
+    line-height: 1.4;
+}
+
+// Toggle switch – purple when on
+.settings-security-toggle {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+
+    .form-check-input {
+        width: 2.5rem;
+        height: 1.25rem;
+        cursor: pointer;
+        border: 1px solid $border;
+        background-color: #e5e7eb;
+
+        &:checked {
+            background-color: $purple;
+            border-color: $purple;
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 0.2rem $purple-light;
+        }
+    }
+}

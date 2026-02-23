@@ -1,0 +1,1390 @@
+// ============================================================
+// ListDetailPage – refined, compact task-manager UI
+// ============================================================
+
+$accent: #F4622A;
+$accent-light: rgba(#F4622A, 0.08);
+$border: #EBEBEB;
+$text-primary: #1A1A1A;
+$text-secondary: #6B7280;
+$text-muted: #9CA3AF;
+$bg-body: #F7F8FA;
+$bg-white: #FFFFFF;
+$row-hover: #FAFAFA;
+$font: 'DM Sans', 'Segoe UI', sans-serif;
+
+// ── Base ────────────────────────────────────────────────────
+.list-detail-wrap {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: $bg-body;
+    font-family: $font;
+    font-size: 12.5px;
+    color: $text-primary;
+}
+
+// ── Header / Tab bar ────────────────────────────────────────
+.list-detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background: $bg-white;
+    border-bottom: 1px solid $border;
+    min-height: 44px;
+}
+
+.list-detail-nav-tabs {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 100%;
+}
+
+.list-detail-tab {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0 12px;
+    height: 44px;
+    font-size: 12px;
+    font-weight: 500;
+    color: $text-secondary;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+
+    svg {
+        flex-shrink: 0;
+    }
+
+    &:hover {
+        color: $text-primary;
+    }
+
+    &.active {
+        color: $accent;
+        border-bottom-color: $accent;
+        font-weight: 600;
+    }
+
+    &.list-detail-tab-add {
+        color: $text-muted;
+        font-size: 11.5px;
+
+        &:hover {
+            color: $accent;
+        }
+    }
+}
+
+// ── Header action icons ──────────────────────────────────────
+.list-detail-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+
+    .btn {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        padding: 0;
+        color: $text-secondary;
+        background: transparent;
+        border: none;
+        transition: background 0.15s, color 0.15s;
+
+        &:hover {
+            background: $row-hover;
+            color: $text-primary;
+        }
+    }
+}
+
+.list-detail-letter {
+    font-size: 11px;
+    font-weight: 700;
+    color: $text-secondary;
+}
+
+.list-detail-add-task-btn {
+    display: flex !important;
+    align-items: center;
+    gap: 4px;
+    height: 30px !important;
+    padding: 0 12px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    border-radius: 7px !important;
+    background: $accent !important;
+    border-color: $accent !important;
+    width: auto !important;
+    white-space: nowrap;
+
+    &:hover {
+        background: darken($accent, 6%) !important;
+        border-color: darken($accent, 6%) !important;
+    }
+}
+
+// ── Toolbar (secondary bar) ──────────────────────────────────
+.list-detail-toolbar {
+    display: flex;
+    align-items: center;
+    padding: 6px 20px;
+    background: $bg-white;
+    border-bottom: 1px solid $border;
+    gap: 6px;
+}
+
+.list-detail-toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.list-detail-status-btn {
+    display: flex !important;
+    align-items: center;
+    gap: 5px;
+    height: 26px !important;
+    padding: 0 10px !important;
+    font-size: 11.5px !important;
+    font-weight: 500 !important;
+    border-radius: 6px !important;
+    background: $accent-light !important;
+    color: $accent !important;
+    border: 1px solid rgba($accent, 0.2) !important;
+
+    &:hover {
+        background: rgba($accent, 0.14) !important;
+    }
+}
+
+// ── Body / scrollable area ───────────────────────────────────
+.list-detail-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 20px;
+}
+
+.list-detail-content {
+    background: $bg-white;
+    border: 1px solid $border;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+// ── Section header (TO DO) ───────────────────────────────────
+.list-detail-section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px solid $border;
+    transition: background 0.12s;
+
+    &:hover {
+        background: $row-hover;
+    }
+}
+
+.list-detail-section-chevron {
+    color: $text-muted;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+
+    &.rotate-270 {
+        transform: rotate(-90deg);
+    }
+}
+
+.list-detail-section-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #D1D5DB;
+    flex-shrink: 0;
+}
+
+.list-detail-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $text-secondary;
+}
+
+.list-detail-section-count {
+    font-size: 11px;
+    font-weight: 600;
+    color: $text-muted;
+    background: $bg-body;
+    border: 1px solid $border;
+    border-radius: 10px;
+    padding: 0 6px;
+    min-width: 20px;
+    text-align: center;
+    margin-left: auto;
+}
+
+// ── Task Table ───────────────────────────────────────────────
+.list-detail-table-wrap {
+    overflow-x: auto;
+}
+
+.list-detail-table {
+    width: 100%;
+    margin: 0;
+    border-collapse: collapse;
+    table-layout: fixed;
+
+    thead tr {
+        border-bottom: 1px solid $border;
+    }
+
+    thead th {
+        padding: 8px 12px;
+        font-size: 11px;
+        font-weight: 600;
+        color: $text-muted;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        background: $bg-body;
+        border: none;
+        white-space: nowrap;
+    }
+
+
+    .list-detail-col-name {
+        width: auto;
+        min-width: 220px;
+    }
+
+    .list-detail-col-assignee {
+        width: 120px;
+    }
+
+    .list-detail-col-due {
+        width: 130px;
+    }
+
+    .list-detail-col-priority {
+        width: 110px;
+    }
+
+    .list-detail-col-add {
+        width: 40px;
+    }
+
+    tbody tr {
+        border-bottom: 1px solid $border;
+    }
+
+    tbody tr:last-child {
+        border-bottom: none;
+    }
+}
+
+
+.list-detail-task-indent {
+    display: inline-block;
+    flex-shrink: 0;
+    min-width: 0;
+}
+
+.list-detail-add-subtask-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    color: $text-muted;
+    background: transparent;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.15s, color 0.15s, background 0.15s;
+    flex-shrink: 0;
+
+    &:hover {
+        color: $accent;
+        background: $accent-light;
+    }
+
+    &.list-detail-add-subtask-btn-inline {
+        margin-right: 2px;
+    }
+}
+
+.list-detail-task-row {
+    transition: background 0.12s;
+    cursor: pointer;
+
+    &:hover {
+        background: $row-hover;
+
+        .list-detail-add-subtask-btn {
+            opacity: 1;
+        }
+    }
+
+    td {
+        padding: 8px 12px;
+        vertical-align: middle;
+        border: none;
+        font-size: 12.5px;
+        color: $text-primary;
+    }
+
+    .list-detail-col-name {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .list-detail-task-indent {
+            flex-shrink: 0;
+        }
+
+        .form-check {
+            margin: 0;
+            padding: 0;
+
+            .form-check-input {
+                width: 14px;
+                height: 14px;
+                border: 1.5px solid #D1D5DB;
+                border-radius: 4px;
+                cursor: pointer;
+                margin: 0;
+                flex-shrink: 0;
+                transition: border-color 0.15s, background 0.15s;
+
+                &:checked {
+                    background-color: $accent;
+                    border-color: $accent;
+                }
+
+                &:hover:not(:checked) {
+                    border-color: $accent;
+                }
+            }
+        }
+
+        span:not(.list-detail-task-indent):not(.list-detail-add-subtask-btn) {
+            font-weight: 450;
+            color: $text-primary;
+        }
+    }
+
+    .list-detail-col-add {
+        text-align: right;
+    }
+
+    &.list-detail-task-row-sub {
+        .list-detail-col-name {
+            font-weight: 400;
+        }
+    }
+
+    .list-detail-col-assignee,
+    .list-detail-col-due,
+    .list-detail-col-priority {
+        svg {
+            opacity: 0.4;
+            transition: opacity 0.15s;
+        }
+
+        &:hover svg {
+            opacity: 0.75;
+        }
+    }
+}
+
+
+// Inline form row: enter name + Save / Cancel
+.list-detail-add-form-row {
+    background: $row-hover;
+
+    td {
+        padding: 8px 12px;
+        border: none;
+        border-bottom: 1px solid $border;
+        vertical-align: middle;
+    }
+
+    .list-detail-col-name {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .list-detail-new-task-input {
+        max-width: 280px;
+        font-size: 12.5px;
+        border-radius: 6px;
+        border: 1px solid $border;
+
+        &:focus {
+            border-color: $accent;
+            box-shadow: 0 0 0 2px $accent-light;
+        }
+    }
+
+    .list-detail-save-task-btn {
+        font-size: 12px;
+        font-weight: 600;
+        padding: 4px 12px;
+        border-radius: 6px;
+    }
+
+    .list-detail-cancel-task-btn {
+        font-size: 12px;
+        color: $text-muted;
+        padding: 4px 10px;
+
+        &:hover {
+            color: $text-primary;
+        }
+    }
+}
+
+.list-detail-add-row {
+    cursor: pointer;
+    transition: background 0.12s;
+
+    &:hover {
+        background: $row-hover;
+    }
+
+    td {
+        padding: 9px 12px;
+        font-size: 12px;
+        color: $text-muted;
+        display: flex;
+        align-items: center;
+        border: none;
+        font-weight: 500;
+
+        svg {
+            opacity: 0.5;
+        }
+
+        &:hover {
+            color: $accent;
+
+            svg {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+// ── Task Detail Modal (full task view like reference) ─────────
+.task-detail-modal {
+    .modal-dialog {
+        max-width: 900px;
+    }
+
+    .modal-content {
+        border-radius: 12px;
+        border: 1px solid $border;
+        overflow: hidden;
+    }
+
+    .task-detail-modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 12px 16px;
+        border-bottom: 1px solid $border;
+        background: $bg-white;
+
+        .task-detail-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: $text-secondary;
+
+            svg {
+                opacity: 0.6;
+            }
+        }
+
+        .task-detail-header-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .task-detail-created {
+            font-size: 11px;
+            color: $text-muted;
+        }
+
+        .btn-icon {
+            width: 32px;
+            height: 32px;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .task-detail-modal-body {
+        max-height: 75vh;
+        overflow-y: auto;
+    }
+
+    .task-detail-main {
+        display: flex;
+        min-height: 400px;
+    }
+
+    .task-detail-content {
+        flex: 1;
+        padding: 20px 24px;
+        border-right: 1px solid $border;
+    }
+
+    .task-detail-title-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+
+    .task-detail-type-pill .task-detail-type-toggle {
+        font-size: 11px;
+        padding: 4px 10px;
+        border-radius: 20px;
+        background: $row-hover;
+        border: none;
+        color: $text-secondary;
+    }
+
+    .task-detail-subtask-of-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        color: $text-muted;
+        background: none;
+        border: none;
+        padding: 0 8px 0 0;
+        cursor: pointer;
+        margin-right: 8px;
+        transition: color 0.15s;
+
+        &:hover {
+            color: $accent;
+        }
+    }
+
+    .task-detail-name {
+        font-size: 1.0rem;
+        font-weight: 600;
+        margin: 0;
+        color: $text-primary;
+        flex: 1;
+    }
+
+    .task-detail-ai-hint {
+        font-size: 12px;
+        color: $text-muted;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .task-detail-fields {
+        margin-bottom: 20px;
+    }
+
+    .task-detail-field {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+        font-size: 12px;
+
+        .label {
+            min-width: 90px;
+            color: $text-secondary;
+        }
+
+        .value {
+            color: $text-muted;
+        }
+
+        .task-detail-field-value-toggle {
+            cursor: pointer;
+            display: inline-block;
+            padding: 2px 0;
+
+            .value:hover {
+                color: $text-primary;
+            }
+        }
+
+        svg {
+            color: $text-muted;
+            flex-shrink: 0;
+        }
+
+        .form-select {
+            max-width: 140px;
+            font-size: 12px;
+            padding: 4px 8px;
+        }
+    }
+
+    // Dates dropdown
+    .task-detail-dates-menu {
+        padding: 12px;
+        min-width: 720px;
+        max-width: 95vw;
+    }
+
+    .task-detail-dates-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    .task-detail-dates-inputs {
+        flex: 1;
+        max-width: 160px;
+
+        .input-group-text {
+            background: #f9fafb;
+            border-color: $border;
+        }
+    }
+
+    .task-detail-dates-sep {
+        color: $text-muted;
+        font-size: 12px;
+    }
+
+    .task-detail-dates-body {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        border-top: 1px solid $border;
+        padding-top: 12px;
+    }
+
+    .task-detail-dates-quick {
+        width: 160px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .task-detail-dates-quick-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 6px 10px;
+        font-size: 12px;
+        color: $text-primary;
+        background: none;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        text-align: left;
+        width: 100%;
+        box-sizing: border-box;
+
+        &:hover {
+            background: $row-hover;
+        }
+
+        .task-detail-dates-quick-label {
+            flex: 1;
+            min-width: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .task-detail-dates-quick-day {
+            flex-shrink: 0;
+            font-size: 11px;
+            color: $text-muted;
+            text-align: right;
+        }
+    }
+
+    .task-detail-dates-calendars-wrap {
+        display: flex;
+        gap: 16px;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .task-detail-dates-calendar {
+        flex: 1;
+        min-width: 220px;
+        max-width: 280px;
+
+        .task-detail-dates-calendar-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: $text-muted;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-bottom: 8px;
+        }
+    }
+
+    .task-detail-datepicker.react-datepicker {
+        border: none;
+        font-size: 12px;
+        width: 100%;
+
+        .react-datepicker__month-container {
+            float: none;
+            width: 100%;
+        }
+
+        .react-datepicker__month {
+            margin: 0;
+        }
+
+        .react-datepicker__day-names,
+        .react-datepicker__week {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .react-datepicker__day-name,
+        .react-datepicker__day {
+            width: 2rem;
+            line-height: 2rem;
+            margin: 0;
+        }
+    }
+
+    // Assignee dropdown
+    .task-detail-assignee-menu {
+        padding: 12px;
+        min-width: 280px;
+    }
+
+    .task-detail-assignee-title {
+        font-size: 11px;
+        color: $text-muted;
+        margin-bottom: 8px;
+    }
+
+    .task-detail-assignee-search {
+        margin-bottom: 8px;
+
+        .input-group-text {
+            background: #f9fafb;
+            border-color: $border;
+        }
+    }
+
+    .task-detail-assignee-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        padding: 8px 10px;
+        font-size: 13px;
+        color: $text-primary;
+        background: none;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        text-align: left;
+
+        &:hover {
+            background: $row-hover;
+        }
+    }
+
+    .task-detail-assignee-me {
+        position: relative;
+    }
+
+    .task-detail-assignee-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 600;
+        color: #fff;
+        flex-shrink: 0;
+    }
+
+    .task-detail-assignee-avatar-me {
+        background: #4b5563;
+    }
+
+    .task-detail-assignee-online {
+        position: absolute;
+        left: 24px;
+        top: 24px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #22c55e;
+        border: 2px solid $bg-white;
+    }
+
+    .task-detail-assignee-invite {
+        .text-primary {
+            color: $accent !important;
+        }
+    }
+
+    // Priority dropdown
+    .task-detail-priority-menu {
+        padding: 12px;
+        min-width: 260px;
+    }
+
+    .task-detail-priority-section-title {
+        font-size: 11px;
+        font-weight: 600;
+        color: $text-muted;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        margin-bottom: 6px;
+        margin-top: 8px;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    .task-detail-priority-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+
+    .task-detail-priority-flag {
+        display: inline-flex;
+
+        &.priority-urgent {
+            color: #dc2626;
+        }
+
+        &.priority-high {
+            color: #eab308; // yellow
+        }
+
+        &.priority-normal {
+            color: $accent; // primary
+        }
+
+        &.priority-low {
+            color: $text-muted;
+        }
+    }
+
+    .task-detail-priority-ai-wrap {
+        margin: 8px 0;
+    }
+
+    .task-detail-priority-ai-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        justify-content: flex-start;
+        padding: 8px 10px;
+        font-size: 13px;
+        color: $text-primary;
+
+        svg {
+            color: $accent;
+        }
+    }
+
+    .task-detail-priority-personal {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 4px;
+    }
+
+    .task-detail-priority-avatar-add {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: $row-hover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $text-muted;
+    }
+
+    .task-detail-description {
+        margin-bottom: 20px;
+
+        textarea {
+            font-size: 13px;
+            border-radius: 8px;
+            border: 1px solid $border;
+        }
+    }
+
+    .task-detail-custom-fields {
+        margin-bottom: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+
+        .task-detail-section-label {
+            margin-right: 8px;
+        }
+    }
+
+    .task-detail-action-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        color: $accent;
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: opacity 0.15s;
+
+        &:hover {
+            opacity: 0.85;
+        }
+    }
+
+    .task-detail-section-label {
+        font-size: 12px;
+        font-weight: 600;
+        color: $text-secondary;
+    }
+
+    .task-detail-subtasks {
+        margin-top: 16px;
+    }
+
+    .task-detail-subtasks-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        margin-bottom: 12px;
+        user-select: none;
+
+        svg {
+            transition: transform 0.2s;
+        }
+
+        .rotate-270 {
+            transform: rotate(-90deg);
+        }
+    }
+
+    .task-detail-subtasks-count {
+        font-size: 11px;
+        color: $text-muted;
+        margin-left: 4px;
+    }
+
+    .task-detail-subtasks-actions {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-left: auto;
+    }
+
+    .task-detail-sort-dropdown {
+        .task-detail-sort-toggle {
+            font-size: 12px;
+            padding: 4px 8px;
+        }
+    }
+
+    .task-detail-sort-menu {
+        padding: 0;
+        min-width: 160px;
+        border-radius: 8px;
+        border: 1px solid $border;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .task-detail-sort-menu-title {
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: $text-muted;
+        padding: 8px 12px 4px;
+    }
+
+    .task-detail-sort-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 12px;
+        font-size: 13px;
+        color: $text-primary;
+
+        .task-detail-sort-item-icon {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+
+            svg {
+                display: block;
+                line-height: 0;
+            }
+        }
+
+        .task-detail-sort-check {
+            margin-left: auto;
+            color: $accent;
+            flex-shrink: 0;
+        }
+
+        &:hover,
+        &.active {
+            background: $row-hover;
+        }
+    }
+
+    .task-detail-subtask-add-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        color: $text-muted;
+        cursor: pointer;
+        transition: color 0.15s, background 0.15s;
+
+        &:hover {
+            color: $accent;
+            background: $accent-light;
+        }
+    }
+
+    .task-detail-subtasks-list {
+        border: 1px solid $border;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .task-detail-subtask-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 12px;
+        border-bottom: 1px solid $border;
+        font-size: 13px;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .form-check {
+            margin: 0;
+        }
+
+        .task-detail-subtask-name {
+            flex: 1;
+        }
+
+        &.task-detail-subtask-row-clickable {
+            cursor: pointer;
+            transition: background 0.12s;
+
+            &:hover {
+                background: $row-hover;
+            }
+        }
+    }
+
+    .task-detail-subtask-add-form {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        border-top: 1px solid $border;
+        background: $row-hover;
+    }
+
+    .task-detail-activity {
+        width: 360px;
+        min-width: 360px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+        font-family: 'DM Sans', 'Segoe UI', sans-serif;
+    }
+
+    .task-detail-activity-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        font-weight: 700;
+        color: #1a1a1a;
+
+        svg {
+            color: #6b7280;
+            cursor: pointer;
+            transition: color 0.15s;
+
+            &:hover {
+                color: #1a1a1a;
+            }
+        }
+    }
+
+    .task-detail-activity-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #F4622A;
+        color: #fff;
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    .task-detail-activity-log {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .task-detail-activity-item {
+        font-size: 12.5px;
+        color: #1a1a1a;
+        font-weight: 450;
+    }
+
+    .task-detail-activity-meta {
+        font-size: 11px;
+        color: #9ca3af;
+        margin-bottom: 6px;
+    }
+
+    .task-detail-activity-more {
+        font-size: 12px;
+        color: #F4622A;
+        text-decoration: none;
+        font-weight: 500;
+        margin-bottom: 6px;
+        display: inline-block;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .task-detail-activity-more {
+        font-size: 12px;
+        color: #F4622A;
+        text-decoration: none;
+        font-weight: 500;
+        margin-bottom: 6px;
+        display: inline-block;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    // Comment box — card container so it reads as a distinct box
+    .task-detail-comment {
+        margin-top: 12px;
+        border: 1px solid $border;
+        border-radius: 10px;
+        background: $bg-white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+        overflow: hidden;
+    }
+
+    .task-detail-comment-input {
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        resize: none !important;
+        font-size: 12.5px !important;
+        color: #374151 !important;
+        padding: 10px 12px 6px !important;
+        background: transparent !important;
+        min-height: 60px;
+
+        &::placeholder {
+            color: #9ca3af;
+            font-size: 12px;
+        }
+    }
+
+    .task-detail-comment-actions {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .task-detail-comment-action-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border: none;
+        background: transparent;
+        border-radius: 6px;
+        color: #6b7280;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: 600;
+        transition: background 0.15s, color 0.15s;
+
+        &:hover {
+            background: #f3f4f6;
+            color: #1a1a1a;
+        }
+    }
+
+    .task-detail-comment-divider {
+        width: 1px;
+        height: 18px;
+        background: #e5e7eb;
+        margin: 0 4px;
+        flex-shrink: 0;
+    }
+
+    .task-detail-comment-spacer {
+        flex: 1;
+    }
+
+    .task-detail-comment-send-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border: none;
+        border-radius: 7px;
+        background: #F4622A;
+        color: #fff;
+        cursor: pointer;
+        transition: background 0.15s, transform 0.1s;
+        flex-shrink: 0;
+
+        &:hover {
+            background: darken(#F4622A, 8%);
+            transform: scale(1.05);
+        }
+
+        &:active {
+            transform: scale(0.96);
+        }
+    }
+
+    .task-detail-comment-dropdown {
+        .task-detail-comment-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            height: 28px;
+            padding: 0 8px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #374151;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            background: #fff;
+            cursor: pointer;
+            transition: background 0.15s;
+
+            &:hover {
+                background: #f3f4f6;
+            }
+
+            // remove default Bootstrap caret
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    .task-detail-comment-toolbar {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        padding: 6px 8px;
+        border-top: 1px solid #f3f4f6;
+        background: #fafafa;
+    }
+
+    .task-detail-comment-send-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 28px;
+        padding: 0;
+        border: none;
+        background: $accent;
+        color: #fff;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-left: auto;
+        transition: background 0.15s, transform 0.1s;
+
+        &:hover {
+            background: darken($accent, 6%);
+            color: #fff;
+        }
+
+        &:active {
+            transform: scale(0.97);
+        }
+    }
+}
