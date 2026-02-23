@@ -15,6 +15,7 @@ import ListView from "../views/FileManager/ListView";
 import Gallery from "../views/Gallery";
 import TeamSpace from "../views/Spaces/TeamSpace";
 import ListDetailPage from "../views/Spaces/ListDetailPage";
+import AssignedToMePage from "../views/Spaces/AssignedToMePage";
 import PeopleSettings from "../views/Settings/People";
 import MySettings from "../views/Settings/MySettings";
 import TeamsSettings from "../views/Settings/Teams";
@@ -68,6 +69,7 @@ export const routes = [
     { path: 'apps/calendar', exact: true, component: Calendar },
     { path: 'apps/email', exact: true, component: Email },
     { path: 'apps/taskboard/projects-board', exact: true, component: ProjectsBoard },
+    { path: 'apps/taskboard/assigned-to-me', exact: true, component: AssignedToMePage },
     { path: 'apps/taskboard/kanban-board', exact: true, component: KanbanBoard },
     { path: 'apps/taskboard/pipeline', exact: true, component: Pipeline },
     { path: 'apps/contacts/contact-list', exact: true, component: ContactList },

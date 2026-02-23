@@ -270,6 +270,7 @@ $font: 'DM Sans', 'Segoe UI', sans-serif;
     .list-detail-col-name {
         width: auto;
         min-width: 220px;
+        font-size: 12px;
     }
 
     .list-detail-col-assignee {
@@ -282,6 +283,7 @@ $font: 'DM Sans', 'Segoe UI', sans-serif;
 
     .list-detail-col-priority {
         width: 110px;
+        font-size: 12px;
     }
 
     .list-detail-col-add {
@@ -1239,7 +1241,7 @@ $font: 'DM Sans', 'Segoe UI', sans-serif;
 
     // Comment box — card container so it reads as a distinct box
     .task-detail-comment {
-        margin-top: 12px;
+        margin-top: 150px;
         border: 1px solid $border;
         border-radius: 10px;
         background: $bg-white;
@@ -1387,4 +1389,103 @@ $font: 'DM Sans', 'Segoe UI', sans-serif;
             transform: scale(0.97);
         }
     }
+}
+
+// Mention people modal (portaled to body — top-level so styles apply)
+.task-detail-mention-modal {
+    .task-detail-mention-modal-content {
+        border-radius: 12px;
+        overflow: hidden;
+        border: none;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .modal-body {
+        padding: 0;
+    }
+}
+
+.task-detail-mention-modal-body {
+    min-width: 260px;
+    padding: 10px 0;
+}
+
+.task-detail-mention-search-wrap {
+    padding: 0 12px 8px 12px;
+    border: none;
+    background: transparent;
+
+    .task-detail-mention-search-icon {
+        font-size: 13px;
+        border: 1.5px solid #a78bfa;
+        border-right: none;
+        border-radius: 6px 0 0 6px;
+        background: #fff;
+        color: #6d28d9;
+        padding: 6px 10px;
+    }
+
+    .task-detail-mention-search-input {
+        font-size: 13px;
+        border: 1.5px solid #a78bfa;
+        border-radius: 0 6px 6px 0;
+        padding: 6px 10px;
+
+        &::placeholder {
+            color: #9ca3af;
+        }
+    }
+}
+
+.task-detail-mention-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 8px 12px;
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    color: #1a1a1a;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.15s;
+
+    &:hover {
+        background: #f3f4f6;
+    }
+}
+
+.task-detail-mention-avatar {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #ececec;
+    font-weight: 600;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.task-detail-mention-online {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #13ce66;
+    border: 2px solid #fff;
+    flex-shrink: 0;
+}
+
+.task-detail-mention-invite-icon {
+    width: 22px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #e8f0fd;
+    color: #3b82f6;
+    flex-shrink: 0;
 }

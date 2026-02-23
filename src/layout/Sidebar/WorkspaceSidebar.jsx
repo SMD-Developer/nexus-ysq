@@ -82,7 +82,7 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
     ];
 
     const myTasksItems = [
-        { name: 'Assigned to me', icon: <UserCheck size={16} />, path: '/apps/taskboard/projects-board' },
+        { name: 'Assigned to me', icon: <UserCheck size={16} />, path: '/apps/taskboard/assigned-to-me' },
     ];
 
     // Spaces data with UI control for Space "+", which will open Create Folder modal on click

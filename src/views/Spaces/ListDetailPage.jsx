@@ -34,7 +34,8 @@ import {
     UserPlus,
     Star,
     Smile,
-    Paperclip
+    Paperclip,
+    AtSign
 } from 'react-feather';
 import './ListDetailPage.scss';
 
@@ -160,6 +161,7 @@ const ListDetailPage = () => {
     const [selectedSubtaskId, setSelectedSubtaskId] = useState(null);
     const [subtaskSortBy, setSubtaskSortBy] = useState('manual');
     const [assigneeSearch, setAssigneeSearch] = useState('');
+    const [showMentionModal, setShowMentionModal] = useState(false);
 
     const todoCount = useMemo(() => countTopLevelIncomplete(tasks), [tasks]);
 
@@ -644,7 +646,7 @@ const ListDetailPage = () => {
                     <>
                         <Modal.Header closeButton className="task-detail-modal-header">
                             <div className="task-detail-breadcrumb">
-                                <span>Team Space</span>
+                                <span>Space 1</span>
                                 <ChevronDown size={12} />
                                 <span>{decodeURIComponent(folderName || '') || 'List'}</span>
                                 <Plus size={12} />
@@ -661,8 +663,16 @@ const ListDetailPage = () => {
                                 <div className="task-detail-content">
                                     <div className="task-detail-title-row">
                                         <Dropdown className="task-detail-type-pill">
-                                            <Dropdown.Toggle variant="light" size="sm" className="task-detail-type-toggle">
-                                                {parentTask ? 'Subtask' : 'Task'} <ChevronDown size={12} />
+                                            <Dropdown.Toggle
+                                                variant="light"
+                                                size="sm"
+                                                className="task-detail-type-toggle"
+                                                // Remove default dropdown arrow
+                                                style={{ display: 'flex', alignItems: 'center' }}
+                                                bsPrefix="task-detail-type-toggle-custom"
+                                            >
+                                                {parentTask ? 'Subtask' : 'Task'}
+                                                <ChevronDown size={12} style={{ marginLeft: 4 }} />
                                             </Dropdown.Toggle>
                                         </Dropdown>
                                         {parentTask && (
@@ -792,22 +802,65 @@ const ListDetailPage = () => {
                                                 <span className="label">Priority</span>
                                                 <Dropdown align="start" className="task-detail-priority-dropdown">
                                                     <Dropdown.Toggle as="span" className="task-detail-field-value-toggle">
-                                                        <span className="value">{displayTask.priority || 'Empty'}</span>
+                                                        <span className="value">
+                                                            {displayTask.priority ? (
+                                                                <>
+                                                                    <span
+                                                                        className={classNames('task-detail-priority-flag', {
+                                                                            'priority-urgent': displayTask.priority === 'Urgent',
+                                                                            'priority-high': displayTask.priority === 'High',
+                                                                            'priority-normal': displayTask.priority === 'Normal',
+                                                                            'priority-low': displayTask.priority === 'Low',
+                                                                        })}
+                                                                        style={{
+                                                                            marginRight: 6,
+                                                                            display: 'inline-flex',
+                                                                            alignItems: 'center',
+                                                                        }}
+                                                                    >
+                                                                        <Flag
+                                                                            size={14}
+                                                                            color={
+                                                                                displayTask.priority === 'Urgent'
+                                                                                    ? '#dc2626'
+                                                                                    : displayTask.priority === 'High'
+                                                                                    ? '#f59e42'
+                                                                                    : displayTask.priority === 'Normal'
+                                                                                    ? '#3b82f6'
+                                                                                    : displayTask.priority === 'Low'
+                                                                                    ? '#7dd07d'
+                                                                                    : undefined
+                                                                            }
+                                                                        />
+                                                                    </span>
+                                                                    {displayTask.priority}
+                                                                </>
+                                                            ) : 'Empty'}
+                                                        </span>
                                                     </Dropdown.Toggle>
                                                     <Dropdown.Menu className="task-detail-priority-menu" onClick={(e) => e.stopPropagation()}>
                                                         <div className="task-detail-priority-section-title">Task Priority</div>
                                                         {[
-                                                            { id: 'Urgent', label: 'Urgent', flagClass: 'priority-urgent' },
-                                                            { id: 'High', label: 'High', flagClass: 'priority-high' },
-                                                            { id: 'Normal', label: 'Normal', flagClass: 'priority-normal' },
-                                                            { id: 'Low', label: 'Low', flagClass: 'priority-low' },
+                                                            { id: 'Urgent', label: 'Urgent', flagClass: 'priority-urgent', color: '#dc2626' },
+                                                            { id: 'High', label: 'High', flagClass: 'priority-high', color: '#f59e42' },
+                                                            { id: 'Normal', label: 'Normal', flagClass: 'priority-normal', color: '#3b82f6' },
+                                                            { id: 'Low', label: 'Low', flagClass: 'priority-low', color: '#7dd07d' },
                                                         ].map((p) => (
                                                             <Dropdown.Item
                                                                 key={p.id}
                                                                 className="task-detail-priority-item"
                                                                 onClick={() => updateSelectedTask({ priority: p.id })}
                                                             >
-                                                                <span className={classNames('task-detail-priority-flag', p.flagClass)}><Flag size={14} /></span>
+                                                                <span
+                                                                    className={classNames('task-detail-priority-flag', p.flagClass)}
+                                                                    style={{
+                                                                        marginRight: 6,
+                                                                        display: 'inline-flex',
+                                                                        alignItems: 'center',
+                                                                    }}
+                                                                >
+                                                                    <Flag size={14} color={p.color} />
+                                                                </span>
                                                                 <span>{p.label}</span>
                                                             </Dropdown.Item>
                                                         ))}
@@ -821,7 +874,7 @@ const ListDetailPage = () => {
                                         <Form.Control
                                             as="textarea"
                                             rows={2}
-                                            placeholder={parentTask ? 'Add description, or write with AI' : 'Add description, or write with AI'}
+                                            placeholder={parentTask ? 'Add description' : 'Add description'}
                                             value={displayTask.description || ''}
                                             onChange={(e) => updateSelectedTask({ description: e.target.value })}
                                         />
@@ -991,30 +1044,45 @@ const ListDetailPage = () => {
                                         <a href="#show-more" className="task-detail-activity-more">Show more</a>
                                         <div className="task-detail-activity-item">You created subtask: wee</div>
                                         <div className="task-detail-activity-meta">3 hours ago</div>
+                                        <div className="task-detail-activity-item">You created subtask: web app design</div>
+                                        <div className="task-detail-activity-meta">5 hours ago</div>
                                     </div>
 
                                     {/* Comment box — toolbar lives INSIDE */}
-                                    <div className="task-detail-comment">
+                                    <div className="task-detail-comment mt-5">
                                         <Form.Control
                                             as="textarea"
                                             rows={2}
-                                            placeholder="Comment, press 'space' for AI, '/' for commands"
+                                            placeholder="Add a comment..."
                                             className="task-detail-comment-input"
                                         />
 
                                         {/* ── Toolbar row ── */}
                                         <div className="task-detail-comment-toolbar">
 
-                                            {/* + button */}
-                                            <button type="button" className="task-detail-comment-action-btn" title="Add attachment">
-                                                <Plus size={13} />
-                                            </button>
-
-                                            <button type="button" className="task-detail-comment-action-btn" title="Attach file">
+                                            <button
+                                                type="button"
+                                                className="task-detail-comment-action-btn"
+                                                title="Attach file"
+                                                onClick={() => alert('Attach file functionality coming soon!')}
+                                            >
                                                 <Paperclip size={13} />
                                             </button>
-                                            <button type="button" className="task-detail-comment-action-btn" title="Mention">
-                                                @
+                                            <button
+                                                type="button"
+                                                className="task-detail-comment-action-btn"
+                                                title="Attach file"
+                                                onClick={() => alert('Mention Task functionality coming soon!')}
+                                            >
+                                                <AtSign size={13} />
+                                            </button>
+                                            <button
+                                                type="button"
+                                                className="task-detail-comment-action-btn"
+                                                title="Mention people"
+                                                onClick={() => setShowMentionModal(true)}
+                                            >
+                                                <span role="img" aria-label="mention">👤</span>
                                             </button>
 
                                             {/* Spacer pushes send to the right */}
@@ -1032,6 +1100,45 @@ const ListDetailPage = () => {
                         </Modal.Body>
                     </>
                 )}
+            </Modal>
+
+            {/* Mention people modal */}
+            <Modal
+                show={showMentionModal}
+                onHide={() => setShowMentionModal(false)}
+                centered
+                className="task-detail-mention-modal"
+                contentClassName="task-detail-mention-modal-content"
+            >
+                <Modal.Body className="p-0">
+                    <div className="task-detail-mention-modal-body">
+                        <InputGroup size="sm" className="task-detail-mention-search-wrap">
+                            <InputGroup.Text className="task-detail-mention-search-icon">
+                                <Search size={16} />
+                            </InputGroup.Text>
+                            <Form.Control
+                                placeholder="Search or enter email..."
+                                className="task-detail-mention-search-input"
+                                autoFocus
+                            />
+                        </InputGroup>
+                        <button
+                            type="button"
+                            className="task-detail-mention-option task-detail-mention-me"
+                            onClick={() => { /* select Me */ setShowMentionModal(false); }}
+                        >
+                            <span className="task-detail-mention-avatar task-detail-mention-avatar-me">AS</span>
+                            <span className="task-detail-mention-online" />
+                            <span>Me</span>
+                        </button>
+                        <button
+                            type="button"
+                            className="task-detail-mention-option task-detail-mention-invite"
+                            onClick={() => { /* invite */ setShowMentionModal(false); }}
+                        >
+                        </button>
+                    </div>
+                </Modal.Body>
             </Modal>
         </div>
     );

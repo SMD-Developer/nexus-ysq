@@ -214,12 +214,17 @@
                 color: rgba(255, 255, 255, 0.6);
                 font-size: 13px;
                 padding: 6px 8px;
-                display: flex;
+                display: inline-flex;
                 align-items: center;
-                gap: 6px;
+                gap: 4px;
                 text-decoration: none;
                 width: 100%;
                 justify-content: flex-start;
+
+                .nav-icon-wrapper,
+                svg {
+                    flex-shrink: 0;
+                }
 
                 &:hover {
                     color: #ffffff;
