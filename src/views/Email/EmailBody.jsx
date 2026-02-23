@@ -75,7 +75,7 @@ const EmailBody = () => {
                                                             <span>from :</span><span>Morgan <span>&lt;morganfreeman@nexus.com&gt;</span></span>
                                                         </div>
                                                         <div>
-                                                            <span>to :</span><span>Hencework <span>&lt;contact@hencework.com&gt;</span></span>
+                                                            <span>to :</span><span>nexus<span>&lt;contact@nexus.com&gt;</span></span>
                                                         </div>
                                                         <div>
                                                             <span>date :</span><span>Dec 30, 4:22 PM</span>
@@ -118,8 +118,8 @@ const EmailBody = () => {
                         </div>
                         <div id="simple-collapseOne" className="accordion-collapse collapse">
                             <div className="accordion-body">
-                                <p>Hi Hencework,</p>
-                                <p>We'd like to let you know that an update to your item Nexus - Admin Template by hencework is now available in your Downloads page.</p>
+                                <p>Hi Nexus,</p>
+                                <p>We'd like to let you know that an update to your item Nexus - Admin Template by nexus is now available in your Downloads page.</p>
                                 <p>Remember: you need to be logged in to download the update.</p>
                                 <p className="mt-3 mb-4">You may manage notifications for your items from <a href="#some"><u>your downloads.</u></a></p>
                                 <p>Regards,<br />Nexus Team</p>
@@ -193,7 +193,7 @@ const EmailBody = () => {
                                                             <span>from :</span><span>Morgan <span>&lt;morganfreeman@nexus.com&gt;</span></span>
                                                         </div>
                                                         <div>
-                                                            <span>to :</span><span>Hencework <span>&lt;contact@hencework.com&gt;</span></span>
+                                                            <span>to :</span><span>Nexus<span>&lt;contact@nexus.com&gt;</span></span>
                                                         </div>
                                                         <div>
                                                             <span>date :</span><span>Dec 30, 4:22 PM</span>

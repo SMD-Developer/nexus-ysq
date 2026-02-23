@@ -210,11 +210,11 @@ export const data = [
         id: 9,
         invoice: "11242",
         date: "24 Jun, 2019",
-        reciplent: [{ title: "Hence Work", id: "contact@hencework.com" }],
+        reciplent: [{ title: "Hence Work", id: "contact@nexus.com" }],
         status: [{ title: "Draft", bg: "light", color: "dark" }],
         activity: "-",
         amount: "$ 4,500.00 USD",
-        actions: [{ actionLink: "https://hencework.com/", }]
+        actions: [{ actionLink: "#", }]
     },
 
 

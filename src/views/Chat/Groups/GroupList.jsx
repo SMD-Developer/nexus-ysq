@@ -227,7 +227,7 @@ const GroupList = ({ StartConversation, startChating, toggleTopNav, topNavCollap
                                 </div>
                                 <div className="media-body">
                                     <div>
-                                        <div className="user-name">Hencework</div>
+                                        <div className="user-name">Nexus</div>
                                         <div className="user-last-chat">Hi There, I am using Nexus</div>
                                     </div>
                                     <div>
@@ -271,7 +271,7 @@ const GroupList = ({ StartConversation, startChating, toggleTopNav, topNavCollap
                                 <div className="media-body">
                                     <div>
                                         <div className="user-name">Support Team</div>
-                                        <div className="user-last-chat">contact@hencework.com</div>
+                                        <div className="user-last-chat">contact@Nexus.com</div>
                                     </div>
                                     <div>
                                         <Dropdown className="action-drp">
@@ -395,7 +395,7 @@ const GroupList = ({ StartConversation, startChating, toggleTopNav, topNavCollap
                             <Nav.Link className="link-dark">#Team_goals</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link className="link-dark">#Support_Hencework</Nav.Link>
+                            <Nav.Link className="link-dark">#Support_Nexus</Nav.Link>
                         </Nav.Item>
                     </Nav>
                 </SimpleBar>

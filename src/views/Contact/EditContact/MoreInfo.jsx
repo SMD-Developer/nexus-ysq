@@ -30,7 +30,7 @@ const MoreInfo = ({ show, hide }) => {
                         <Col sm={6}>
                             <Form.Group className="mb-3" >
                                 <Form.Label>Language</Form.Label>
-                                <Form.Control type="email" defaultValue="contct@hencework.com" placeholder="Email Id" name="emailid1" />
+                                <Form.Control type="email" defaultValue="contct@nexus.com" placeholder="Email Id" name="emailid1" />
                             </Form.Group>
                         </Col>
                         <Col sm={6}>

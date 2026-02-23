@@ -139,7 +139,7 @@ const EditProfile = ({ toggleCollapsedNav }) => {
                                             <Col sm={12}>
                                                 <Form.Group className="mb-3">
                                                     <Form.Label>Personal Website</Form.Label>
-                                                    <Form.Control type="text" defaultValue="hencework.com" />
+                                                    <Form.Control type="text" defaultValue="nexus.com" />
                                                 </Form.Group>
                                             </Col>
                                             <Col sm={12}>
@@ -181,7 +181,7 @@ const EditProfile = ({ toggleCollapsedNav }) => {
                                             <Col sm={12}>
                                                 <Form.Group className="mb-3">
                                                     <Form.Label>URL</Form.Label>
-                                                    <Form.Control type="text" defaultValue="hencework.com" />
+                                                    <Form.Control type="text" defaultValue="nexus.com" />
                                                 </Form.Group>
                                             </Col>
                                         </Row>

@@ -26,7 +26,7 @@ const Body = () => {
                         <Row className="mt-4">
                             <Col md={4} className="order-md-0 order-1">
                                 <div className="address-wrap">
-                                    <h6>Hencework</h6>
+                                    <h6>Nexus</h6>
                                     <p>4747, Pearl Street</p>
                                     <p>Rainy day Drive</p>
                                     <p>Washington DC 42341</p>
@@ -126,11 +126,11 @@ const Body = () => {
                         <Row className="mt-3">
                             <Col lg={5}>
                                 <h6>Note to client</h6>
-                                <p>thank you for choosing Hencework for design services. If you need more assistance in future here is your discount coupon for future jobs. Just call us and mention the coupon code: "10-springhnc"</p>
+                                <p>thank you for choosing Nexus for design services. If you need more assistance in future here is your discount coupon for future jobs. Just call us and mention the coupon code: "10-springhnc"</p>
                             </Col>
                             <Col lg={7} className="text-lg-end mt-lg-0 mt-3">
                                 <h5 className="mt-lg-7">Katherine Zeta Jones</h5>
-                                <p>Co-founder, Hencework</p>
+                                <p>Co-founder, Nexus</p>
                             </Col>
                         </Row>
                         <div className="separator separator-light mt-7" />

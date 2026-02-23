@@ -69,7 +69,7 @@ const ChatInfo = ({ infoToggle, avatar, userName }) => {
                                                         <span className="cp-icon-wrap"><span className="feather-icon">
                                                             <Mail />
                                                         </span></span>
-                                                        <span className="text-primary">contact@hencework.com</span>
+                                                        <span className="text-primary">contact@nexus.com</span>
                                                     </Link>
                                                 </li>
                                                 <li>

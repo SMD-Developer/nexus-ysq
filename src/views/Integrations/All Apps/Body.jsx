@@ -126,7 +126,7 @@ const Body = () => {
                                     <div className="avatar avatar-sm avatar-violet mb-3">
                                         <span className="initial-wrap">H</span>
                                     </div>
-                                    <div className="app-name">Hencework</div>
+                                    <div className="app-name">Nexus</div>
                                     <div className="app-cat">Design Agency</div>
                                     <p className="p-sm multine-ellipsis">Id diam maecenas ultricies mi eget mauris. At consectetur lorem donec massa sapien faucibus et.</p>
                                 </Card.Body>

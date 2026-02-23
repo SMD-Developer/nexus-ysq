@@ -466,7 +466,7 @@ const Body = () => {
                                             </Button>
                                         </Form.Group>
                                         <Form.Group className="form-group close-over">
-                                            <Form.Control type="text" className="form-control" defaultValue="Co-founder Hencework" />
+                                            <Form.Control type="text" className="form-control" defaultValue="Co-founder Nexus" />
                                             <Button bsPrefix="btn-close" className="close-input">
                                                 <span aria-hidden="true">×</span>
                                             </Button>

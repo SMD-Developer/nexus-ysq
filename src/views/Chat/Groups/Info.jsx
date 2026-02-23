@@ -58,7 +58,7 @@ const Info = ({ toggleInfo, invitePeople }) => {
                                             <ul className="hk-list">
                                                 <li>
                                                     <div className="avatar avatar-sm avatar-primary avatar-rounded">
-                                                        <HkTooltip placement="top" title="Hencework">
+                                                        <HkTooltip placement="top" title="Nexus">
                                                             <span className="initial-wrap">H</span>
                                                         </HkTooltip>
                                                     </div>

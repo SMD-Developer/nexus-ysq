@@ -357,7 +357,7 @@ const InboxList = ({ toggleSidebar, show, StartConversation, startChating, toggl
                                 <div className="media-body">
                                     <div>
                                         <div>
-                                            <div className="email-head">Hencework</div>
+                                            <div className="email-head">Nexus</div>
                                             <div>
                                                 <span className="email-star marked"><span className="feather-icon"><Star /></span></span>
                                                 <div className="email-time">30 Jan</div>

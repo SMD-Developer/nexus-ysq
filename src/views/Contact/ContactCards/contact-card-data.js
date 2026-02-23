@@ -59,7 +59,7 @@ export const contactCards = [
     {
         id: 5,
         name: "Jaquiline Joker",
-        mail: "contact@hencework.com",
+        mail: "contact@nexus.com",
         phone: "+91-34-2636-1916",
         position: "Design",
         badge: "primary",
@@ -102,8 +102,8 @@ export const contactCards = [
     },
     {
         id: 9,
-        name: "Hencework",
-        mail: "contact@hencework.com",
+        name: "Nexus",
+        mail: "contact@nexus.com",
         phone: "+145 52 5478",
         position: "Design",
         badge: "primary",
@@ -114,7 +114,7 @@ export const contactCards = [
     {
         id: 10,
         name: "Daniel Raynolds",
-        mail: "danialraynolds@hencework.com",
+        mail: "danialraynolds@nexus.com",
         phone: "+145 36 1916",
         position: "Design",
         badge: "primary",

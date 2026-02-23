@@ -224,7 +224,7 @@ const Account = ({ toggleCollapsedNav }) => {
                                                             </span>
                                                         </span>
                                                     </span>
-                                                    <Form.Control type="text" size="lg" className="ps-8" placeholder="Username" defaultValue="Hencework" />
+                                                    <Form.Control type="text" size="lg" className="ps-8" placeholder="Username" defaultValue="Nexus" />
                                                     <Link to="#" className="input-suffix text-muted">
                                                         <span className="feather-icon">
                                                             <Edit3 />

@@ -52,7 +52,7 @@ const Body = () => {
                                     </div>
                                     <div className="media-body">
                                         <h3 className="hd-bold mb-0">Kickstarter</h3>
-                                        <span>by Hencework</span>
+                                        <span>by Nexus</span>
                                         <div className="d-flex align-items-center mt-1">
                                             <div className="d-flex align-items-center">
                                                 {/* <div className="d-flex align-items-center rating rating-yellow my-rating-4 me-2" data-rating={3} /> */}
@@ -454,7 +454,7 @@ const Body = () => {
                                                 </li>
                                                 <li className="mb-3">
                                                     <div className="fs-7">Developed by</div>
-                                                    <div className="text-dark fw-medium d-flex align-items-center">Hencework<i className="ri-information-fill fs-7 ms-1 lh-1" /></div>
+                                                    <div className="text-dark fw-medium d-flex align-items-center">Nexus<i className="ri-information-fill fs-7 ms-1 lh-1" /></div>
                                                 </li>
                                                 <li className="mb-3">
                                                     <div className="fs-7">Resources</div>
@@ -572,7 +572,7 @@ const Body = () => {
                                         <div className="avatar avatar-sm avatar-violet mb-3">
                                             <span className="initial-wrap">H</span>
                                         </div>
-                                        <div className="app-name">Hencework</div>
+                                        <div className="app-name">Nexus</div>
                                         <div className="app-cat">Chat Application</div>
                                         <div className="d-flex align-items-center justify-content-center">
                                             <Rating initialValue={3} readonly size="20" className="d-flex align-items-center me-2" />

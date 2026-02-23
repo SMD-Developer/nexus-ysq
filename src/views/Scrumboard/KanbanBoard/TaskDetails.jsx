@@ -303,7 +303,7 @@ const TaskDetails = ({ show, onHide }) => {
                                         </div>
                                     </div>
                                     <div className="media-body">
-                                        <div className="as-name">Hencework</div>
+                                        <div className="as-name">Nexus</div>
                                         <div className="as-date">4 july 2022, 8:30pm</div>
                                     </div>
                                 </div>
@@ -932,7 +932,7 @@ const TaskDetails = ({ show, onHide }) => {
                                                                     </div>
                                                                 </div>
                                                                 <div className="media-body">
-                                                                    <p><span className="text-dark">Hencework</span> on Documentation link is working now - <a href="#some" className="link-url"><u>ttps://hencework.com/theme/jampa</u></a></p>
+                                                                    <p><span className="text-dark">Nexus</span> on Documentation link is working now - <a href="#some" className="link-url"><u>ttps://nexus.com/theme/jampa</u></a></p>
                                                                     <div className="last-activity-time">Oct 15, 2021, 12:34 PM</div>
                                                                 </div>
                                                             </div>
@@ -1034,7 +1034,7 @@ const TaskDetails = ({ show, onHide }) => {
                                                                     </div>
                                                                 </div>
                                                                 <div className="media-body">
-                                                                    <p><span className="text-dark">Hencework</span> commented on <a href="#some" className="link-default"><u>basic structure</u></a></p>
+                                                                    <p><span className="text-dark">Nexus</span> commented on <a href="#some" className="link-default"><u>basic structure</u></a></p>
                                                                     <div className="last-activity-time">Sep 10, 2021, 10:13 AM</div>
                                                                 </div>
                                                             </div>

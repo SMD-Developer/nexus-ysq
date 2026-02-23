@@ -245,7 +245,7 @@ export const data = [
     {
         starred: true,
         name: [{ cstmAvt: "H", avtBg: "primary", userName: "Hence Work" }],
-        email: "contact@hencework.com",
+        email: "contact@nexus.com",
         phone: "+145 52 5463",
         tags: [{ title: "Promotion", bg: "violet" },],
         labels: "Design",
