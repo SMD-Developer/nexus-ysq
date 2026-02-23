@@ -89,7 +89,7 @@ export const DATASET = {
         "task-6": {
             id: "task-6",
             symbolLogo: symbolAvatar4,
-            brandName: "Jampack",
+            brandName: "Nexus",
             price: "$16,528",
             type: "Dashboard Template",
             avatar: avatar7,

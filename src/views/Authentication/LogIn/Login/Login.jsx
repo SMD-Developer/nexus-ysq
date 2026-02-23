@@ -4,8 +4,8 @@ import { ExternalLink } from 'react-feather';
 import { Link } from 'react-router-dom';
 
 //Images
-import jampackImg from '../../../../assets/img/logo-light.svg';
-import jampackImgDark from '../../../../assets/img/logo-dark.svg';
+import nexusImg from '../../../../assets/img/logo-light.svg';
+import nexusImgDark from '../../../../assets/img/logo-dark.svg';
 import logoutImg from '../../../../assets/img/macaroni-logged-out.png';
 import { useTheme } from '../../../../utils/theme-provider/theme-provider';
 
@@ -30,7 +30,7 @@ const Login = (props) => {
                             <div className="auth-content flex-column pt-8 pb-md-8 pb-13">
                                 <div className="text-center mb-7">
                                     <Link to="/" className="navbar-brand me-0">
-                                        {theme === "light" ? <img src={jampackImg} alt="brand" className="brand-img d-inline-block" /> : <img src={jampackImgDark} alt="brand" className="brand-img d-inline-block" />}
+                                        {theme === "light" ? <img src={nexusImg} alt="brand" className="brand-img d-inline-block" /> : <img src={nexusImgDark} alt="brand" className="brand-img d-inline-block" />}
                                     </Link>
                                 </div>
                                 <Form className="w-100" onSubmit={e => handleSubmit(e)} >
@@ -74,7 +74,7 @@ const Login = (props) => {
                                                 </Form.Check>
                                             </div>
                                             <Button variant="primary" type="submit" className="btn-uppercase btn-block">Login</Button>
-                                            <p className="p-xs mt-2 text-center">New to Jampack? <Link to="/auth/signup"><u>Create new account</u></Link></p>
+                                            <p className="p-xs mt-2 text-center">New to Nexus? <Link to="/auth/signup"><u>Create new account</u></Link></p>
                                             <Link to="#" className="d-block extr-link text-center mt-4">
                                                 <span className="feather-icon">
                                                     <ExternalLink />
@@ -100,7 +100,7 @@ const Login = (props) => {
                             <div className="auth-content flex-column text-center py-8">
                                 <Row>
                                     <Col xxl={7} xl={8} lg={11} className="mx-auto">
-                                        <h2 className="mb-4">Meet all new Pro Jampack 2.0</h2>
+                                        <h2 className="mb-4">Meet all new Pro Nexus 2.0</h2>
                                         <p>There are many variations of passages of Lorem Ipsum available, passages of Lorem Ipsum available, in some form, by injected.</p>
                                         <Button variant="flush-primary" className="btn-uppercase mt-2">Take Tour</Button>
                                     </Col>

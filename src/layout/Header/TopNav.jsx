@@ -255,7 +255,7 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                                                 </div>
                                                 <div className="media-body">
                                                     <div>
-                                                        <div className="notifications-text">You have a follow up with Jampack Head on Friday, Dec 19 at 9:30 am</div>
+                                                        <div className="notifications-text">You have a follow up with Nexus Head on Friday, Dec 19 at 9:30 am</div>
                                                         <div className="notifications-info">
                                                             <div className="notifications-time">Yesterday, 9:25 PM</div>
                                                         </div>
@@ -367,7 +367,7 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                                                                     </div>
                                                                 </div>
                                                                 <div className="media-body">
-                                                                    <Link to="#" className="d-block link-dark">Jampack Team</Link>
+                                                                    <Link to="#" className="d-block link-dark">Nexus Team</Link>
                                                                     <Link to="#" className="d-block fs-8 link-secondary">contact@hencework.com</Link>
                                                                 </div>
                                                             </div>

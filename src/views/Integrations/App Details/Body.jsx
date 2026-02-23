@@ -407,7 +407,7 @@ const Body = () => {
                                         <Card.Body>
                                             <h6 className="mb-4">Categories</h6>
                                             <div className="tag-cloud">
-                                                <HkBadge as={Link} to="#" bg="primary" soft className="me-1">Jampack</HkBadge>
+                                                <HkBadge as={Link} to="#" bg="primary" soft className="me-1">Nexus</HkBadge>
                                                 <HkBadge as={Link} to="#" bg="primary" soft className="me-1">Bootstrap 5</HkBadge>
                                                 <HkBadge as={Link} to="#" bg="primary" soft className="me-1">Admin Template</HkBadge>
                                             </div>
@@ -589,7 +589,7 @@ const Body = () => {
                                                 <img src={symbolAvatar4} alt="logo" />
                                             </span>
                                         </div>
-                                        <div className="app-name">Jampack</div>
+                                        <div className="app-name">Nexus</div>
                                         <div className="app-cat">Dashboard Template</div>
                                         <div className="d-flex align-items-center justify-content-center">
                                             <Rating initialValue={3} readonly size="20" className="d-flex align-items-center me-2" />

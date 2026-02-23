@@ -1,7 +1,6 @@
 @charset "UTF-8";
 /*------------------------------------------------------------------
 [Master Stylesheet]
-Project:	Jampack
 ++++ Imports ++++
 ++++ Reset ++++
 ++++ Basic ++++
@@ -111,15 +110,15 @@ Project:	Jampack
 @import url(../../vendors/owl.carousel/dist/assets/owl.theme.default.min.css);
 /*__________________________________________________________________;
 [Mixin]
-Project:	Jampack
+
 ___________________________________________________________________*/
 /*__________________________________________________________________;
 [Colors]
-Project:	Jampack
+
 ___________________________________________________________________*/
 /*------------------------------------------------------------------
 [Header]
-Project:	Jampack
+
 -------------------------------------------------------------------*/
 /*Top Nav*/
 .hk-wrapper .hk-navbar {
@@ -241,7 +240,6 @@ Project:	Jampack
       display: none; } }
 /*------------------------------------------------------------------
 [Footer]
-Project:	Jampack
 -------------------------------------------------------------------*/
 /*Footer*/
 .hk-footer-wrap {
@@ -275,7 +273,7 @@ Project:	Jampack
       text-align: center; } }
 /*------------------------------------------------------------------
 [Nav]
-Project:	Jampack
+
 -------------------------------------------------------------------*/
 /*Navbar*/
 .navbar {
@@ -1103,7 +1101,6 @@ Project:	Jampack
 
 /*------------------------------------------------------------------
 [Horizontal Menu]
-Project:	Jampack
 -------------------------------------------------------------------*/
 /*Horizontal Navigation*/
 .hk-wrapper.hk-horizontal-menu-active .hk-pg-wrapper {
@@ -2071,7 +2068,6 @@ Project:	Jampack
     display: none !important; } }
 /*------------------------------------------------------------------
 [Classic Menu]
-Project:	Jampack
 ----------------------------------------------------------`---------*/
 /**Vertical Navigation**/
 .hk-classic-menu .navbar-nav .nav-item .nav-link-text {
@@ -2546,7 +2542,7 @@ Project:	Jampack
       right: 0; } }
 /*------------------------------------------------------------------
 [Icon Menu]
-Project:	Jampack
+
 -------------------------------------------------------------------*/
 /**Vertical Icon Navigation**/
 .hk-wrapper.hk-icon-menu-1-active {
@@ -3543,7 +3539,6 @@ Project:	Jampack
     right: -480px; } }
 /*------------------------------------------------------------------
 [Slide Menu]
-Project:	Jampack
 ----------------------------------------------------------`---------*/
 /**Vertical Navigation**/
 .hk-wrapper.hk-slide-menu-active {
@@ -3949,7 +3944,6 @@ Project:	Jampack
       right: 0; } }
 /*------------------------------------------------------------------
 [Drawer]
-Project:	Jampack
 -------------------------------------------------------------------*/
 /*Drawer*/
 .hk-wrapper .hk-drawer {

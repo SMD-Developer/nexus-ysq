@@ -283,7 +283,7 @@ const TaskInfo = ({ close }) => {
                 </header>
                 <div className="task-detail-body">
                     <HkAlert variant="primary" className="alert-wth-icon">
-                        <span className="alert-icon-wrap"><span className="feather-icon"><i className="zmdi zmdi-lock" /></span></span> This task is private for Jampack Team
+                        <span className="alert-icon-wrap"><span className="feather-icon"><i className="zmdi zmdi-lock" /></span></span> This task is private for Nexus Team
                     </HkAlert>
 
                     <HkInlineEdit as="h4" id="editable1" className="fw-bold mb-0" value="Framworking Building" />
@@ -680,7 +680,7 @@ const TaskInfo = ({ close }) => {
                                                                 </div>
                                                                 <div className="media-body">
                                                                     <div>
-                                                                        <p className="file-name">jampack.pdf</p>
+                                                                        <p className="file-name">nexus.pdf</p>
                                                                         <p className="file-size">1.3 GB</p>
                                                                     </div>
                                                                     <div>
@@ -715,7 +715,7 @@ const TaskInfo = ({ close }) => {
                                                                 </div>
                                                                 <div className="media-body">
                                                                     <div>
-                                                                        <p className="file-name">jampack.zip</p>
+                                                                        <p className="file-name">nexus.zip</p>
                                                                         <p className="file-size">2.45 GB</p>
                                                                     </div>
                                                                     <div>

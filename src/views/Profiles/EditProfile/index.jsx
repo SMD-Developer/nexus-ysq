@@ -226,7 +226,7 @@ const EditProfile = ({ toggleCollapsedNav }) => {
                                                 <Form.Check className="form-check-lg">
                                                     <Form.Check.Input id="customChecks1" />
                                                     <Form.Check.Label htmlFor="customChecks1">let others find me by email address</Form.Check.Label>
-                                                    <Form.Text muted className="d-block">People who have your email address will be able to connect you by Jampack</Form.Text>
+                                                    <Form.Text muted className="d-block">People who have your email address will be able to connect you by Nexus</Form.Text>
                                                 </Form.Check>
                                                 <div className="separator" />
                                                 <Form.Check className="form-check-lg">

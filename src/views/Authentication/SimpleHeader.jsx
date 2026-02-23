@@ -4,8 +4,8 @@ import { HelpCircle } from 'react-feather';
 import { Link, useRouteMatch } from 'react-router-dom';
 
 //Images
-import jampackImg from '../../assets/img/logo-light.svg';
-import jampackImgDark from '../../assets/img/logo-dark.svg';
+import nexusImg from '../../assets/img/logo-light.svg';
+import nexusImgDark from '../../assets/img/logo-dark.svg';
 import { useTheme } from '../../utils/theme-provider/theme-provider';
 
 const SimpleHeader = () => {
@@ -20,7 +20,7 @@ const SimpleHeader = () => {
                 {/* Start Nav */}
                 <div className="nav-start-wrap">
                     <Navbar.Brand as={Link} to="/" >
-                        {theme === "light" ? <img src={jampackImg} alt="brand" className="brand-img d-inline-block" /> : <img src={jampackImgDark} alt="brand" className="brand-img d-inline-block" />}
+                        {theme === "light" ? <img src={nexusImg} alt="brand" className="brand-img d-inline-block" /> : <img src={nexusImgDark} alt="brand" className="brand-img d-inline-block" />}
                     </Navbar.Brand>
                 </div>
                 

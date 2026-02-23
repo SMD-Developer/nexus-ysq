@@ -228,7 +228,7 @@ const GroupList = ({ StartConversation, startChating, toggleTopNav, topNavCollap
                                 <div className="media-body">
                                     <div>
                                         <div className="user-name">Hencework</div>
-                                        <div className="user-last-chat">Hi There, I am using Jampack</div>
+                                        <div className="user-last-chat">Hi There, I am using Nexus</div>
                                     </div>
                                     <div>
                                         <Dropdown className="action-drp">
@@ -313,7 +313,7 @@ const GroupList = ({ StartConversation, startChating, toggleTopNav, topNavCollap
                                 </div>
                                 <div className="media-body">
                                     <div>
-                                        <div className="user-name">Jampack Team</div>
+                                        <div className="user-name">Nexus Team</div>
                                         <div className="user-last-chat">Working on wonders :)</div>
                                     </div>
                                     <div>

@@ -159,7 +159,7 @@ export const data = [
     {
         starred: true,
         name: [{ Img: avatar1, userName: "Morgan Freeman" }],
-        email: "morgan@jampack.com",
+        email: "morgan@nexus.com",
         phone: "+145 52 5689",
         tags: [{ title: "Promotion", bg: "violet" }, { title: "Collaborator", bg: "danger" }],
         labels: "Design",
@@ -202,7 +202,7 @@ export const data = [
     {
         starred: false,
         name: [{ Img: avatar3, userName: "Jaquiline Joker" }],
-        email: "jaquljoker@jampack.com",
+        email: "jaquljoker@nexus.com",
         phone: "+145 53 4715",
         tags: [{ title: "Promotion", bg: "violet" }, { title: "Collaborator", bg: "danger" },],
         labels: "Design",
@@ -213,7 +213,7 @@ export const data = [
     {
         starred: true,
         name: [{ Img: avatar7, userName: "Tom Cruz" }],
-        email: "tomcz@jampack.com",
+        email: "tomcz@nexus.com",
         phone: "+456 52 4862",
         tags: [{ title: "Collaborator", bg: "danger" }, { title: "Angular Developer", bg: "warning" },],
         labels: "Inventory",
@@ -223,7 +223,7 @@ export const data = [
     {
         starred: false,
         name: [{ Img: avatar2, userName: "Danial Craig" }],
-        email: "danialc@jampack.com",
+        email: "danialc@nexus.com",
         phone: "+145 52 5689",
         tags: [{ title: "Collaborator", bg: "danger" },],
         labels: "Developer",
@@ -234,7 +234,7 @@ export const data = [
     {
         starred: false,
         name: [{ Img: avatar8, userName: "Katharine Jones" }],
-        email: "joneskath@jampack.com",
+        email: "joneskath@nexus.com",
         phone: "+741 56 7896",
         tags: [{ title: "Promotion", bg: "violet" },],
         labels: "Inventory",

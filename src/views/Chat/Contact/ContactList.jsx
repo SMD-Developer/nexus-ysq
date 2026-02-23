@@ -192,7 +192,7 @@ const ContactList = ({ StartConversation, startChating, toggleTopNav, topNavColl
                                 <div className="media-body">
                                     <div>
                                         <div className="user-name">Adam Sandler</div>
-                                        <div className="user-status">Hi There, I am using Jampack</div>
+                                        <div className="user-status">Hi There, I am using nexus</div>
                                     </div>
                                     <div>
                                         <div className="dropdown action-drp">
@@ -372,7 +372,7 @@ const ContactList = ({ StartConversation, startChating, toggleTopNav, topNavColl
                                 <div className="media-body">
                                     <div>
                                         <div className="user-name">Chuck Norris</div>
-                                        <div className="user-status">Hi There, I am using Jampack</div>
+                                        <div className="user-status">Hi There, I am using nexus</div>
                                     </div>
                                     <div>
                                         <div className="dropdown action-drp">

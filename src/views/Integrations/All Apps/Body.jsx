@@ -33,7 +33,7 @@ const Body = () => {
                     <div className="d-flex flex-md-nowrap flex-wrap align-items-center justify-content-between mb-5">
                         <div>
                             <h5>Recommended for you</h5>
-                            <p>Because you installed Jampack template these are your recommendations.</p>
+                            <p>Because you installed Nexus template these are your recommendations.</p>
                         </div>
                         <Link to="#" className="fs-7 flex-shrink-0"><u>View All</u></Link>
                     </div>
@@ -145,7 +145,7 @@ const Body = () => {
                                             <img src={symbolAvatar4} alt="logo" />
                                         </span>
                                     </div>
-                                    <div className="app-name">Jampack</div>
+                                    <div className="app-name">Nexus</div>
                                     <div className="app-cat">Dashboard Template</div>
                                     <p className="p-sm multine-ellipsis">Ac ut consequat semper viverra nam libero justo laoreet sit. Consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commodo.</p>
                                 </Card.Body>

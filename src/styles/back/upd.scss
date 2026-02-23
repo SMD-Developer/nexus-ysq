@@ -1,7 +1,6 @@
 //updated variables
 /*__________________________________________________________________;
 [Variables]
-Project:  Jampack
 ___________________________________________________________________*/;
 // Color variables
 $red: #FF0000;    
@@ -566,7 +565,7 @@ $theme-colors-rgb: (
   --bs-link-hover-color-rgb: 10, 88, 202;
   --bs-code-color: #{$primary};
   --bs-highlight-bg: #{$orange};
-  --bs-body-font-family: var(--font-jampack);
+  --bs-body-font-family: var(--font-nexus);
   --bs-text-opacity:1;
   --bs-bg-opacity: 1;
   --bs-shadow-color: #{to-rgb($black)};

@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 import CommanFooter1 from '../../CommanFooter1';
 
 //Image
-import jampackImg from '../../../../assets/img/logo-light.svg';
-import jampackImgDark from '../../../../assets/img/logo-dark.svg';
+import nexusImg from '../../../../assets/img/logo-light.svg';
+import nexusImgDark from '../../../../assets/img/logo-dark.svg';
 import { useTheme } from '../../../../utils/theme-provider/theme-provider';
 
 const SignupClassic = () => {
@@ -27,12 +27,12 @@ const SignupClassic = () => {
                                         <Col xxl={5} xl={7} lg={8} sm={10} className="mx-auto">
                                             <div className="text-center mb-7">
                                                 <Link className="navbar-brand me-0" to="/" >
-                                                    {theme === "light" ? <img src={jampackImg} alt="brand" className="brand-img d-inline-block" /> : <img src={jampackImgDark} alt="brand" className="brand-img d-inline-block" />}
+                                                    {theme === "light" ? <img src={nexusImg} alt="brand" className="brand-img d-inline-block" /> : <img src={nexusImgDark} alt="brand" className="brand-img d-inline-block" />}
                                                 </Link>
                                             </div>
                                             <Card className="card-border">
                                                 <Card.Body>
-                                                    <h4 className="text-center mb-0">Sign Up to Jampack</h4>
+                                                    <h4 className="text-center mb-0">Sign Up to Nexus</h4>
                                                     <p className="p-xs mt-2 mb-4 text-center">
                                                         Already a member ? <Link to="login-classic"><u>Sign In</u></Link>
                                                     </p>

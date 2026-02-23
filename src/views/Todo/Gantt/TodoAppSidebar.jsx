@@ -127,7 +127,7 @@ const TodoAppSidebar = () => {
                                             </div>
                                             <div className="media-body">
                                                 <div>
-                                                    <div className="name">Jampack</div>
+                                                    <div className="name">Nexus</div>
                                                 </div>
                                             </div>
                                         </div>

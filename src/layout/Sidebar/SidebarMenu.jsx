@@ -330,20 +330,4 @@ export const SidebarMenu = [
         ]
     },
 
-    // {
-    //     group: 'Documentation',
-    //     contents: [
-    //         {
-    //             name: 'Documentation',
-    //             icon: <Icons.FileCode2 />,
-    //             path: 'https://jampack.hencework.com/documentation/introduction',
-    //         },
-    //         {
-    //             name: 'Components',
-    //             icon: <Icons.Layout />,
-    //             path: 'https://jampack.hencework.com/documentation/avatar',
-    //         },
-    //     ]
-    // },
-
 ]

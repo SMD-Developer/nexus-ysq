@@ -272,7 +272,7 @@ const TaskDetails = ({ show, onHide }) => {
                     </header>
                     <div className="task-detail-body">
                         <HkAlert variant="primary" className="alert-wth-icon" >
-                            <span className="alert-icon-wrap"><span className="feather-icon"><i className="zmdi zmdi-lock" /></span></span> This task is private for Jampack Team
+                            <span className="alert-icon-wrap"><span className="feather-icon"><i className="zmdi zmdi-lock" /></span></span> This task is private for Nexus Team
                         </HkAlert>
                         <HkInlineEdit as="h4" id="edit1" className="fw-bold mb-0" value="Framworking Building" />
                         <HkInlineEdit as="p" id="edit2" className="mb-0" value="Instant rebuilding of assets during development" />
@@ -674,7 +674,7 @@ const TaskDetails = ({ show, onHide }) => {
                                                                     </div>
                                                                     <div className="media-body">
                                                                         <div>
-                                                                            <p className="file-name">jampack.pdf</p>
+                                                                            <p className="file-name">nexus.pdf</p>
                                                                             <p className="file-size">1.3 GB</p>
                                                                         </div>
                                                                         <div>
@@ -709,7 +709,7 @@ const TaskDetails = ({ show, onHide }) => {
                                                                     </div>
                                                                     <div className="media-body">
                                                                         <div>
-                                                                            <p className="file-name">jampack.zip</p>
+                                                                            <p className="file-name">nexus.zip</p>
                                                                             <p className="file-size">2.45 GB</p>
                                                                         </div>
                                                                         <div>

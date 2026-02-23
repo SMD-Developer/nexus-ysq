@@ -189,7 +189,7 @@ const ChatBotInterface = ({ show, sendMsg, msg }) => {
                 <footer>
                     <div className={classNames("chatbot-intro-text fs-7", { "d-none": startConversation })}>
                         <div className="separator-full separator-light" />
-                        <p className="mb-2">This is jampack's beta version please sign up now to get early access to our full version</p>
+                        <p className="mb-2">This is nexus's beta version please sign up now to get early access to our full version</p>
                         <a className="d-block mb-2" href="#some"><u>Give Feedback</u></a>
                     </div>
                     <InputGroup className={classNames({ "d-none": !startConversation })}>

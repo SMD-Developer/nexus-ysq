@@ -72,7 +72,7 @@ const EmailBody = () => {
                                                     <Dropdown.Toggle as="a" className="link-dark ms-1" href="#">me</Dropdown.Toggle >
                                                     <Dropdown.Menu>
                                                         <div>
-                                                            <span>from :</span><span>Morgan <span>&lt;morganfreeman@jampack.com&gt;</span></span>
+                                                            <span>from :</span><span>Morgan <span>&lt;morganfreeman@nexus.com&gt;</span></span>
                                                         </div>
                                                         <div>
                                                             <span>to :</span><span>Hencework <span>&lt;contact@hencework.com&gt;</span></span>
@@ -119,10 +119,10 @@ const EmailBody = () => {
                         <div id="simple-collapseOne" className="accordion-collapse collapse">
                             <div className="accordion-body">
                                 <p>Hi Hencework,</p>
-                                <p>We'd like to let you know that an update to your item Jampack - Admin Template by hencework is now available in your Downloads page.</p>
+                                <p>We'd like to let you know that an update to your item Nexus - Admin Template by hencework is now available in your Downloads page.</p>
                                 <p>Remember: you need to be logged in to download the update.</p>
                                 <p className="mt-3 mb-4">You may manage notifications for your items from <a href="#some"><u>your downloads.</u></a></p>
-                                <p>Regards,<br />Jampack Team</p>
+                                <p>Regards,<br />Nexus Team</p>
                                 <img className="d-block mt-2 mb-3" src={sign} alt="signature" />
                                 <div className="separator separator-light" />
                                 <div className="text-end">
@@ -158,7 +158,7 @@ const EmailBody = () => {
                                                     </span>
                                                 </div>
                                                 <div className="media-body">
-                                                    <p className="file-name">jampack.zip</p>
+                                                    <p className="file-name">nexus.zip</p>
                                                     <p className="file-size">2.45 GB</p>
                                                 </div>
                                             </div>
@@ -190,7 +190,7 @@ const EmailBody = () => {
                                                     <Dropdown.Toggle as="a" className="link-dark ms-1" href="#">me</Dropdown.Toggle>
                                                     <Dropdown.Menu>
                                                         <div>
-                                                            <span>from :</span><span>Morgan <span>&lt;morganfreeman@jampack.com&gt;</span></span>
+                                                            <span>from :</span><span>Morgan <span>&lt;morganfreeman@nexus.com&gt;</span></span>
                                                         </div>
                                                         <div>
                                                             <span>to :</span><span>Hencework <span>&lt;contact@hencework.com&gt;</span></span>
@@ -238,7 +238,7 @@ const EmailBody = () => {
                             <div className="accordion-body">
                                 <p>Hello I have purchased the admin template, Please help me to install and host it. I want the site to function properly. Remember: you need to be logged in to download the update.</p>
                                 <p className="mb-4">Remember: you need to be logged in to download the update.</p>
-                                <p>Regards,<br />Jampack Team</p>
+                                <p>Regards,<br />Nexus Team</p>
                                 <img className="d-block mt-2 mb-3" src={sign} alt="signature" />
                             </div>
                         </div>
@@ -262,10 +262,10 @@ const EmailBody = () => {
                                                     <Dropdown.Toggle as="a" className="link-dark ms-1" href="#">Morgan</Dropdown.Toggle>
                                                     <Dropdown.Menu>
                                                         <div>
-                                                            <span>from :</span><span>Admin <span>&lt;admin@jampack.com&gt;</span></span>
+                                                            <span>from :</span><span>Admin <span>&lt;admin@nexus.com&gt;</span></span>
                                                         </div>
                                                         <div>
-                                                            <span>to :</span><span>Morgan <span>&lt;morganfreeman@jampack.com&gt;</span></span>
+                                                            <span>to :</span><span>Morgan <span>&lt;morganfreeman@nexus.com&gt;</span></span>
                                                         </div>
                                                         <div>
                                                             <span>date :</span><span>Jan 2, 10:21 AM</span>

@@ -69,7 +69,7 @@ export const contacts = [
         name: "Hencework",
         initAvatar: { title: "H", variant: "primary" },
         time: "24 Jan",
-        lastChat: "give me the last copy of jampack",
+        lastChat: "give me the last copy of nexus",
         status: "",
         unread: 0,
     },

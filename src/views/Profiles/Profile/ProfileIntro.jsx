@@ -28,7 +28,7 @@ const ProfileIntro = () => {
                         <li className="list-inline-item d-sm-inline-block d-block mb-sm-0 mb-1 me-3">
                             <i className="bi bi-briefcase me-1" />
                             <Link to="#">Co-Founder,</Link>
-                            <Link to="#">Jampack</Link>
+                            <Link to="#">Nexus</Link>
                         </li>
                         <li className="list-inline-item d-sm-inline-block d-block mb-sm-0 mb-1 me-3">
                             <i className="bi bi-geo-alt me-1" />

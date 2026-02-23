@@ -15,7 +15,7 @@ export const contactCards = [
     {
         id: 1,
         name: "Morgan Freeman",
-        mail: "morgan@jampack.com",
+        mail: "morgan@nexus.com",
         phone: "+145 52 5689",
         position: "Design",
         badge: "primary",
@@ -70,7 +70,7 @@ export const contactCards = [
     {
         id: 6,
         name: "Tom Cruz",
-        mail: "tomcz@jampack.com",
+        mail: "tomcz@nexus.com",
         phone: "+456 52 4862",
         position: "Developer",
         badge: "primary",
@@ -81,7 +81,7 @@ export const contactCards = [
     {
         id: 7,
         name: "Daniel Craig",
-        mail: "danialc@jampack.com",
+        mail: "danialc@nexus.com",
         phone: "+145 52 1916",
         position: "Design",
         badge: "success",
@@ -92,7 +92,7 @@ export const contactCards = [
     {
         id: 8,
         name: "Katharine Jones",
-        mail: "joneskath@jampack.com",
+        mail: "joneskath@nexus.com",
         phone: "+741 56 1916",
         position: " Inventory",
         badge: "danger",
