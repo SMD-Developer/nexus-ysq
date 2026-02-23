@@ -4,8 +4,8 @@ import { Col, Container, Row, Table } from 'react-bootstrap';
 import { useTheme } from '../../../utils/theme-provider/theme-provider';
 
 //Images
-import jampackImg from '../../../assets/img/logo-light.svg';
-import jampackImgDark from '../../../assets/img/logo-dark.svg';
+import nexusImg from '../../../assets/img/logo-light.svg';
+import nexusImgDark from '../../../assets/img/logo-dark.svg';
 
 const Body = () => {
     const { theme } = useTheme();
@@ -17,7 +17,7 @@ const Body = () => {
                     <div className="template-invoice-wrap mt-xxl-5 p-md-5 p-3">
                         <Row>
                             <Col lg={3} md={5} className="order-md-0 order-1">
-                                {theme === "light" ? <img src={jampackImg} alt="brand" /> : <img src={jampackImgDark} alt="brand" />}
+                                {theme === "light" ? <img src={nexusImg} alt="brand" /> : <img src={nexusImgDark} alt="brand" />}
                             </Col>
                             <Col lg={4} md={4} className="offset-lg-5 offset-md-3 mb-md-0 mb-2">
                                 <h2 className="d-flex justify-content-md-end mb-0">Invoice</h2>
@@ -26,11 +26,11 @@ const Body = () => {
                         <Row className="mt-4">
                             <Col md={4} className="order-md-0 order-1">
                                 <div className="address-wrap">
-                                    <h6>Hencework</h6>
+                                    <h6>Nexus</h6>
                                     <p>4747, Pearl Street</p>
                                     <p>Rainy day Drive</p>
                                     <p>Washington DC 42341</p>
-                                    <p>jampack_01@hencework.com</p>
+                                    <p>nexus_01@nexus.com</p>
                                 </div>
                             </Col>
                             <Col md={5} className="offset-md-3 mb-4 mb-md-0">
@@ -59,7 +59,7 @@ const Body = () => {
                                     <p>4747, Pearl Street</p>
                                     <p>Rainy day Drive</p>
                                     <p>Washington DC 42341</p>
-                                    <p>jampack_01@hencework.com</p>
+                                    <p>nexus_01@nexus.com</p>
                                 </div>
                             </Col>
                         </Row>
@@ -126,11 +126,11 @@ const Body = () => {
                         <Row className="mt-3">
                             <Col lg={5}>
                                 <h6>Note to client</h6>
-                                <p>thank you for choosing Hencework for design services. If you need more assistance in future here is your discount coupon for future jobs. Just call us and mention the coupon code: "10-springhnc"</p>
+                                <p>thank you for choosing Nexus for design services. If you need more assistance in future here is your discount coupon for future jobs. Just call us and mention the coupon code: "10-springhnc"</p>
                             </Col>
                             <Col lg={7} className="text-lg-end mt-lg-0 mt-3">
                                 <h5 className="mt-lg-7">Katherine Zeta Jones</h5>
-                                <p>Co-founder, Hencework</p>
+                                <p>Co-founder, Nexus</p>
                             </Col>
                         </Row>
                         <div className="separator separator-light mt-7" />

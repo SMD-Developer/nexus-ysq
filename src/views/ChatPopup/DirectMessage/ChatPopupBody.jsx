@@ -122,7 +122,7 @@ const ChatPopupBody = ({ showContactList, directMsgs, DirectMsg }) => {
                                     <div className="media-body">
                                         <div>
                                             <div className="user-name">Adam Sandler</div>
-                                            <div className="user-status">Hi There, I am using Jampack</div>
+                                            <div className="user-status">Hi There, I am using Nexus</div>
                                         </div>
                                         <div>
                                             <Dropdown className="action-drp">
@@ -344,7 +344,7 @@ const ChatPopupBody = ({ showContactList, directMsgs, DirectMsg }) => {
                                     <div className="media-body">
                                         <div>
                                             <div className="user-name">Chuck Norris</div>
-                                            <div className="user-status">Hi There, I am using Jampack</div>
+                                            <div className="user-status">Hi There, I am using Nexus</div>
                                         </div>
                                         <div>
                                             <Dropdown className="action-drp">
@@ -505,7 +505,7 @@ const ChatPopupBody = ({ showContactList, directMsgs, DirectMsg }) => {
                                                 </span>
                                             </div>
                                             <div className="media-body">
-                                                <p className="file-name">jampack.zip</p>
+                                                <p className="file-name">nexus.zip</p>
                                                 <p className="file-size">2.45 GB</p>
                                             </div>
                                         </div>

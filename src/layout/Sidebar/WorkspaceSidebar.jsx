@@ -453,7 +453,7 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
                                 onClick={() => setShowCreateSpaceModal(true)}
                             >
                                 <Plus size={16} />
-                                <span>New Space</span>
+                                <span className='justify-content-start'>New Space</span>
                             </Button>
                         </div>
                     </div>

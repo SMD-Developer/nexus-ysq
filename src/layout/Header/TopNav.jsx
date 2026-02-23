@@ -191,19 +191,6 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                 {/* End Nav */}
                 <div className="nav-end-wrap">
                     <Nav className="navbar-nav flex-row">
-                        {/* <Nav.Item className='ms-2'>
-                            <ThemeSwitcher />
-                        </Nav.Item> */}
-                        {/* <Nav.Item>
-                            <Button variant="flush-dark" as={Link} to="/apps/email" className="btn-icon btn-rounded flush-soft-hover">
-                                <span className="icon">
-                                    <span className=" position-relative">
-                                        <span className="feather-icon"><Inbox /></span>
-                                        <HkBadge bg="primary" soft pill size="sm" className="position-top-end-overflow-1" >4</HkBadge>
-                                    </span>
-                                </span>
-                            </Button>
-                        </Nav.Item> */}
                         <Nav.Item>
                             <Dropdown className="dropdown-notifications">
                                 <Dropdown.Toggle variant="flush-dark" className="btn-icon btn-rounded flush-soft-hover no-caret">
@@ -272,7 +259,7 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                                                 </div>
                                                 <div className="media-body">
                                                     <div>
-                                                        <div className="notifications-text">You have a follow up with Jampack Head on Friday, Dec 19 at 9:30 am</div>
+                                                        <div className="notifications-text">You have a follow up with Nexus Head on Friday, Dec 19 at 9:30 am</div>
                                                         <div className="notifications-info">
                                                             <div className="notifications-time">Yesterday, 9:25 PM</div>
                                                         </div>
@@ -360,47 +347,9 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                                             </div>
                                             <div className="media-body">
                                                 <Dropdown>
-                                                    <Dropdown as={Link} to="#" className="d-block fw-medium text-dark">Hencework</Dropdown>
-                                                    {/* <Dropdown.Menu align="end">
-                                                        <div className="p-2">
-                                                            <div className="media align-items-center active-user mb-3">
-                                                                <div className="media-head me-2">
-                                                                    <div className="avatar avatar-primary avatar-xs avatar-rounded">
-                                                                        <span className="initial-wrap">Hk</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="media-body">
-                                                                    <Link to="#" className="d-flex link-dark">Hencework <i className="ri-checkbox-circle-fill fs-7 text-primary ms-1" />
-                                                                    </Link>
-                                                                    <Link to="#" className="d-block fs-8 link-secondary">
-                                                                        <u>Manage your account</u>
-                                                                    </Link>
-                                                                </div>
-                                                            </div>
-                                                            <div className="media align-items-center mb-3">
-                                                                <div className="media-head me-2">
-                                                                    <div className="avatar avatar-xs avatar-rounded">
-                                                                        <img src={avatar12} alt="user" className="avatar-img" />
-                                                                    </div>
-                                                                </div>
-                                                                <div className="media-body">
-                                                                    <Link to="#" className="d-block link-dark">Jampack Team</Link>
-                                                                    <Link to="#" className="d-block fs-8 link-secondary">contact@hencework.com</Link>
-                                                                </div>
-                                                            </div>
-                                                            <Button variant="outline-light" size="sm" className="btn-block">
-                                                                <span>
-                                                                    <span className="icon">
-                                                                        <span className="feather-icon">
-                                                                            <Plus />
-                                                                        </span>
-                                                                    </span>
-                                                                    <span>Add Account</span></span>
-                                                            </Button>
-                                                        </div>
-                                                    </Dropdown.Menu> */}
+                                                    <Dropdown as={Link} to="#" className="d-block fw-medium text-dark">Nexus</Dropdown>
                                                 </Dropdown>
-                                                <div className="fs-7">contact@hencework.com</div>
+                                                <div className="fs-7">contact@nexus.com</div>
                                                 <Link to="#" className="d-block fs-8 link-secondary">
                                                     <u>Sign Out</u>
                                                 </Link>
@@ -409,37 +358,12 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                                     </div>
                                     <Dropdown.Divider as="div" />
                                     <Dropdown.Item as={Link} to="/pages/profile" >Profile</Dropdown.Item>
-                                    {/* <Dropdown.Item>
-                                        <span className="me-2">Offers</span>
-                                        <span className="badge badge-sm badge-soft-pink">2</span>
-                                    </Dropdown.Item>
-                                    <Dropdown.Divider as="div" />
-                                    <h6 className="dropdown-header">Manage Account</h6>
-                                    <Dropdown.Item>
-                                        <span className="dropdown-icon feather-icon">
-                                            <CreditCard />
-                                        </span>
-                                        <span>Payment methods</span>
-                                    </Dropdown.Item>
-                                    <Dropdown.Item>
-                                        <span className="dropdown-icon feather-icon">
-                                            <CheckSquare />
-                                        </span>
-                                        <span>Subscriptions</span>
-                                    </Dropdown.Item> */}
                                     <Dropdown.Item>
                                         <span className="dropdown-icon feather-icon">
                                             <Settings />
                                         </span>
                                         <span>Settings</span>
                                     </Dropdown.Item>
-                                    {/* <Dropdown.Divider as="div" />
-                                    <Dropdown.Item>
-                                        <span className="dropdown-icon feather-icon">
-                                            <Tag />
-                                        </span>
-                                        <span>Raise a ticket</span>
-                                    </Dropdown.Item> */}
                                     <Dropdown.Divider as="div" />
                                     <Dropdown.Item>
                                         Terms &amp; Conditions
@@ -487,17 +411,6 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                                 Choose a name that represents your team or project
                             </Form.Text>
                         </Form.Group>
-
-                        {/* <Form.Group className="mb-4">
-                            <Form.Label>Workspace Avatar</Form.Label>
-                            <div className="workspace-avatar-picker">
-                                <div className="avatar-option active">A</div>
-                                <div className="avatar-option">B</div>
-                                <div className="avatar-option">C</div>
-                                <div className="avatar-option">D</div>
-                                <div className="avatar-option">E</div>
-                            </div>
-                        </Form.Group> */}
 
                         <Form.Group className="mb-4">
                             <Form.Label>Description (Optional)</Form.Label>

@@ -136,7 +136,7 @@ const ChatBody = ({ sentMsg, msg, avatar, userName }) => {
                                         </span>
                                     </div>
                                     <div className="media-body">
-                                        <p className="file-name">jampack.zip</p>
+                                        <p className="file-name">Nexus.zip</p>
                                         <p className="file-size">2.45 GB</p>
                                     </div>
                                 </div>

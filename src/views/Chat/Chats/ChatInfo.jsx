@@ -69,7 +69,7 @@ const ChatInfo = ({ infoToggle, avatar, userName }) => {
                                                         <span className="cp-icon-wrap"><span className="feather-icon">
                                                             <Mail />
                                                         </span></span>
-                                                        <span className="text-primary">contact@hencework.com</span>
+                                                        <span className="text-primary">contact@nexus.com</span>
                                                     </Link>
                                                 </li>
                                                 <li>
@@ -222,7 +222,7 @@ const ChatInfo = ({ infoToggle, avatar, userName }) => {
                                                         </div>
                                                         <div className="media-body">
                                                             <div>
-                                                                <p className="file-name">jampack.pdf</p>
+                                                                <p className="file-name">nexus.pdf</p>
                                                                 <p className="file-size">1.3 GB</p>
                                                             </div>
                                                             <div>
@@ -254,7 +254,7 @@ const ChatInfo = ({ infoToggle, avatar, userName }) => {
                                                         </div>
                                                         <div className="media-body">
                                                             <div>
-                                                                <p className="file-name">jampack.zip</p>
+                                                                <p className="file-name">nexus.zip</p>
                                                                 <p className="file-size">2.45 GB</p>
                                                             </div>
                                                             <div>

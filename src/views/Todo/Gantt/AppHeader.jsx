@@ -37,7 +37,7 @@ const AppHeader = ({ topNavCollapsed, toggleTopNav, toggleSidebar, showSidebar, 
                 <div className="d-flex">
                     <Link to="#" className="todoapp-title link-dark">
                         <h1>
-                            Jampack
+                            Nexus
                             <span className="task-star marked">
                                 <span className="feather-icon">
                                     <Star />

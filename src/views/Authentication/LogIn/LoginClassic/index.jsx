@@ -13,8 +13,8 @@ import { Link } from "react-router-dom";
 import CommanFooter1 from "../../CommanFooter1";
 
 //Image
-import jampackImg from "../../../../assets/img/logo-light.svg";
-import jampackImgDark from "../../../../assets/img/logo-dark.svg";
+import nexusImg from "../../../../assets/img/logo-light.svg";
+import nexusImgDark from "../../../../assets/img/logo-dark.svg";
 import { useTheme } from "../../../../utils/theme-provider/theme-provider";
 
 const LoginClassic = (props) => {
@@ -43,13 +43,13 @@ const LoginClassic = (props) => {
                         <Link to="/" className="navbar-brand me-0">
                           {theme === "light" ? (
                             <img
-                              src={jampackImg}
+                              src={nexusImg}
                               alt="brand"
                               className="brand-img d-inline-block"
                             />
                           ) : (
                             <img
-                              src={jampackImgDark}
+                              src={nexusImgDark}
                               alt="brand"
                               className="brand-img d-inline-block"
                             />

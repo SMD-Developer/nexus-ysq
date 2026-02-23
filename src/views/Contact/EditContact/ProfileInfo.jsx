@@ -30,7 +30,7 @@ const ProfileInfo = ({ show, hide }) => {
                         <Col sm={6}>
                             <Form.Group className="mb-3">
                                 <Form.Label>Email ID</Form.Label>
-                                <Form.Control type="email" defaultValue="contct@hencework.com" placeholder="Email Id" name="emailid" />
+                                <Form.Control type="email" defaultValue="contct@nexus.com" placeholder="Email Id" name="emailid" />
                             </Form.Group>
                         </Col>
                         <Col sm={6}>

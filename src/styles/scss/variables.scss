@@ -1,5 +1,5 @@
 /*__________________________________________________________________;
-[Variables] – Jampack Theme (Teal Primary Edition)
+[Variables] – Nexus Theme (Teal Primary Edition)
 Updated: December 2025
 Primary: #007D88 (Teal) | Success: #00D67F | Info: #18DDEF
 ___________________________________________________________________*/
@@ -451,7 +451,7 @@ $theme-colors-rgb: (
   "gray": --bs-gray-rgb) !default;
 // Theme-colors-rgb-end
 
-$jampack-colors: (
+$nexus-colors: (
   "sky": $sky,
   "cyan": $cyan,
   "info": $info,
@@ -709,7 +709,7 @@ $jampack-colors: (
 
 
   // ********************************** For Background colors (.bg) Start ********************************** //
-  @each $name, $color in $jampack-colors {
+  @each $name, $color in $nexus-colors {
     // Base Color
     --bs-bg-#{$name}: #{$color};
 
@@ -963,7 +963,7 @@ $jampack-colors: (
 
 
   // ********************************** For Background colors (.bg) Start ********************************** //
-  @each $name, $color in $jampack-colors {
+  @each $name, $color in $nexus-colors {
     // Base Color (Slightly dimmed for dark mode to reduce eye strain)
     --bs-bg-#{$name}: #{mix($black_2, $color, 15%)};
 

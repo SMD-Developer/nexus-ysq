@@ -66,10 +66,10 @@ export const contacts = [
     },
     {
         id: 7,
-        name: "Hencework",
+        name: "Nexus",
         initAvatar: { title: "H", variant: "primary" },
         time: "24 Jan",
-        lastChat: "give me the last copy of jampack",
+        lastChat: "give me the last copy of nexus",
         status: "",
         unread: 0,
     },

@@ -19,7 +19,7 @@ const BoardHeader = ({ topNavCollapsed, toggleTopNav, showSidebar, toggleSidebar
                 <div className="d-flex">
                     <Link to="#" className="taskboardapp-title link-dark">
                         <h1>
-                            Jampack
+                            Nexus
                             <span className="task-star marked">
                                 <span className="feather-icon">
                                     <Star />

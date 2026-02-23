@@ -191,7 +191,7 @@ export const data = [
     },
     {
         starred: false,
-        name: [{ icons: "folder-2-fill", iconBg: "warning", fileName: "Jampack - HTML - v1.0", fileType: "folder" }],
+        name: [{ icons: "folder-2-fill", iconBg: "warning", fileName: "Nexus - HTML - v1.0", fileType: "folder" }],
         sharing: [{ img: avatar2, userName: "Danial" },],
         modified: "13 Jul, 1:46 PM",
         size: "501 KB",
@@ -199,7 +199,7 @@ export const data = [
     },
     {
         starred: false,
-        name: [{ icons: "folder-zip-fill", iconBg: "blue", fileName: "jampack.zip", fileType: "zip" }],
+        name: [{ icons: "folder-zip-fill", iconBg: "blue", fileName: "nexus.zip", fileType: "zip" }],
         sharing: [{ img: avatar12, userName: "Danial" },],
         modified: "10 Jun, 8:00 AM",
         size: "2.45 GB",
@@ -207,7 +207,7 @@ export const data = [
     },
     {
         starred: true,
-        name: [{ icons: "folder-5-fill", iconBg: "warning", fileName: "Jampack", fileType: "folder" }],
+        name: [{ icons: "folder-5-fill", iconBg: "warning", fileName: "Nexus", fileType: "folder" }],
         sharing: [{ blank: true }],
         modified: "24 Jun, 6:55 PM",
         size: "1.6 GB",
@@ -247,7 +247,7 @@ export const data = [
     },
     {
         starred: false,
-        name: [{ icons: "file-pdf-fill", iconBg: "danger", fileName: "jampack.pdf", fileType: "pdf" }],
+        name: [{ icons: "file-pdf-fill", iconBg: "danger", fileName: "nexus.pdf", fileType: "pdf" }],
         sharing: [{ blank: true }],
         modified: "Today, 4:30 PM",
         size: "21.73 MB",

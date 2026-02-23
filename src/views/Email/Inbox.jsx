@@ -210,7 +210,7 @@ const InboxList = ({ toggleSidebar, show, StartConversation, startChating, toggl
                                                 <div className="email-time">Yesterday</div>
                                             </div>
                                         </div>
-                                        <div className="email-subject">Built a robust platform for jampack.</div>
+                                        <div className="email-subject">Built a robust platform for nexus.</div>
                                         <div className="email-text">
                                             <p>So how did the classical latin become so insensive about things tiy do things you change in the world that is insane.</p>
                                         </div>
@@ -260,7 +260,7 @@ const InboxList = ({ toggleSidebar, show, StartConversation, startChating, toggl
                                                 <div className="email-time">3 Mar</div>
                                             </div>
                                         </div>
-                                        <div className="email-subject">Launching jampack beta version</div>
+                                        <div className="email-subject">Launching nexus beta version</div>
                                         <div className="email-text">
                                             <p>Instantly immediate his saw one day perceived. Old blushes respect but offices hearted minutes effects.</p>
                                         </div>
@@ -339,7 +339,7 @@ const InboxList = ({ toggleSidebar, show, StartConversation, startChating, toggl
                                                 <div className="email-time">22 Feb</div>
                                             </div>
                                         </div>
-                                        <div className="email-subject">Welcome to Jampack team.</div>
+                                        <div className="email-subject">Welcome to nexus team.</div>
                                         <div className="email-text">
                                             <p>Incommode our not one ourselves residence. Shall there whose those stand she end.</p>
                                         </div>
@@ -357,7 +357,7 @@ const InboxList = ({ toggleSidebar, show, StartConversation, startChating, toggl
                                 <div className="media-body">
                                     <div>
                                         <div>
-                                            <div className="email-head">Hencework</div>
+                                            <div className="email-head">Nexus</div>
                                             <div>
                                                 <span className="email-star marked"><span className="feather-icon"><Star /></span></span>
                                                 <div className="email-time">30 Jan</div>

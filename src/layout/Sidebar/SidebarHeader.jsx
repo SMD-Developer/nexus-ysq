@@ -8,8 +8,8 @@ import { useTheme } from '../../utils/theme-provider/theme-provider';
 
 //Images
 import logo from '../../assets/img/brand-sm.svg';
-import jampackImg from '../../assets/img/nexus.svg';
-import jampackImgDark from '../../assets/img/nexus-dark.svg';
+import nexusImg from '../../assets/img/nexus.svg';
+import nexusImgDark from '../../assets/img/nexus-dark.svg';
 
 
 const SidebarHeader = ({ navCollapsed, toggleCollapsedNav }) => {
@@ -25,7 +25,7 @@ const SidebarHeader = ({ navCollapsed, toggleCollapsedNav }) => {
             <span>
                 <Link className="navbar-brand" to="/">
                     <img className="brand-img img-fluid" src={logo} alt="brand" />
-                    {theme === "light" ? <img className="brand-img img-fluid logo-light" src={jampackImg} alt="brand" /> : <img className="brand-img img-fluid logo-dark" src={jampackImgDark} alt="brand" />}
+                    {theme === "light" ? <img className="brand-img img-fluid logo-light" src={nexusImg} alt="brand" /> : <img className="brand-img img-fluid logo-dark" src={nexusImgDark} alt="brand" />}
                 </Link>
                 <Button id="tggl-btn" variant="flush-dark" onClick={toggleSidebar} className="btn-icon btn-rounded flush-soft-hover navbar-toggle">
                     <span className="icon">

@@ -64,7 +64,7 @@ const TaskBoard = ({ showSidebar, toggleSidebar }) => {
                                                                         </div>
                                                                     </div>
                                                                     <div className="media-body">
-                                                                        <span>Jampack</span>
+                                                                        <span>Nexus</span>
                                                                     </div>
                                                                 </div>
                                                             </Card.Body>
@@ -134,7 +134,7 @@ const TaskBoard = ({ showSidebar, toggleSidebar }) => {
                                                                         </div>
                                                                     </div>
                                                                     <div className="media-body">
-                                                                        <span>Angular - Jampack</span>
+                                                                        <span>Angular - Nexus</span>
                                                                     </div>
                                                                 </div>
                                                             </Card.Body>
@@ -206,7 +206,7 @@ const TaskBoard = ({ showSidebar, toggleSidebar }) => {
                                                                         </div>
                                                                     </div>
                                                                     <div className="media-body">
-                                                                        <span>React - Jampack</span>
+                                                                        <span>React - Nexus</span>
                                                                     </div>
                                                                 </div>
                                                             </Card.Body>
@@ -603,7 +603,7 @@ const TaskBoard = ({ showSidebar, toggleSidebar }) => {
                                                                                 <span>Morgan Freeman</span>
                                                                                 <Badge bg="primary" className="badge-indicator badge-indicator-nobdr" />
                                                                             </div>
-                                                                            <div className="text-truncate">morgan@jampack.com</div>
+                                                                            <div className="text-truncate">morgan@nexus.com</div>
                                                                         </div>
                                                                     </HkTooltip>
                                                                 </div>
@@ -641,7 +641,7 @@ const TaskBoard = ({ showSidebar, toggleSidebar }) => {
                                                                                 <span>Huma Therman</span>
                                                                                 <Badge bg="primary" className="badge-indicator badge-indicator-nobdr" />
                                                                             </div>
-                                                                            <div className="text-truncate">huma@clariesup.au@jampack.com</div>
+                                                                            <div className="text-truncate">huma@clariesup.au@nexus.com</div>
                                                                         </div>
                                                                     </HkTooltip>
                                                                 </div>
@@ -679,7 +679,7 @@ const TaskBoard = ({ showSidebar, toggleSidebar }) => {
                                                                                 <span>Tom Cruz</span>
                                                                                 <Badge bg="danger" className="badge-indicator badge-indicator-nobdr" />
                                                                             </div>
-                                                                            <div className="text-truncate">tomcz@jampack.com</div>
+                                                                            <div className="text-truncate">tomcz@nexus.com</div>
                                                                         </div>
                                                                     </HkTooltip>
                                                                 </div>
@@ -717,7 +717,7 @@ const TaskBoard = ({ showSidebar, toggleSidebar }) => {
                                                                                 <span>Danial Craig</span>
                                                                                 <Badge bg="primary" className="badge-indicator badge-indicator-nobdr" />
                                                                             </div>
-                                                                            <div className="text-truncate">danialc@jampack.com</div>
+                                                                            <div className="text-truncate">danialc@nexus.com</div>
                                                                         </div>
                                                                     </HkTooltip>
                                                                 </div>
@@ -795,7 +795,7 @@ const TaskBoard = ({ showSidebar, toggleSidebar }) => {
                                                                                 <span>Katharine Jones</span>
                                                                                 <Badge bg="primary" className="badge-indicator badge-indicator-nobdr" />
                                                                             </div>
-                                                                            <div className="text-truncate">joneskath@jampack.com</div>
+                                                                            <div className="text-truncate">joneskath@nexus.com</div>
                                                                         </div>
                                                                     </HkTooltip>
                                                                 </div>
@@ -833,7 +833,7 @@ const TaskBoard = ({ showSidebar, toggleSidebar }) => {
                                                                                 <span>Jaquiline Joker</span>
                                                                                 <Badge bg="danger" className="badge-indicator badge-indicator-nobdr" />
                                                                             </div>
-                                                                            <div className="text-truncate">jaquljoker@jampack.com</div>
+                                                                            <div className="text-truncate">jaquljoker@nexus.com</div>
                                                                         </div>
                                                                     </HkTooltip>
                                                                 </div>

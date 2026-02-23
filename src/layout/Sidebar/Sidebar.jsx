@@ -153,14 +153,6 @@ const Sidebar = ({ navCollapsed, toggleCollapsedNav }) => {
                                 <div className="menu-gap" />
                             </React.Fragment>
                         ))}
-
-                        {/* <Card bg="orange-light-5" className="callout card-flush  text-center w-220p mx-auto">
-                            <Card.Body>
-                                <h5 className="h5">Quickly Build Applications</h5>
-                                <Card.Text className="p-sm">Exclusively for webapps Based on Bootstrap</Card.Text>
-                                <Button variant="primary" href="https://jampack.hencework.com/documentation/introduction" target="_blank" rel="noreferrer" className="btn-block">Go Jampack Doc</Button>
-                            </Card.Body>
-                        </Card> */}
                     </div>
                 </SimpleBar>
                 {/* /Main Menu */}

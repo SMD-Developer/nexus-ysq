@@ -165,7 +165,7 @@ export const data = [
     {
         starred: false,
         task: "Set up first call for demo",
-        assignee: [{ cstmAvt: "H", avtBg: "primary", userName: "Hencework" }],
+        assignee: [{ cstmAvt: "H", avtBg: "primary", userName: "Nexus" }],
         due_date: "Sunday",
         status: [{ status: "In Progress", variant: "warning" }],
         actions: [{ archiveLink: "#", editLink: "edit-contact", deleteLink: "#" }]
