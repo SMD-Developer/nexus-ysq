@@ -437,7 +437,7 @@ a.link-url {
 .multine-ellipsis {
   -webkit-box-orient: vertical;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  line-clamp: 4;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
@@ -76746,7 +76746,7 @@ span[data-notify="icon"] {
   font: normal normal normal 22px/1 'Material-Design-Iconic-Font';
   text-rendering: auto;
   padding-left: .25rem;
-  speak: none;
+  speak-as: none;
   text-transform: none;
   text-rendering: auto;
   line-height: 1;
@@ -76876,7 +76876,7 @@ span[data-notify="icon"] {
   font: normal normal normal 22px/1 'Material-Design-Iconic-Font';
   text-rendering: auto;
   padding-left: .25rem;
-  speak: none;
+  speak-as: none;
   text-transform: none;
   text-rendering: auto;
   line-height: 1;
@@ -80281,7 +80281,7 @@ div.hopscotch-bubble .hopscotch-bubble-container .hopscotch-bubble-close {
   outline: none;
   color: #262a2e;
   background: transparent;
-  webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-indent: inherit;
   width: auto;
@@ -86511,7 +86511,7 @@ div.hopscotch-bubble.fade-in-left {
 .emailapp-wrap .emailapp-content .emailapp-aside .aside-body .email-list .list-group-item .media .media-body > div .email-text {
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   font-size: 0.875rem;
 }
