@@ -7,7 +7,7 @@ const TEAM_MEMBERS = [
     { id: 1, initials: 'PN', name: 'Phillip Ng', avatarColor: 'pink' },
     { id: 2, initials: 'GK', name: 'Gautam Kumar', avatarColor: 'purple' },
     { id: 3, initials: 'J', name: 'Jack', avatarColor: 'purple' },
-    { id: 4, initials: 'S', name: 'Steve', avatarColor: 'purple' },
+    { id: 4, initials: 'A', name: 'Ashutosh', avatarColor: 'purple' },
     { id: 5, initials: 'SR', name: 'Santosh Roshan', avatarColor: 'purple' },
     { id: 6, initials: 'J', name: 'James', avatarColor: 'purple' },
 ];
@@ -58,60 +58,6 @@ const TeamsSettings = () => {
 
                     {/* Filters row */}
                     <div className="settings-teams-filters">
-                        {/* <Dropdown className="settings-teams-filter-dropdown">
-                            <Dropdown.Toggle variant="outline-secondary" className="settings-teams-filter-btn">
-                                {statusFilter}
-                                <ChevronDown size={14} className="ms-1" />
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>
-                                <Dropdown.Item onClick={() => setStatusFilter('Active')}>Active</Dropdown.Item>
-                                <Dropdown.Item onClick={() => setStatusFilter('Inactive')}>Inactive</Dropdown.Item>
-                                <Dropdown.Item onClick={() => setStatusFilter('Status')}>Status</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
-                        <Dropdown className="settings-teams-filter-dropdown">
-                            <Dropdown.Toggle variant="outline-secondary" className="settings-teams-filter-btn">
-                                {teamFilter}
-                                <ChevronDown size={14} className="ms-1" />
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>
-                                <Dropdown.Item onClick={() => setTeamFilter('All teams')}>All teams</Dropdown.Item>
-                                <Dropdown.Item onClick={() => setTeamFilter('Team')}>Team</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
-                        <Dropdown className="settings-teams-filter-dropdown">
-                            <Dropdown.Toggle variant="outline-secondary" className="settings-teams-filter-btn">
-                                {accountFilter}
-                                <ChevronDown size={14} className="ms-1" />
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>
-                                <Dropdown.Item onClick={() => setAccountFilter('Member')}>Member</Dropdown.Item>
-                                <Dropdown.Item onClick={() => setAccountFilter('Guest')}>Guest</Dropdown.Item>
-                                <Dropdown.Item onClick={() => setAccountFilter('Account type')}>Account type</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
-                        <Dropdown className="settings-teams-filter-dropdown">
-                            <Dropdown.Toggle variant="outline-secondary" className="settings-teams-filter-btn">
-                                {managerFilter}
-                                <ChevronDown size={14} className="ms-1" />
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>
-                                <Dropdown.Item onClick={() => setManagerFilter('All managers')}>All managers</Dropdown.Item>
-                                <Dropdown.Item onClick={() => setManagerFilter('Manager')}>Manager</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
-                        <Dropdown className="settings-teams-filter-dropdown">
-                            <Dropdown.Toggle variant="outline-secondary" className="settings-teams-filter-btn">
-                                {sortBy}
-                                <ChevronDown size={14} className="ms-1" />
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>
-                                <Dropdown.Item onClick={() => setSortBy('Name A–Z')}>Name A–Z</Dropdown.Item>
-                                <Dropdown.Item onClick={() => setSortBy('Name Z–A')}>Name Z–A</Dropdown.Item>
-                                <Dropdown.Item onClick={() => setSortBy('Sort')}>Sort</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown> */}
-
                         {/* Search + layout toggle */}
                         <div className="settings-teams-search-layout">
                             <InputGroup className="settings-teams-search">

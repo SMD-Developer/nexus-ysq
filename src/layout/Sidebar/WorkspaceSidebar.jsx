@@ -392,7 +392,14 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
                                                         <Nav className="flex-column workspace-nav sub-nav project-tasks">
                                                             {projectTasks[project.name].map(task => (
                                                                 <Nav.Item key={task.id}>
-                                                                    <div className="workspace-nav-link list-link">
+                                                                    <NavLink
+                                                                        to={`/apps/task-list/${encodeURIComponent(project.name)}/${task.id}`}
+                                                                        className="workspace-nav-link list-link"
+                                                                        onClick={(e) => {
+                                                                            e.stopPropagation();
+                                                                            handleLinkClick();
+                                                                        }}
+                                                                    >
                                                                         <span className="nav-text">{task.name}</span>
 
                                                                         <span className="task-status">{task.status}</span>
@@ -402,6 +409,7 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
                                                                             <span
                                                                                 className="nav-add-icon"
                                                                                 onClick={(e) => {
+                                                                                    e.preventDefault();
                                                                                     e.stopPropagation();
                                                                                     setShowAddItemModal(true);
                                                                                 }}
@@ -413,6 +421,7 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
                                                                             <span
                                                                                 className="nav-menu-dots"
                                                                                 onClick={(e) => {
+                                                                                    e.preventDefault();
                                                                                     e.stopPropagation();
                                                                                     setOpenMenu(null);
                                                                                     setOpenMenu({
@@ -424,7 +433,7 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
                                                                                 <MoreHorizontal size={14} />
                                                                             </span>
                                                                         </div>
-                                                                    </div>
+                                                                    </NavLink>
                                                                 </Nav.Item>
                                                             ))}
                                                         </Nav>

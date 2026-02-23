@@ -16,7 +16,7 @@ import './icon-sidebar.scss';
 const IconSidebar = ({ onExpandWorkspace, showExpandButton = false }) => {
     const iconMenuItems = [
         { name: 'Home', icon: <Home size={20} />, path: '/Dashboard' },
-        { name: 'Teams', icon: <Users size={20} />, path: '/apps/contacts/contact-list' },
+        { name: 'Teams', icon: <Users size={20} />, path: '/settings/teams' },
         { name: 'Settings', icon: <Settings size={20} />, path: '/settings/my-settings' },
         // { name: 'More', icon: <MoreHorizontal size={20} />, path: '#' },
     ];
