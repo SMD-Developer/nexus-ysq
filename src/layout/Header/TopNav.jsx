@@ -362,7 +362,7 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                                         <span className="dropdown-icon feather-icon">
                                             <Settings />
                                         </span>
-                                        <span>Settings</span>
+                                        <span> User Settings</span>
                                     </Dropdown.Item>
                                     <Dropdown.Divider as="div" />
                                     <Dropdown.Item>
