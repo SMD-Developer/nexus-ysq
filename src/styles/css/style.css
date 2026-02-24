@@ -91007,5 +91007,7 @@ div.hopscotch-bubble.fade-in-left {
     height: calc(100vh - 65px);
   }
 }
-
+.simplebar-wrapper {
+    font-size: 13px;
+}
 /*# sourceMappingURL=style.css.map */

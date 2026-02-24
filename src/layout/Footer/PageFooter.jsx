@@ -9,7 +9,7 @@ const PageFooter = () => {
       <Container as="footer" className="footer">
         <Row>
           <Col xl={8}>
-            <p className="footer-text">
+            <p className="footer-text text-center">
               <span className="copy-text">
                 Nexus © {new Date().getFullYear()} All rights reserved.
               </span>
@@ -19,14 +19,6 @@ const PageFooter = () => {
               {/* <span className="footer-link-sep">|</span>
               <Link to="#">System Status</Link> */}
             </p>
-          </Col>
-          <Col xl={4}>
-            {/* <Link to="#" className="footer-extr-link link-default">
-              <span className="feather-icon">
-                <ExternalLink />
-              </span>
-              <u>Send feedback to our help forum</u>
-            </Link> */}
           </Col>
         </Row>
       </Container>

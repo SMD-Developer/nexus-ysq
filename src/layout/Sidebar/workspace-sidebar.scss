@@ -135,8 +135,8 @@
         .section-header {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 6px 8px;
+            gap: 15px;
+            padding: 6px 10px;
             margin-bottom: 8px;
             border-radius: 6px;
             transition: background 0.2s;
@@ -213,10 +213,10 @@
             .add-space-btn {
                 color: rgba(255, 255, 255, 0.6);
                 font-size: 13px;
-                padding: 6px 8px;
+                padding: 6px 6px;
                 display: inline-flex;
                 align-items: center;
-                gap: 4px;
+                gap: 8px;
                 text-decoration: none;
                 width: 100%;
                 justify-content: flex-start;
@@ -1335,7 +1335,7 @@
 .fixed-folder-menu {
     position: fixed;
     top: 100px;
-    left: 350px;
+    left: 350px !important;
     width: 250px;
     max-height: 400px;
     overflow-y: auto;
@@ -1450,7 +1450,7 @@
 .fixed-list-menu {
     position: fixed;
     top: 100px;
-    left: 350px;
+    left: 350px !important;
     width: 250px;
     max-height: 400px;
     overflow-y: auto;
