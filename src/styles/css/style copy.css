@@ -73473,7 +73473,7 @@ div.hopscotch-bubble .hopscotch-bubble-container .hopscotch-actions .btn-group >
 .btn-check:active + .btn-primary, div.hopscotch-bubble .hopscotch-bubble-container .hopscotch-actions .btn-check:active + .hopscotch-nav-button.next, .btn-check:checked + .btn-primary, div.hopscotch-bubble .hopscotch-bubble-container .hopscotch-actions .btn-check:checked + .hopscotch-nav-button.next {
   color: #fff;
   background-color: #257fe6;
-  border-color: #257fe6;
+  /* border-color: #257fe6; */
 }
 .btn-check:active + .btn-dark, .btn-check:checked + .btn-dark {
   color: #fff;

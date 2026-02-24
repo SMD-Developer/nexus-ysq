@@ -75,7 +75,31 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
             toggleSidebar();
         }
     };
+    const calculateMenuPosition = (rect) => {
+        const menuHeight = 180;
+        const menuWidth = 180;
 
+        // ALIGN WITH ITEM (PARALLEL)
+        let top = rect.top + rect.height / 2 - menuHeight / 2;
+        let left = rect.right + 8;
+
+        // Prevent bottom overflow
+        if (top + menuHeight > window.innerHeight) {
+            top = window.innerHeight - menuHeight - 10;
+        }
+
+        // Prevent right overflow
+        if (left + menuWidth > window.innerWidth) {
+            left = rect.left - menuWidth - 8;
+        }
+
+        // Prevent top overflow
+        if (top < 10) {
+            top = 10;
+        }
+
+        return { top, left };
+    };
     // Workspace sections data
     const mainMenuItems = [
         { name: 'Home', icon: <HomeIcon size={18} />, path: '/Dashboard' },
@@ -357,15 +381,25 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
                                                         {/* Folder Menu */}
                                                         {project.hasMenu && (
                                                             <div
-                                                                className="nav-menu-dots me-2"
                                                                 onClick={(e) => {
-                                                                    e.stopPropagation();
+                                                                e.stopPropagation();
+
+                                                                const rect = e.currentTarget.getBoundingClientRect();
+                                                                const newId = `${space.name}-${project.name}`;
+
+                                                                // toggle close if same clicked
+                                                                if (openMenu?.type === 'folder' && openMenu?.id === newId) {
                                                                     setOpenMenu(null);
-                                                                    setOpenMenu({
-                                                                        type: 'folder',
-                                                                        id: `${space.name}-${project.name}`
-                                                                    });
-                                                                }}
+                                                                    return;
+                                                                }
+
+                                                                setMenuPosition(calculateMenuPosition(rect));
+
+                                                                setOpenMenu({
+                                                                    type: 'folder',
+                                                                    id: newId
+                                                                });
+                                                            }}
                                                             >
                                                                 <MoreHorizontal size={14} />
                                                             </div>
@@ -422,14 +456,25 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
                                                                             <span
                                                                                 className="nav-menu-dots"
                                                                                 onClick={(e) => {
-                                                                                    e.preventDefault();
-                                                                                    e.stopPropagation();
+                                                                                e.preventDefault();
+                                                                                e.stopPropagation();
+
+                                                                                const rect = e.currentTarget.getBoundingClientRect();
+                                                                                const newId = `${space.name}-${project.name}-${task.id}`;
+
+                                                                                // Toggle close if same clicked
+                                                                                if (openMenu?.type === 'list' && openMenu?.id === newId) {
                                                                                     setOpenMenu(null);
-                                                                                    setOpenMenu({
-                                                                                        type: 'list',
-                                                                                        id: `${space.name}-${project.name}-${task.id}`
-                                                                                    });
-                                                                                }}
+                                                                                    return;
+                                                                                }
+
+                                                                                setMenuPosition(calculateMenuPosition(rect));
+
+                                                                                setOpenMenu({
+                                                                                    type: 'list',
+                                                                                    id: newId
+                                                                                });
+                                                                            }}
                                                                             >
                                                                                 <MoreHorizontal size={14} />
                                                                             </span>
@@ -466,8 +511,12 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
             {openMenu?.type === 'folder' && (
                 <div
                     className="fixed-folder-menu"
-                    onClick={(e) => e.stopPropagation()}
-                >
+                    style={{
+                        position: "fixed",
+                        top: menuPosition.top,
+                        zIndex: 9999
+                    }}
+                    >
                     <ul>
                         <li>Rename Folder</li>
                         <li>Duplicate Folder</li>
@@ -526,6 +575,12 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
             {openMenu?.type === 'list' && (
                 <div
                     className="fixed-list-menu"
+                    style={{
+                        position: "fixed",
+                        top: menuPosition.top,
+                        
+                        zIndex: 9999
+                    }}
                     onClick={(e) => e.stopPropagation()}
                 >
                     <ul>

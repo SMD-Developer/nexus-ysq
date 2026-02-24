@@ -51,10 +51,10 @@ const Dashboard = () => {
                             <div className="team-space-title-wrap">
                                 <div className="team-space-title-row">
                                     <h1 className="pg-title mb-0 text-primary">Welcome back</h1>
-                                    <Button variant="flush-dark" size="sm" className="btn-icon team-space-title-btn" aria-label="Options">
+                                    <Button variant="" size="sm" className="btn-icon team-space-title-btn" aria-label="Options">
                                         <ChevronDown size={16} />
                                     </Button>
-                                    <Button variant="flush-dark" size="sm" className="btn-icon team-space-title-btn" aria-label="Favorite">
+                                    <Button variant="" size="sm" className="btn-icon team-space-title-btn" aria-label="Favorite">
                                         <Star size={16} />
                                     </Button>
                                 </div>
