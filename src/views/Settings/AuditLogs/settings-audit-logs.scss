@@ -1,0 +1,253 @@
+// Audit Logs settings page – tabs, filters, table
+$border: #e5e7eb;
+$text-primary: #111827;
+$text-secondary: #6b7280;
+$text-muted: #9ca3af;
+$bg-page: #f9fafb;
+$success: #10b981;
+$failed: #ef4444;
+$role-pill-bg: #f3f4f6;
+
+.settings-audit-logs-page {
+    padding: 0;
+    min-height: 100vh;
+    background: $bg-page;
+}
+
+.settings-audit-logs-content {
+    padding: 2rem 1.5rem;
+}
+
+.settings-audit-logs-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.settings-audit-logs-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin: 0 0 1rem 0;
+}
+
+.settings-audit-logs-tabs {
+    border-bottom: 1px solid $border;
+    gap: 0;
+    margin-bottom: 1rem;
+
+    .nav-link {
+        padding: 10px 16px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: $text-secondary;
+        border: none;
+        border-radius: 0;
+        border-bottom: 2px solid transparent;
+        margin-bottom: -1px;
+        background: none;
+
+        &:hover {
+            color: $text-primary;
+        }
+
+        &.active {
+            color: $text-primary;
+            font-weight: 600;
+            border-bottom-color: $text-primary;
+            background: none;
+        }
+    }
+}
+
+.settings-audit-logs-tab {
+    cursor: pointer;
+}
+
+.settings-audit-logs-filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.settings-audit-logs-filter-dropdown {
+    .settings-audit-logs-filter-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 12px;
+        font-size: 0.8125rem;
+        font-weight: 500;
+        color: $text-primary;
+        background: #fff;
+        border: 1px solid $border;
+        border-radius: 8px;
+
+        &:hover {
+            background: #f3f4f6;
+            border-color: $border;
+            color: $text-primary;
+        }
+    }
+}
+
+.settings-audit-logs-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: $text-primary;
+    background: #fff;
+    border: 1px solid $border;
+    border-radius: 8px;
+
+    .settings-audit-logs-chip-remove {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        margin-left: 2px;
+        border: none;
+        background: none;
+        color: $text-muted;
+        cursor: pointer;
+        border-radius: 4px;
+
+        &:hover {
+            color: $text-primary;
+            background: #f3f4f6;
+        }
+    }
+}
+
+.settings-audit-logs-table-wrap {
+    background: #fff;
+    border: 1px solid $border;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.settings-audit-logs-table {
+    margin: 0;
+    font-size: 0.875rem;
+
+    thead th {
+        font-weight: 600;
+        color: $text-primary;
+        background: #f9fafb;
+        border-color: $border;
+        padding: 12px 16px;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+
+    tbody td {
+        border-color: $border;
+        padding: 12px 16px;
+        vertical-align: middle;
+    }
+}
+
+.settings-audit-logs-col-expand {
+    width: 40px;
+    text-align: center;
+}
+
+.settings-audit-logs-row {
+    cursor: pointer;
+    transition: background 0.12s;
+
+    &:hover {
+        background: #f9fafb;
+    }
+}
+
+.settings-audit-logs-expand-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: $text-muted;
+}
+
+.settings-audit-logs-col-date {
+    white-space: nowrap;
+}
+
+.settings-audit-logs-date,
+.settings-audit-logs-time {
+    display: block;
+    font-size: 0.8125rem;
+}
+
+.settings-audit-logs-time {
+    color: $text-muted;
+    font-size: 0.75rem;
+}
+
+.settings-audit-logs-col-user {
+    .settings-audit-logs-user-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+}
+
+.settings-audit-logs-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    color: $text-secondary;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.settings-audit-logs-user-name {
+    font-weight: 500;
+    color: $text-primary;
+}
+
+.settings-audit-logs-user-email {
+    font-size: 0.75rem;
+    color: $text-muted;
+}
+
+.settings-audit-logs-pill {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 9999px;
+}
+
+.settings-audit-logs-pill-role {
+    background: $role-pill-bg;
+    color: $text-secondary;
+}
+
+.settings-audit-logs-pill-status--success {
+    background: rgba($success, 0.12);
+    color: darken($success, 8%);
+}
+
+.settings-audit-logs-pill-status--failed {
+    background: rgba($failed, 0.12);
+    color: darken($failed, 8%);
+}
+
+.settings-audit-logs-detail-row .settings-audit-logs-detail-cell {
+    background: #f9fafb;
+    font-size: 0.8125rem;
+    color: $text-secondary;
+    padding: 12px 16px 12px 56px;
+}

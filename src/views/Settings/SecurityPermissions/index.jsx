@@ -45,12 +45,6 @@ const CUSTOM_PERMISSIONS = [
                     'Grants the user permission to manage all teams in a Workspace. This includes the ability to add, edit, and remove teams, as well as manage their members.',
             },
             {
-                id: 'git',
-                label: 'Git',
-                description:
-                    'Allows the user to see and open the Github/Bitbucket/Gitlab modal on tasks and use all the features within it.',
-            },
-            {
                 id: 'edit-statuses',
                 label: 'Edit Statuses',
                 description:
@@ -64,12 +58,12 @@ const CUSTOM_PERMISSIONS = [
             },
             {
                 id: 'send-email',
-                label: 'Send Email (Email ClickApp)',
+                label: 'Send Email ',
                 description: 'Gives the user the permission to send email through the Email ClickApp.',
             },
             {
                 id: 'add-email-accounts',
-                label: 'Add Email Accounts (Email ClickApp)',
+                label: 'Add Email Accounts',
                 description: 'Gives the user the permission to add authorized email accounts through the Email ClickApp.',
             },
         ],
@@ -143,7 +137,6 @@ const SecurityPermissions = () => {
                     <section className="settings-security-section">
                         <div className="settings-security-section-header">
                             <h2 className="settings-security-section-title">Invite Permissions</h2>
-                            <a href="#learn-invite" className="settings-security-learn">Learn more</a>
                         </div>
                         <div className="settings-security-table-wrap">
                             <Table className="settings-security-table" bordered>
@@ -151,7 +144,7 @@ const SecurityPermissions = () => {
                                     <tr>
                                         <th className="settings-security-col-action">ACTIONS</th>
                                         {ROLES.map((r) => (
-                                            <th key={r} className="settings-security-col-role">
+                                            <th key={r} className="settings-security-col-role" style={{ fontSize: "14px !important" }}>
                                                 {r}
                                             </th>
                                         ))}
@@ -203,7 +196,6 @@ const SecurityPermissions = () => {
                             <div className="settings-security-custom-title-wrap">
                                 <Lock size={18} className="settings-security-lock-icon" />
                                 <h2 className="settings-security-section-title">Custom Role Permissions</h2>
-                                <a href="#learn-custom" className="settings-security-learn">Learn more</a>
                             </div>
                             <div className="settings-security-custom-toolbar">
                                 <InputGroup className="settings-security-search">

@@ -3,7 +3,7 @@ import { Button, Nav } from 'react-bootstrap';
 import SimpleBar from 'simplebar-react';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-import { ChevronLeft, User } from 'react-feather';
+import { ChevronLeft, FileText, Trash, User, Settings } from 'react-feather';
 import './settings-sidebar.scss';
 
 const SettingsSidebar = ({ show = false, toggleSidebar, onCollapse }) => {
@@ -17,8 +17,11 @@ const SettingsSidebar = ({ show = false, toggleSidebar, onCollapse }) => {
         { label: 'People', to: '/settings/people', icon: <User size={8} /> },
         { label: 'Spaces', to: '/settings/spaces', icon: <User size={8} /> },
         { label: 'Security & Permissions', to: '/settings/security-permissions', icon: <User size={8} /> },
-        { label: 'Audit Logs', to: '/settings/audit-logs', icon: <User size={8} /> },
+        { label: 'Audit Logs', to: '/settings/audit-logs', icon: <FileText size={16} /> },
         { label: 'Teams', to: '/settings/teams', icon: <User size={8} /> },
+        { label: 'Trash', to: '/settings/trash', icon: <Trash size={16} /> },
+        { label: 'WorkSpace Settings', to: '/settings/workspace', icon: <Settings size={16} /> },
+        
     ]
 
     return (
@@ -52,7 +55,7 @@ const SettingsSidebar = ({ show = false, toggleSidebar, onCollapse }) => {
                                         onClick={handleLinkClick}
                                     >
                                         <span className="settings-sidebar-icon" aria-hidden="true">
-                                            <User size={16} />
+                                            {i.icon || <User size={16} />}
                                         </span>
                                         <span>{i.label}</span>
                                     </Nav.Link>

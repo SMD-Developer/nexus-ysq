@@ -85,7 +85,7 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
         { name: 'Assigned to me', icon: <UserCheck size={16} />, path: '/apps/taskboard/assigned-to-me' },
     ];
 
-    // Spaces data with UI control for Space "+", which will open Create Folder modal on click
+    
     const spacesItems = [
         {
             name: 'Space 1',
@@ -93,6 +93,7 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
             path: '/spaces/team-space',
             showAdd: true, // Treated as flag to show "+" on hover
             onAdd: () => setShowCreateFolderModal(true),  // Function to open modal (set this up in sidebar list UI)
+            hasMenu: true,
             projects: [
                 {
                     name: 'Folder 1',
@@ -481,12 +482,44 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
                     className="fixed-space-menu"
                     onClick={(e) => e.stopPropagation()}
                 >
-                    <ul>
-                        <li>Rename Space</li>
-                        <li>Duplicate Space</li>
-                        <li>Share Space</li>
-                        <li>Delete Space</li>
-                    </ul>
+                    <div className="space-menu-panel">
+                        <ul className="space-menu-list">
+                            <li className="space-menu-item">Favorite</li>
+                            <li className="space-menu-item">Rename</li>
+                            <li className="space-menu-item">Copy link</li>
+                        </ul>
+                        <ul className="space-menu-list">
+                            <li className="space-menu-item">Create new &gt;</li>
+                            <li className="space-menu-item">Color &amp; Icon &gt;</li>
+                            <li className="space-menu-item">Templates &gt;</li>
+                            <li className="space-menu-item">Automations</li>
+                            <li className="space-menu-item">Custom Fields</li>
+                            <li className="space-menu-item">Task statuses &gt;</li>
+                            <li className="space-menu-item">More &gt;</li>
+                        </ul>
+                        <ul className="space-menu-list space-menu-list--separated">
+                            <li className="space-menu-item space-menu-item--with-desc">
+                                <div>
+                                    <div className="space-menu-item-title">Hide Space</div>
+                                    <div className="space-menu-item-desc">
+                                        You'll retain access to this Space, but it won't show in your sidebar
+                                    </div>
+                                </div>
+                            </li>
+                            <li className="space-menu-item">Duplicate</li>
+                            <li className="space-menu-item">Archive</li>
+                            <li className="space-menu-item space-menu-item--danger">Delete</li>
+                        </ul>
+                        <div className="space-menu-footer">
+                            <Button
+                                variant="primary"
+                                size="sm"
+                                className="space-menu-share-btn"
+                            >
+                                Sharing &amp; Permissions
+                            </Button>
+                        </div>
+                    </div>
                 </div>
             )}
 

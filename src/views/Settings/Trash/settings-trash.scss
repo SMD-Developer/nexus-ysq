@@ -1,0 +1,177 @@
+// Trash settings page – search, filters, empty state
+$border: #e5e7eb;
+$text-primary: #111827;
+$text-secondary: #6b7280;
+$text-muted: #9ca3af;
+$bg-page: #f9fafb;
+$purple: #7c3aed;
+$purple-badge: #6d28d9;
+
+.settings-trash-page {
+    padding: 0;
+    min-height: 100vh;
+    background: $bg-page;
+}
+
+.settings-trash-content {
+    padding: 2rem 1.5rem;
+}
+
+.settings-trash-inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.settings-trash-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin: 0 0 0.25rem 0;
+}
+
+.settings-trash-description {
+    font-size: 0.875rem;
+    color: $text-secondary;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.5;
+}
+
+.settings-trash-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 2rem;
+}
+
+.settings-trash-search-wrap {
+    flex: 1;
+    max-width: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid $border;
+    background: #fff;
+
+    .settings-trash-search-icon {
+        background: #fff;
+        border: none;
+        color: $text-muted;
+        padding: 10px 12px;
+    }
+
+    .settings-trash-search-input {
+        border: none;
+        font-size: 0.875rem;
+        padding: 10px 12px;
+
+        &:focus {
+            box-shadow: none;
+            outline: none;
+        }
+
+        &::placeholder {
+            color: $text-muted;
+        }
+    }
+}
+
+.settings-trash-filter-dropdown {
+    .settings-trash-filter-btn {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        padding: 4px;
+        border-radius: 8px;
+        border: 1px solid $border;
+        background: #e4d9d9;
+        color: $text-primary;
+
+        &:hover {
+            background: #f3f4f6;
+            border-color: $border;
+            color: $text-primary;
+        }
+    }
+
+    .settings-trash-filter-badge {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        width: 18px;
+        height: 18px;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: 600;
+        color: #b92222;
+        background: $purple;
+        border-radius: 50%;
+        box-sizing: border-box;
+    }
+}
+
+.settings-trash-filter-menu {
+    padding: 8px 0;
+    border-radius: 10px;
+    border: 1px solid $border;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    min-width: 180px;
+}
+
+.settings-trash-filter-menu-title {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: $text-muted;
+    padding: 6px 14px 8px;
+    border-bottom: 1px solid $border;
+    margin-bottom: 4px;
+}
+
+.settings-trash-filter-option {
+    font-size: 0.875rem;
+    color: $text-primary;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+
+    &:hover {
+        background: #f3f4f6;
+    }
+
+    &.settings-trash-filter-option--deleted-by {
+        .settings-trash-filter-initials {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #374151;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+        }
+    }
+}
+
+.settings-trash-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    padding: 2rem;
+}
+
+.settings-trash-empty-text {
+    font-size: 0.9375rem;
+    color: $text-secondary;
+    margin: 0;
+}

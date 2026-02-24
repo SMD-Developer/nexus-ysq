@@ -80,7 +80,7 @@ const TopNav = ({ navCollapsed, toggleCollapsedNav }) => {
                                 </div>
                             </div>
                             <Dropdown.Divider />
-                            <Dropdown.Item as={Link} to="/pages/profile">
+                            <Dropdown.Item as={Link} to="/settings/workspace">
                                 <Settings size={16} className="me-2" />
                                 Settings
                             </Dropdown.Item>

@@ -604,7 +604,6 @@ a.link-url {
 .multine-ellipsis {
 	-webkit-box-orient: vertical;
 	display: -webkit-box;
-	-webkit-line-clamp: 4;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: normal;
@@ -16575,8 +16574,9 @@ div.mce-menu .mce-menu-item-sep,
 		vertical-align: middle;
 		font-weight: 500;
 		color: var(--hk-text-primary-rgb); // <-- THEMED
-		font-size: 0.875rem;
+		font-size: 0.650rem;
 		text-transform: capitalize;
+		text-wrap: nowrap;
 
 		.form-check {
 			font-size: 1rem;

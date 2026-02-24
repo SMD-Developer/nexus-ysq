@@ -20,6 +20,9 @@ import PeopleSettings from "../views/Settings/People";
 import MySettings from "../views/Settings/MySettings";
 import TeamsSettings from "../views/Settings/Teams";
 import SecurityPermissions from "../views/Settings/SecurityPermissions";
+import TrashSettings from "../views/Settings/Trash";
+import AuditLogsSettings from "../views/Settings/AuditLogs";
+import WorkspaceSettings from "../views/Settings/WorkspaceSettings";
 import AllApps from "../views/Integrations/All Apps";
 import IntegrationsDetail from "../views/Integrations/App Details";
 import Integration from "../views/Integrations/Integration";
@@ -60,6 +63,9 @@ export const routes = [
     { path: 'settings/my-settings', exact: true, component: MySettings },
     { path: 'settings/teams', exact: true, component: TeamsSettings },
     { path: 'settings/security-permissions', exact: true, component: SecurityPermissions },
+    { path: 'settings/workspace', exact: true, component: WorkspaceSettings },
+    { path: 'settings/audit-logs', exact: true, component: AuditLogsSettings },
+    { path: 'settings/trash', exact: true, component: TrashSettings },
     //Apps
     { path: 'apps/chat/chats', exact: true, component: Chats },
     { path: 'apps/chat/chat-groups', exact: true, component: ChatGroups },
