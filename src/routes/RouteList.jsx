@@ -23,6 +23,8 @@ import SecurityPermissions from "../views/Settings/SecurityPermissions";
 import TrashSettings from "../views/Settings/Trash";
 import AuditLogsSettings from "../views/Settings/AuditLogs";
 import WorkspaceSettings from "../views/Settings/WorkspaceSettings";
+import CustomFieldsSettings from "../views/Settings/CustomFields";
+import WorkspacesSettings from "../views/Settings/Workspaces";
 import AllApps from "../views/Integrations/All Apps";
 import IntegrationsDetail from "../views/Integrations/App Details";
 import Integration from "../views/Integrations/Integration";
@@ -64,6 +66,8 @@ export const routes = [
     { path: 'settings/teams', exact: true, component: TeamsSettings },
     { path: 'settings/security-permissions', exact: true, component: SecurityPermissions },
     { path: 'settings/workspace', exact: true, component: WorkspaceSettings },
+    { path: 'settings/custom-fields', exact: true, component: CustomFieldsSettings },
+    { path: 'settings/workspaces', exact: true, component: WorkspacesSettings },
     { path: 'settings/audit-logs', exact: true, component: AuditLogsSettings },
     { path: 'settings/trash', exact: true, component: TrashSettings },
     //Apps

@@ -73,7 +73,101 @@ const MySettings = () => {
                                     </InputGroup>
                                 </Form.Group>
                             </div>
+                        </Col>
+                    </Row>
 
+                    {/* Language & Region Section */}
+                    <Row className="my-settings-sections mt-5">
+                        <Col md={4} className="my-settings-section-label">
+                            <h2 className="my-settings-section-title">Timezone</h2>
+                            <p className="my-settings-section-desc">
+                                Customize your timezone.
+                            </p>
+                        </Col>
+                        <Col md={8}>
+                            <Form>
+                                <Form.Group className="mb-3" controlId="timezoneSelect">
+                                    <Form.Label>Timezone</Form.Label>
+                                    <Form.Select>
+                                        <option>Asia/Kolkata</option>
+                                        {/* Add more timezones as needed */}
+                                    </Form.Select>
+                                </Form.Group>
+                            </Form>
+                        </Col>
+                    </Row>
+
+                    {/* Time & Date Format Section */}
+                    <Row className="my-settings-sections mt-5">
+                        <Col md={4} className="my-settings-section-label">
+                            <h2 className="my-settings-section-title">Time & Date format</h2>
+                            <p className="my-settings-section-desc">
+                                Select the way time & dates are displayed.
+                            </p>
+                        </Col>
+                        <Col md={8}>
+                            <Form>
+                                <Form.Group className="mb-4">
+                                    <Form.Label className="fw-semibold">Start of the calendar week</Form.Label>
+                                    <div>
+                                        <Form.Check
+                                            type="radio"
+                                            id="calendarStartSunday"
+                                            label="Sunday"
+                                            name="calendarStart"
+                                            defaultChecked
+                                            className="me-4"
+                                        />
+                                        <Form.Check
+                                            type="radio"
+                                            id="calendarStartMonday"
+                                            label="Monday"
+                                            name="calendarStart"
+                                            className="d-inline-block"
+                                        />
+                                    </div>
+                                </Form.Group>
+                                <Form.Group className="mb-4">
+                                    <Form.Label className="fw-semibold">Time format</Form.Label>
+                                    <div>
+                                        <Form.Check
+                                            type="radio"
+                                            id="timeFormat24"
+                                            label="24 hour"
+                                            name="timeFormat"
+                                            defaultChecked
+                                            className="me-4"
+                                        />
+                                        <Form.Check
+                                            type="radio"
+                                            id="timeFormat12"
+                                            label="12 hour"
+                                            name="timeFormat"
+                                            className="d-inline-block"
+                                        />
+                                    </div>
+                                </Form.Group>
+                                <Form.Group>
+                                    <Form.Label className="fw-semibold">Date format</Form.Label>
+                                    <div>
+                                        <Form.Check
+                                            type="radio"
+                                            id="dateFormatMDY"
+                                            label="mm/dd/yyyy"
+                                            name="dateFormat"
+                                            defaultChecked
+                                            className="me-4"
+                                        />
+                                        <Form.Check
+                                            type="radio"
+                                            id="dateFormatDMY"
+                                            label="dd/mm/yyyy"
+                                            name="dateFormat"
+                                            className="d-inline-block"
+                                        />
+                                    </div>
+                                </Form.Group>
+                            </Form>
                             {/* <div className="my-settings-2fa">
                                 <div className="my-settings-section-label-inline">
                                     <h2 className="my-settings-section-title">Two-factor authentication (2FA)</h2>

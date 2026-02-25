@@ -36,6 +36,7 @@ const AssignedToMePage = () => {
     const [newTaskName, setNewTaskName] = useState('');
     // Order of right columns: ['priority', 'dueDate'] or ['dueDate', 'priority']
     const [columnOrder, setColumnOrder] = useState([COL_PRIORITY, COL_DUE_DATE]);
+    const [showCustomFieldMenu, setShowCustomFieldMenu] = useState(false);
 
     const swapPriorityAndDueDate = () => {
         setColumnOrder((prev) =>
@@ -131,9 +132,12 @@ const AssignedToMePage = () => {
                                 <thead>
                                     <tr>
                                         <th className="list-detail-col-name">Name</th>
+                                        <th className="list-detail-col-id">Task ID</th>
                                         {columnOrder.map((key) =>
                                             key === COL_PRIORITY ? (
-                                                <th key={key} className="list-detail-col-priority sm">Priority</th>
+                                                <th key={key} className="list-detail-col-priority sm">
+                                                    Priority
+                                                </th>
                                             ) : (
                                                 <th key={key} className="list-detail-col-due assigned-me-col-due">
                                                     Due date
@@ -141,6 +145,18 @@ const AssignedToMePage = () => {
                                                 </th>
                                             )
                                         )}
+                                        <th className="list-detail-col-add text-center">
+                                            <button
+                                                type="button"
+                                                className="btn btn-link p-0"
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    setShowCustomFieldMenu((prev) => !prev);
+                                                }}
+                                            >
+                                                <Plus size={16} />
+                                            </button>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -149,6 +165,9 @@ const AssignedToMePage = () => {
                                             <td className="list-detail-col-name">
                                                 <span className="assigned-me-task-icon" />
                                                 <span>{task.name}</span>
+                                            </td>
+                                            <td className="list-detail-col-id">
+                                                <span>{task.id}</span>
                                             </td>
                                             {columnOrder.map((key) =>
                                                 key === COL_PRIORITY ? (
@@ -161,11 +180,12 @@ const AssignedToMePage = () => {
                                                     </td>
                                                 )
                                             )}
+                                            <td className="list-detail-col-add" />
                                         </tr>
                                     ))}
                                     {addingTask && (
                                         <tr className="assigned-me-add-form-row">
-                                            <td colSpan={3}>
+                                            <td colSpan={5}>
                                                 <Form.Control
                                                     type="text"
                                                     size="sm"
@@ -189,7 +209,7 @@ const AssignedToMePage = () => {
                                         </tr>
                                     )}
                                     <tr className="list-detail-add-row" onClick={addingTask ? undefined : handleAddTask}>
-                                        <td colSpan={3}>
+                                        <td colSpan={5}>
                                             <Plus size={13} className="me-2" />
                                             Add Task
                                         </td>
@@ -198,6 +218,92 @@ const AssignedToMePage = () => {
                             </table>
                         </div>
                     </div>
+                    {showCustomFieldMenu && (
+                        <div
+                            className="list-detail-custom-fields-menu"
+                            style={{
+                                position: 'fixed',
+                                top: 140,
+                                right: 32,
+                                width: 260,
+                                maxHeight: 480,
+                                backgroundColor: '#ffffff',
+                                borderRadius: 8,
+                                boxShadow: '0 10px 40px rgba(15, 23, 42, 0.18)',
+                                padding: 16,
+                                zIndex: 1050,
+                                display: 'flex',
+                                flexDirection: 'column',
+                            }}
+                        >
+                            <div className="d-flex justify-content-between align-items-center mb-2">
+                                <div style={{ fontSize: 14, fontWeight: 600 }}>Fields</div>
+                                <button
+                                    type="button"
+                                    className="btn btn-link btn-sm p-0"
+                                    onClick={() => setShowCustomFieldMenu(false)}
+                                >
+                                    ×
+                                </button>
+                            </div>
+                            <Form.Control
+                                type="search"
+                                size="sm"
+                                placeholder="Search for new or existing fields"
+                                className="mb-2"
+                                style={{ fontSize: 12 }}
+                            />
+                            <div className="d-flex mb-2" style={{ fontSize: 12 }}>
+                                <button
+                                    type="button"
+                                    className="btn btn-link p-0 me-3"
+                                    style={{ fontWeight: 600, fontSize: 12 }}
+                                >
+                                    Create new
+                                </button>
+                                <button
+                                    type="button"
+                                    className="btn btn-link p-0 text-muted"
+                                    style={{ fontWeight: 600, fontSize: 12 }}
+                                >
+                                    Add existing
+                                </button>
+                            </div>
+                            <div
+                                style={{
+                                    marginTop: 4,
+                                    paddingTop: 8,
+                                    borderTop: '1px solid #e5e7eb',
+                                    fontSize: 12,
+                                    overflowY: 'auto',
+                                    maxHeight: 320,
+                                }}
+                            >
+                                {[
+                                    'Dropdown',
+                                    'Text',
+                                    'Date',
+                                    'Text area (Long Text)',
+                                    'Number',
+                                    'Labels',
+                                    'Checkbox',
+                                    'Money',
+                                    'Website',
+                                    'Formula',
+                                    'Custom Text',
+                                    'Summary',
+                                ].map((field) => (
+                                    <div
+                                        key={field}
+                                        className="d-flex align-items-center py-1"
+                                        style={{ cursor: 'pointer' }}
+                                    >
+                                        <span>{field}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
                 </SimpleBar>
             </div>
         </div>

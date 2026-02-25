@@ -20,9 +20,10 @@ const SettingsSidebar = ({ show = false, toggleSidebar, onCollapse }) => {
         { label: 'Audit Logs', to: '/settings/audit-logs', icon: <FileText size={16} /> },
         { label: 'Teams', to: '/settings/teams', icon: <User size={8} /> },
         { label: 'Trash', to: '/settings/trash', icon: <Trash size={16} /> },
-        { label: 'WorkSpace Settings', to: '/settings/workspace', icon: <Settings size={16} /> },
-        
-    ]
+        { label: 'Workspace Settings', to: '/settings/workspace', icon: <Settings size={16} /> },
+        { label: 'All Custom Fields', to: '/settings/custom-fields', icon: <FileText size={16} /> },
+        { label: 'Workspaces', to: '/settings/workspaces', icon: <User size={8} /> },
+    ];
 
     return (
         <div className={classNames('settings-sidebar', { show })}>
