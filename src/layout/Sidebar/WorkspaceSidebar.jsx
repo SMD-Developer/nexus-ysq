@@ -24,6 +24,7 @@ import {
     Lock,
     HelpCircle,
     CheckCircle,
+    Folder,
 } from 'react-feather';
 import * as TablerIcons from 'tabler-icons-react';
 import './workspace-sidebar.scss';
@@ -121,7 +122,7 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
             projects: [
                 {
                     name: 'Folder 1',
-                    icon: <TablerIcons.LayoutKanban size={16} />,
+                    icon: <TablerIcons.Folder size={16} />,
                     path: '/apps/file-manager/list-view',
                     count: 3,
                     showAdd: true,
@@ -129,7 +130,7 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
                 },
                 {
                     name: 'Folder 2',
-                    icon: <TablerIcons.LayoutKanban size={16} />,
+                    icon: <TablerIcons.Folder size={16} />,
                     path: '/apps/file-manager/list-view',
                     count: 2,
                     showAdd: true,
@@ -137,7 +138,7 @@ const WorkspaceSidebar = ({ userName = "Ashutosh Srivastav", show = false, toggl
                 },
                 {
                     name: 'Folder 3',
-                    icon: <TablerIcons.LayoutKanban size={16} />,
+                    icon: <TablerIcons.Folder size={16} />,
                     path: '/apps/file-manager/list-view',
                     count: 1,
                     showAdd: true,

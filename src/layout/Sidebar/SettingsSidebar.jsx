@@ -3,7 +3,7 @@ import { Button, Nav } from 'react-bootstrap';
 import SimpleBar from 'simplebar-react';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-import { ChevronLeft, FileText, Trash, User, Settings } from 'react-feather';
+import { ChevronLeft, FileText, Trash, User, Settings ,Table ,Shield ,Users,Sliders} from 'react-feather';
 import './settings-sidebar.scss';
 
 const SettingsSidebar = ({ show = false, toggleSidebar, onCollapse }) => {
@@ -14,13 +14,13 @@ const SettingsSidebar = ({ show = false, toggleSidebar, onCollapse }) => {
     };
 
     const items = [
-        { label: 'People', to: '/settings/people', icon: <User size={8} /> },
-        { label: 'Spaces', to: '/settings/spaces', icon: <User size={8} /> },
-        { label: 'Security & Permissions', to: '/settings/security-permissions', icon: <User size={8} /> },
+        { label: 'People', to: '/settings/people', icon: <User size={15} /> },
+        { label: 'Spaces', to: '/settings/spaces', icon: <Table size={15} /> },
+        { label: 'Security & Permissions', to: '/settings/security-permissions', icon: <Shield size={15} /> },
         { label: 'Audit Logs', to: '/settings/audit-logs', icon: <FileText size={16} /> },
-        { label: 'Teams', to: '/settings/teams', icon: <User size={8} /> },
+        { label: 'Teams', to: '/settings/teams', icon: <Users size={15} /> },
         { label: 'Trash', to: '/settings/trash', icon: <Trash size={16} /> },
-        { label: 'WorkSpace Settings', to: '/settings/workspace', icon: <Settings size={16} /> },
+        { label: 'WorkSpace Settings', to: '/settings/workspace', icon: <Sliders size={15} /> },
         
     ]
 
@@ -82,7 +82,7 @@ const SettingsSidebar = ({ show = false, toggleSidebar, onCollapse }) => {
                         <Nav.Link
                             as={NavLink}
                             to="/settings/my-settings"
-                            className="settings-sidebar-footer-link mx-4 d-flex align-items-center gap-2"
+                            className="settings-sidebar-footer-link mx-5 d-flex align-items-center gap-2"
                             activeClassName="is-active"
                             onClick={handleLinkClick}
                             style={{ color: 'inherit' }}
@@ -92,7 +92,7 @@ const SettingsSidebar = ({ show = false, toggleSidebar, onCollapse }) => {
                                 aria-hidden="true"
                                 style={{ marginRight: 8 }}
                             >
-                                <User size={16} />
+                                <Settings size={16} />
                             </span>
                             <span className="settings-sidebar-footer-text">My Settings</span>
                         </Nav.Link>

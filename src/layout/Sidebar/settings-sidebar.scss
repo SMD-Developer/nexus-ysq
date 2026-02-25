@@ -133,7 +133,8 @@
     &.is-active {
         background: rgba(255, 255, 255, 0.2);
         color: #ffffff;
-        font-weight: 600;
+        // font-weight: 600;
+        font-size: 14px;
     }
 
     .settings-sidebar-icon {
